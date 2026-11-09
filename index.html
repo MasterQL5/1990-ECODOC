@@ -747,7 +747,7 @@ const GM_HASH = "d096967c318fcac20850c5a3975a7688ee08b1d17ad50d4894879404d4ae24e
 let GM = false, USER = { role: null, name: "Guest", iso: null };
 try { const u = CL ? "" : localStorage.getItem(KEY + ".user") || ""; if (u === "GM") { GM = true; USER = { role: "gm", name: "GM", iso: null }; } else if (u.startsWith("P:") && S.accts[u.slice(2)]) { const a = S.accts[u.slice(2)]; USER = { role: "player", name: a.u, iso: a.iso }; } } catch (e) {}
 if (CL) { try { const se = JSON.parse(localStorage.getItem(KEY + ".sess") || "null"); if (se && se.token) { if (se.role === "gm") { GM = true; USER = { role: "gm", name: "GM", iso: null }; } else if (se.role === "player") USER = { role: "player", name: se.u, iso: se.iso }; } } catch (e) {} }
-const canEdit = iso => GM || (USER.role === "player" && USER.iso === iso);
+const canEdit = iso => GM || (USER.role === "player" && String(USER.iso || "").toUpperCase() === iso);
 const ovGet = (key, id, y) => S.ov && S.ov[key] && S.ov[key][id] ? S.ov[key][id][y] : undefined;
 const ovSet = (key, id, y, v) => { ((((S.ov ||= {})[key] ||= {})[id] ||= {}))[y] = v; };
 let tab = "s", sel = null, q = "";
@@ -2505,7 +2505,9 @@ function board(iso, kind, lines, total, can) {
     const rows = ls.map(l => {
       const id = l.id, amt = l.amount ?? l.value, share = total > 0 ? f1.format(amt / total * 100) + "%" : "&mdash;";
       let inner;
-      if (kind === "e" && l.own) {
+      if (kind === "e" && String(id).startsWith("xi:")) {
+        inner = `<div class="br1">${fIn({ op: "xiname", id }, l.label, can, "bn")}</div>${l.note ? `<div class="muted">${esc(l.note)}</div>` : ""}<div class="br1">${fIn({ op: "xiamt", id }, Math.round(amt), can, "ba")}<b class="sh">${share}</b>${l.idx !== undefined ? `<label class="idx" title="Raise this line with inflation"><input type="checkbox" data-op="lidx" data-id="${id}"${l.idx ? " checked" : ""}${dis(can)}> infl.</label>` : ""}</div>`;
+      } else if (kind === "e" && l.own) {
         inner = `<div class="br1">${fIn({ op: "elname", id }, l.label, can, "bn")}${fBtn({ op: "eldel", id }, "&times;", can, "tb2")}</div><div class="br1"><input class="rate bn" data-op="elnote" data-id="${id}" value="${esc(l.line.note || "")}" placeholder="Note: what this is and does"${dis(can)}></div><div class="br1">${l.formula ? `<span class="amt">${money(amt)}</span>` : fIn({ op: "elamt", id }, +(+l.line.amount || 0), can, "ba")}<b class="sh">${share}</b>${l.idx !== undefined ? `<label class="idx" title="Raise this line with inflation"><input type="checkbox" data-op="lidx" data-id="${id}"${l.idx ? " checked" : ""}${dis(can && !l.formula)}> infl.</label>` : ""}${fBtn({ op: "elf", id }, "&fnof;", can, "tb2" + (l.formula ? " on" : ""))}</div>${l.formula ? blocks(iso, "e:" + id, l.line.tokens, can) : ""}`;
       } else inner = `<div class="br1"><span class="bl" title="${esc(l.note || "")}">${esc(l.label || l.name)}${l.locked ? " &#128274;" : ""}</span><span class="amt">${money(amt)}</span><b class="sh">${share}</b>${l.idx !== undefined ? `<label class="idx" title="Raise this line with inflation"><input type="checkbox" data-op="lidx" data-id="${id}"${l.idx ? " checked" : ""}${dis(can && !l.formula)}> infl.</label>` : ""}</div>${l.note ? `<div class="muted">${esc(l.note)}</div>` : ""}`;
       const key = l.sys || (kind === "r" ? id : l.id);
@@ -2769,7 +2771,7 @@ function nwFis(iso, n, x, can, a) {
   <fieldset><legend>Revenue mechanisms</legend><p class="muted">Each mechanism is a formula built from numbers, statistics (this nation's or another's), variables, operators and functions. Charging one to another nation files it there as locked spending.</p>${taxes}<div>${fBtn({ op: "taxadd" }, "+ Add revenue mechanism", can)}</div></fieldset>
   <fieldset><legend>Variables</legend><p class="muted">Formulas read these. Add your own, then pick them in any formula.</p><div class="vgrid">${vars}</div><div class="frow">${fIn({ op: "cvnew" }, "", can, "wide")} ${fBtn({ op: "cvadd" }, "+ Add variable (type its name first)", can)}</div></fieldset>
   <fieldset><legend>Treasury books: revenue by category</legend>${board(iso, "r", fx.rev.map(r => ({ ...r, label: r.name })), fx.R, can)}</fieldset>
-  <fieldset><legend>Treasury books: expenditure by category</legend><p class="muted">Drag a line to another column, or use its menu. Debt lines are locked; foreign taxes and mandated lines can be regrouped but not edited.</p>${board(iso, "e", fx.exp, fx.X, can)}</fieldset>${mand}`;
+  <fieldset><legend>Treasury books: expenditure by category</legend><p class="muted">Edit any line's name and amount directly (imported 1990 lines too). Tax revenue is set by its rates in the Tax system tab. Drag a line to another column, or use its menu. Debt lines are locked; foreign taxes and mandated lines can be regrouped but not edited.</p>${board(iso, "e", fx.exp, fx.X, can)}</fieldset>${mand}`;
 }
 const pieSvg2 = (parts, t) => pieSvg(parts, t, "US$");
 function nwDebt(iso, n) {
@@ -2903,6 +2905,8 @@ function nwEvent(iso, ev) {
     case "mddel": { const x = x0(); x.mand = (x.mand || []).filter(o => o.id !== d.id); return done(); }
     case "eladd": (x0().exps ||= []).push({ id: uid(), label: "New expenditure", amount: 0, cat: d.cat === "Uncategorised" ? "" : d.cat }); return done();
     case "elnote": { const o = (x0().exps || []).find(o => o.id === d.id); if (o) o.note = String(val).slice(0, 400); return done(); }
+    case "xiname": { const e = (x0().xl || [])[+String(d.id).slice(3)]; if (e && val.trim()) e[0] = val.trim().slice(0, 60); return done(); }
+    case "xiamt": { const e = (x0().xl || [])[+String(d.id).slice(3)], v = numIn(val); if (e && isFinite(v) && v >= 0) { const dfl = E && E.by && E.by[iso] ? E.by[iso].defl / 100 : 1; e[1] = v / ((e[3] ?? 1) ? dfl : 1); } return done(); }
     case "elname": { const o = (x0().exps || []).find(o => o.id === d.id); if (o) o.label = val.trim() || o.label; return done(); }
     case "elamt": { const o = (x0().exps || []).find(o => o.id === d.id), v = numIn(val); if (o && isFinite(v)) o.amount = v; return done(); }
     case "eldel": { const x = x0(); x.exps = (x.exps || []).filter(o => o.id !== d.id); return done(); }
