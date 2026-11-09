@@ -1,4 +1,3 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>ECODOC 1990</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <style>
@@ -2783,10 +2782,10 @@ function nwDebt(iso, n) {
     ${GM ? `<div class="frow"><label>Lender</label><select class="rate" data-op="ilfto">${natOpts(iso).map(([v, l]) => `<option value="${v}">${esc(l)}</option>`).join("")}</select><label>${u}</label><input class="rate fg${big}" data-op="ilfa" size="8"><label>Rate %</label><input class="rate fg" data-op="ilfr" size="4" value="5"><input class="rate" data-op="ilfn" size="14" placeholder="Note (optional)">${fBtn({ op: "iladd" }, "+ Add loan", true)}</div>` : ""}
     <p class="muted">Loans between nations are set by the Game Master. The borrower pays the interest and counts the principal as debt; the lender receives the interest as revenue. Automatic paydowns and the spending button never touch them: the Game Master changes or deletes a loan to repay it.</p>`;
   const seg = (k, opts, cur) => opts.map(([v, l]) => fBtn({ op: "pol", k, v }, l, can, "btn sm" + (cur === v ? " on" : ""))).join(" ");
-  const tbl = rows.map(([id, name, amt, t]) => `<tr><th>${t ? fIn({ op: "dtname", id }, name, can, "bn") : name}</th><td class="r">${t && GM ? fIn({ op: "dtamt", id }, fv("debt", amt / 1e9, 3), true, "fg" + big) : money(amt)}</td><td class="muted">${id === "gen" ? fIn({ op: "irlrate" }, +(irlRate(iso) * 100).toFixed(2), GM, "fg") + "% &middot; " + money(Math.max(0, amt) * irlRate(iso)) : f2.format(rate * 100) + "% &middot; " + money(Math.max(0, amt) * rate)} a year</td><td>${t ? fBtn({ op: "dtdel", id }, "&times;", can, "tb2") : ""}</td></tr>`).join("");
+  const tbl = rows.map(([id, name, amt, t]) => `<tr><th>${t ? fIn({ op: "dtname", id }, name, can, "bn") : name}</th><td class="r">${GM ? fIn({ op: t ? "dtamt" : "genamt", id }, String(Math.round(amt)), true, "fg big") : money(amt)}</td><td class="muted">${id === "gen" ? fIn({ op: "irlrate" }, +(irlRate(iso) * 100).toFixed(2), GM, "fg") + "% &middot; " + money(Math.max(0, amt) * irlRate(iso)) : f2.format(rate * 100) + "% &middot; " + money(Math.max(0, amt) * rate)} a year</td><td>${t ? fBtn({ op: "dtdel", id }, "&times;", can, "tb2") : ""}</td></tr>`).join("");
   const log = (x.log || []).slice().reverse().map(e => e.bo != null ? `<tr><td>${e.y}</td><td>Added ${money(e.bo)} to new debt${e.n ? ": " + esc(e.n) : ""}</td><td></td><td></td></tr>` : e.sp != null ? `<tr><td>${e.y}</td><td>Spent ${money(e.sp)} on ${esc(e.to)}</td><td></td><td></td></tr>` : `<tr><td>${e.y}</td><td>Year end: net ${e.net < 0 ? "-" : ""}${money(Math.abs(e.net))}</td><td class="r">Treasury ${e.t < 0 ? "-" : "+"}${money(Math.abs(e.t))}</td><td class="r">Debt ${e.d < 0 ? "-" : "+"}${money(Math.abs(e.d))}</td></tr>`).join("");
   return `<div class="sum">${tile("Treasury", money(tr))}${tile("Debt", money(d))}${tile("Net income, " + S.year, f.active ? (f.net < 0 ? "-" : "") + money(Math.abs(f.net)) : "&mdash;")}${tile("Debt to GDP (nominal)", f1.format(debtGdp(n)) + "%")}${tile("Credit rating", `<span class="t-${creditTone(cr)}">${cr}</span>`)}${tile("Interest per year", money(interestOf(iso)))}</div>
-  <div class="fgrid2"><fieldset><legend>Debt on file</legend><table class="rec">${tbl}</table>
+  <div class="fgrid2"><fieldset><legend>Debt on file</legend>${GM ? `<p class="muted">Game Master: type any amount in plain US$ (1000000 = 1 million) to set that debt type directly.</p>` : ""}<table class="rec">${tbl}</table>
   <div class="frow">${fIn({ op: "dtnew" }, "", can, "nm")} ${fBtn({ op: "dtadd" }, "+ Add debt type", can)}</div>
   <p class="muted">Starts at ${DEBT90[iso] ?? 0}% of 1990 nominal GDP (a rough 1990 figure) unless the Game Master has changed it. Irl Debt is the debt the nation really had in 1990, at the rate that makes its interest bill match the real one (${f2.format(irlRate(iso) * 100)}%, set by the Game Master). Any other debt type pays the market rate for the credit rating (${f2.format(rate * 100)}%). The total is filed as a locked "Interest payments" line once the nation has any revenue or spending. Deleting a type moves its amount into Irl Debt.</p></fieldset>
   <fieldset><legend>International loans</legend>${ilBox}</fieldset>
@@ -2853,7 +2852,7 @@ function nwEvent(iso, ev) {
   if (!can) return;
   const find = p => { const [k, id] = p.split(":"), x = x0(); return ((k === "t" ? x.taxes : k === "e" ? x.exps : x.mand) || []).find(o => o.id === id); };
   const done = () => { save(); render(); };
-  const GMonly = ["iladd", "ildel", "ilamt", "ilrate", "ilto", "name", "nat", "mdadd", "mdname", "mdoff", "mdto", "mddel", "dtamt", "irlrate", "txload", "txloadx", "txcal", "txnew"];
+  const GMonly = ["iladd", "ildel", "ilamt", "ilrate", "ilto", "name", "nat", "mdadd", "mdname", "mdoff", "mdto", "mddel", "dtamt", "genamt", "irlrate", "txload", "txloadx", "txcal", "txnew"];
   if (op.startsWith("tx") && op !== "txovk") { if (txEvent(iso, op, d, val, t)) done(); return; }
   if (op.startsWith("ilf")) return;
   if (GMonly.includes(op) && !GM) return;
@@ -2870,7 +2869,8 @@ function nwEvent(iso, ev) {
     case "polissue": (x0().pol ||= {}).issue = val; return done();
     case "dtadd": { const inp = a.body.querySelector('[data-op="dtnew"]'), name = (inp && inp.value || "").trim().slice(0, 40); if (!name) return; (x0().dt ||= []).push({ id: uid(), name, amt: 0 }); return done(); }
     case "dtname": { const t = dtOf(iso).find(q => q.id === d.id); if (t && val.trim()) t.name = val.trim().slice(0, 40); return done(); }
-    case "dtamt": { const t = dtOf(iso).find(q => q.id === d.id), v = numIn(val); if (t && isFinite(v) && v >= 0) t.amt = unfv("debt", v) * 1e9 - (t.adj || 0); return done(); }
+    case "dtamt": { const t = dtOf(iso).find(q => q.id === d.id), v = numIn(val); if (t && isFinite(v) && v >= 0) t.amt = v - (t.adj || 0); return done(); }
+    case "genamt": { const v = numIn(val); if (!isFinite(v) || v < 0) return; const x = x0(); x.gadj = v - (genOf(iso) - (x.gadj || 0)); return done(); }
     case "dtdel": { const x = x0(), t = (x.dt || []).find(q => q.id === d.id); if (t) { x.gadj = (x.gadj || 0) + dtAmt(t); x.dt = x.dt.filter(q => q !== t); if (x.pol && x.pol.issue === t.id) delete x.pol.issue; } return done(); }
     case "spend": {
       const sel = a.body.querySelector('[data-op="spt"]'), inp = a.body.querySelector('[data-op="spa"]'), amt = unfv("debt", numIn(inp && inp.value)) * 1e9;
@@ -3430,5 +3430,3 @@ render();
   draw();
 })();
 </script>
-
-</body></html>

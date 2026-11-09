@@ -1,0 +1,83 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1990,
+ "nations": {
+  "CHN": {
+   "scope": "China consolidated central and local budget expenditure, 1990 actual, 308.4bn yuan, NBS Statistical Yearbook; 4.783 yuan per US$.",
+   "exps": [
+    {
+     "name": "Capital construction",
+     "amt": 11444490905,
+     "cat": "Economic construction",
+     "note": "Budget-financed capital construction investment: energy, transport, raw materials and key projects."
+    },
+    {
+     "name": "Circulating capital for enterprises",
+     "amt": 227890445,
+     "cat": "Economic construction",
+     "note": "Additional working capital appropriations for state enterprises."
+    },
+    {
+     "name": "Science and technology innovation funds",
+     "amt": 3217854903,
+     "cat": "Economic construction",
+     "note": "Funds for technological innovation, new product trials and science and technology development."
+    },
+    {
+     "name": "Geological prospecting",
+     "amt": 756638093,
+     "cat": "Economic construction",
+     "note": "Geological survey and mineral exploration expenses."
+    },
+    {
+     "name": "Industry, transport and commerce operating expenses",
+     "amt": 981183358,
+     "cat": "Economic construction",
+     "note": "Operating expenses of industrial, transport and commercial departments."
+    },
+    {
+     "name": "Support for agriculture",
+     "amt": 4636420656,
+     "cat": "Economic construction",
+     "note": "Support for rural production and agricultural departments: irrigation, flood control, extension, disaster relief and agricultural operating expenses."
+    },
+    {
+     "name": "Culture, education, science and health",
+     "amt": 12905916789,
+     "cat": "Social services",
+     "note": "Education, science, culture, health and sports operating expenses of government at all levels."
+    },
+    {
+     "name": "Pensions and social relief",
+     "amt": 1150742212,
+     "cat": "Social services",
+     "note": "Pensions for the disabled and martyrs' families, and social relief funds."
+    },
+    {
+     "name": "National defense",
+     "amt": 6069621576,
+     "cat": "Defense",
+     "note": "Official budgeted defense spending of the People's Liberation Army; actual military spending was believed to be higher, partly funded off-budget."
+    },
+    {
+     "name": "Government administration",
+     "amt": 6337026971,
+     "cat": "General government",
+     "note": "Public security, procuratorate, courts, foreign affairs and general administration."
+    },
+    {
+     "name": "Price subsidies",
+     "amt": 7961530420,
+     "cat": "Subsidies",
+     "note": "Consumer price subsidies, mostly grain, edible oil, cotton, meat and other staples sold below cost."
+    },
+    {
+     "name": "Other expenditures",
+     "amt": 8780472507,
+     "cat": "Other",
+     "note": "Residual to the official 1990 total expenditure of 308.359bn yuan: urban maintenance and construction, debt service, local operating expenses and other items the yearbook does not itemise."
+    }
+   ]
+  }
+ }
+}

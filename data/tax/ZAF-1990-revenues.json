@@ -1,0 +1,187 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1990,
+ "nations": {
+  "ZAF": {
+   "scope": "South African central government only (State Revenue Account), 1990/91 actual, Budget Review 1993 Table 4.2; R2.59 per US$. Rates and brackets approximate.",
+   "mechs": [
+    {
+     "kind": "pit",
+     "name": "Individual income tax",
+     "amt": 8542123552,
+     "sig": 0.85,
+     "eti": 0.35,
+     "bk": [
+      [
+       0,
+       0.17
+      ],
+      [
+       4633,
+       0.27
+      ],
+      [
+       9266,
+       0.35
+      ],
+      [
+       15444,
+       0.4
+      ],
+      [
+       23166,
+       0.44
+      ]
+     ],
+     "std": 1158,
+     "item": 0.05,
+     "cap": 15000,
+     "cr": 60,
+     "note": "Normal tax on individuals' taxable income, 1990/91 actual. Progressive schedule from about 17% to a top marginal rate of about 44% (bracket limits approximate, from memory); rebates and deductions folded into the standard deduction. Includes PAYE and provisional payments, net of refunds."
+    },
+    {
+     "kind": "cit",
+     "name": "Company tax (non-mining)",
+     "amt": 4499498069,
+     "rate": 0.48,
+     "bs": 0.1674,
+     "allow": 0.35,
+     "shift": 0.6,
+     "note": "Normal tax on non-mining company profits, 1990/91 actual. Rate 48% in 1990/91 (the 1993 Budget Review shows it still 48% in 1993, proposed 40%); plus a secondary tax on companies, folded in here."
+    },
+    {
+     "kind": "cit",
+     "name": "Gold mining tax",
+     "amt": 248803089,
+     "rate": 0.45,
+     "bs": 0.0099,
+     "allow": 0.35,
+     "shift": 0.6,
+     "note": "Income tax on gold mines under the special gold-mining formula (rate falls as profit margin rises); amount is volatile with the gold price. Rate shown is an approximation."
+    },
+    {
+     "kind": "cit",
+     "name": "Other mining tax",
+     "amt": 601042471,
+     "rate": 0.45,
+     "bs": 0.0239,
+     "allow": 0.35,
+     "shift": 0.6,
+     "note": "Income tax on non-gold mines (coal, platinum, diamonds etc.). Rate shown is an approximation."
+    },
+    {
+     "kind": "cons",
+     "name": "General sales tax (GST)",
+     "amt": 6955830116,
+     "rate": 0.13,
+     "gap": 0.08,
+     "el": 0.25,
+     "exempt": 0,
+     "bs": 0.47774,
+     "note": "Single-stage general sales tax in force until September 1991 (VAT replaced it). Doc says it ran at 13% in 1990/91; amount is the Inland Revenue figure for sales tax, net of refunds."
+    },
+    {
+     "kind": "flat",
+     "name": "Gold mining leases",
+     "amt": 70694981,
+     "note": "Lease consideration paid by gold mines to the state on mineral rights."
+    },
+    {
+     "kind": "flat",
+     "name": "Non-resident shareholders' tax",
+     "amt": 160656371,
+     "note": "Withholding tax on dividends paid to non-resident shareholders (15% in 1990)."
+    },
+    {
+     "kind": "flat",
+     "name": "Stamp duties and fees",
+     "amt": 250926641,
+     "note": "Stamp duties on documents and transactions plus fees of office."
+    },
+    {
+     "kind": "asset",
+     "name": "Transfer duty",
+     "amt": 295907336,
+     "rate": 0.08,
+     "el": 0.3,
+     "bs": 0.03303,
+     "note": "Duty on transfers of immovable property, payable by the buyer."
+    },
+    {
+     "kind": "flat",
+     "name": "Interest and dividends",
+     "amt": 25405405,
+     "note": "Interest and dividends received by the state revenue account."
+    },
+    {
+     "kind": "flat",
+     "name": "Other inland revenue",
+     "amt": 832123552,
+     "note": "Remaining inland revenue: donations tax, estate duty, levies and miscellaneous receipts."
+    },
+    {
+     "kind": "tariff",
+     "name": "Customs duty",
+     "amt": 966138996,
+     "avg": 0.0719,
+     "el": 2.5,
+     "note": "Import duties under the customs tariff, 1990/91 actual, gross of the Customs Union payments below."
+    },
+    {
+     "kind": "tariff",
+     "name": "Import surcharge",
+     "amt": 801274131,
+     "avg": 0.0596,
+     "el": 2.5,
+     "note": "Temporary surcharge on imports, levied on top of customs duty (introduced 1985, reduced in later years)."
+    },
+    {
+     "kind": "cons",
+     "name": "Excise duty",
+     "amt": 1291312741,
+     "rate": 0.15,
+     "gap": 0.03,
+     "el": 0.3,
+     "exempt": 0,
+     "bs": 0.07686,
+     "note": "Excise on alcoholic and tobacco products, motor vehicles and other locally produced goods, gross of Customs Union payments."
+    },
+    {
+     "kind": "cons",
+     "name": "Fuel levy",
+     "amt": 1517451737,
+     "rate": 0.2,
+     "gap": 0.02,
+     "el": 0.2,
+     "exempt": 0,
+     "bs": 0.06774,
+     "note": "Road-fuel levy on petrol and diesel, introduced 1987, raised steadily and earmarked broadly for roads and the strategic fuel account."
+    },
+    {
+     "kind": "flat",
+     "name": "Ordinary levy on imports",
+     "amt": 41660232,
+     "note": "Levy on imported goods, introduced 1989/90."
+    },
+    {
+     "kind": "flat",
+     "name": "Miscellaneous customs and excise",
+     "amt": 3745174,
+     "note": "Miscellaneous receipts of Customs and Excise."
+    },
+    {
+     "kind": "flat",
+     "name": "Customs Union Agreement payments",
+     "amt": -1269111969,
+     "note": "Customs and excise revenue paid over to Botswana, Lesotho, Namibia and Swaziland under the Southern African Customs Union formula (negative: offsets the gross customs and excise lines)."
+    },
+    {
+     "kind": "flat",
+     "name": "Namibia: Central Revenue Fund",
+     "amt": -43166023,
+     "note": "Final transfer of customs and excise revenue to Namibia's Central Revenue Fund before independence (March 1990); negative offset."
+    }
+   ]
+  }
+ }
+}

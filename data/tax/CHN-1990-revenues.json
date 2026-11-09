@@ -1,0 +1,114 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1990,
+ "nations": {
+  "CHN": {
+   "scope": "China consolidated central and local budget (excludes extra-budgetary funds), 1990 actual, NBS Statistical Yearbook; 4.783 yuan per US$. Rates approximate.",
+   "mechs": [
+    {
+     "kind": "cit",
+     "name": "State enterprise income tax",
+     "amt": 12630566590,
+     "rate": 0.55,
+     "bs": 0.1178,
+     "allow": 0.35,
+     "shift": 0.6,
+     "note": "Income tax on state-owned enterprises, 1990 actual. Large and medium SOEs paid a flat 55% on profit (small ones a progressive scale); the remaining profit after tax was shared with enterprises through contract-responsibility deals, so the effective yield is lower."
+    },
+    {
+     "kind": "cit",
+     "name": "Collective enterprise income tax",
+     "amt": 2339117709,
+     "rate": 0.4,
+     "bs": 0.03,
+     "allow": 0.35,
+     "shift": 0.6,
+     "note": "Income tax on collectively owned (mostly township and urban collective) enterprises, 1990 actual, on an eight-grade progressive scale up to 55%. Rate shown is an approximate average."
+    },
+    {
+     "kind": "cons",
+     "name": "Product tax",
+     "amt": 12145724441,
+     "rate": 0.15,
+     "gap": 0.05,
+     "el": 0.3,
+     "exempt": 0,
+     "bs": 0.20762,
+     "note": "Product tax (chanpin shui) levied on 26 categories of industrial output, mainly tobacco, liquor, petroleum, chemicals, machinery and textiles, at rates from a few percent up to 60% on cigarettes. Rate shown is an approximate average."
+    },
+    {
+     "kind": "cons",
+     "name": "Value-added tax",
+     "amt": 8362952122,
+     "rate": 0.12,
+     "gap": 0.05,
+     "el": 0.25,
+     "exempt": 0,
+     "bs": 0.1787,
+     "note": "1984-style VAT on 12 product categories (machinery, steel, cars, textiles, etc.) at 6% to 16%, with no credit for capital goods; the general 17% rate only began in 1994. Rate shown is approximate."
+    },
+    {
+     "kind": "cons",
+     "name": "Business tax",
+     "amt": 10782981392,
+     "rate": 0.04,
+     "gap": 0.08,
+     "el": 0.25,
+     "exempt": 0,
+     "bs": 0.69122,
+     "note": "Turnover tax (yingye shui) on services, transport, construction, finance, trade and communications at about 3% to 15% of revenue; 3% for most transport and construction, 5% for finance."
+    },
+    {
+     "kind": "flat",
+     "name": "Other industrial and commercial taxes",
+     "amt": 7574952958,
+     "note": "Remainder of the 'industrial and commercial taxes' group after product tax, VAT and business tax: salt tax, urban maintenance and construction tax, resource tax, special fuel tax, taxes on foreign-invested enterprises and individuals, and other minor items. The yearbook does not split this out."
+    },
+    {
+     "kind": "tariff",
+     "name": "Tariffs",
+     "amt": 3324482542,
+     "avg": 0.071,
+     "el": 2.5,
+     "note": "Customs duties on imports, 1990 actual, collected by the General Administration of Customs. Duty rates were high with extensive exemptions; revenue is about 7% of imports."
+    },
+    {
+     "kind": "flat",
+     "name": "Agricultural taxes",
+     "amt": 1836922434,
+     "note": "Agricultural tax (grain in kind, converted), animal husbandry and agricultural specialty taxes, slaughter tax and farmland occupation tax, 1990 actual. The yearbook groups them as agricultural and related taxes."
+    },
+    {
+     "kind": "flat",
+     "name": "Profit remittances from enterprises",
+     "amt": 1637047878,
+     "note": "Profits and dividends handed over by state-owned enterprises under the contract system, beyond income tax."
+    },
+    {
+     "kind": "flat",
+     "name": "Subsidies to loss-making enterprises",
+     "amt": -12102864311,
+     "note": "Budget subsidies covering losses of state enterprises (mostly grain, cotton, oil trade and coal), recorded in China's accounts as a deduction from revenue. Negative offset."
+    },
+    {
+     "kind": "flat",
+     "name": "Energy and transport key construction fund",
+     "amt": 3869537947,
+     "note": "Levy on enterprise and extra-budgetary funds earmarked for key energy and transport construction projects, raised from 1983."
+    },
+    {
+     "kind": "flat",
+     "name": "Budget adjustment fund",
+     "amt": 2743257370,
+     "note": "Fund collected from enterprises and localities to adjust the budget, introduced 1989 as a surcharge to finance central priorities."
+    },
+    {
+     "kind": "flat",
+     "name": "Other revenue",
+     "amt": 6262387623,
+     "note": "Remaining government income, including fees, fines, asset sales and administrative receipts."
+    }
+   ]
+  }
+ }
+}

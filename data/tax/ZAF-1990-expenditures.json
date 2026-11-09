@@ -1,0 +1,209 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1990,
+ "nations": {
+  "ZAF": {
+   "scope": "South African State Revenue Account expenditure by budget vote, 1990/91 actual, R73,958.8m, Budget Review 1993 Table 4.1, converted at about R2.59 per US$. Excludes loan-account and provincial own spending.",
+   "exps": [
+    {
+     "name": "State President",
+     "amt": 6370656,
+     "cat": "General government",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Parliament",
+     "amt": 26100386,
+     "cat": "General government",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Foreign affairs: development co-operation, TBVC countries",
+     "amt": 1289768340,
+     "cat": "Transfers to homelands",
+     "note": "Aid and development co-operation with the nominally independent homelands: Transkei, Bophuthatswana, Venda and Ciskei."
+    },
+    {
+     "name": "Foreign affairs: other development co-operation and foreign affairs",
+     "amt": 216640927,
+     "cat": "Foreign affairs",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Constitutional Development Service",
+     "amt": 4710425,
+     "cat": "General government",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Water Affairs and Forestry",
+     "amt": 136409266,
+     "cat": "Economic services",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Administration: House of Assembly (whites)",
+     "amt": 3186718147,
+     "cat": "Own affairs administrations",
+     "note": "Own-affairs budget for the white community under the 1984 tricameral constitution: education, health, welfare, housing and administration for that group."
+    },
+    {
+     "name": "Public Enterprises and Privatisation",
+     "amt": 1505792,
+     "cat": "Economic services",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Justice",
+     "amt": 203127413,
+     "cat": "Law and order",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Cost of servicing state debt",
+     "amt": 4470849421,
+     "cat": "Net interest",
+     "note": "Interest on state debt, R11.6bn in 1990/91. The game computes debt interest itself, so this line is skipped on import."
+    },
+    {
+     "name": "Finance: other",
+     "amt": 483976834,
+     "cat": "General government",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Administration: House of Representatives (coloureds)",
+     "amt": 1340347490,
+     "cat": "Own affairs administrations",
+     "note": "Own-affairs budget for the coloured community (education, health, housing, welfare)."
+    },
+    {
+     "name": "Administration: House of Delegates (Indians)",
+     "amt": 477220077,
+     "cat": "Own affairs administrations",
+     "note": "Own-affairs budget for the Indian community (education, health, housing, welfare)."
+    },
+    {
+     "name": "Correctional Services",
+     "amt": 429806950,
+     "cat": "Law and order",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Home Affairs",
+     "amt": 88648649,
+     "cat": "General government",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Education and Training",
+     "amt": 1125752896,
+     "cat": "Education",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Mineral and Energy Affairs",
+     "amt": 411544402,
+     "cat": "Economic services",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Agriculture",
+     "amt": 116872587,
+     "cat": "Economic services",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "National Health and Population Development",
+     "amt": 256563707,
+     "cat": "Health",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Police",
+     "amt": 1501853282,
+     "cat": "Law and order",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Transfers to provincial services accounts",
+     "amt": 3503629344,
+     "cat": "Transfers to provinces and territories",
+     "note": "Block transfers to the four provincial administrations (Cape, Natal, Transvaal, Orange Free State) for roads, hospitals, general education and similar."
+    },
+    {
+     "name": "Assistance to self-governing territories",
+     "amt": 2246988417,
+     "cat": "Transfers to homelands",
+     "note": "Transfers to the self-governing homelands (e.g. KwaZulu, Lebowa, Gazankulu, KaNgwane, QwaQwa, KwaNdebele)."
+    },
+    {
+     "name": "Regional and Land Affairs: other",
+     "amt": 357644788,
+     "cat": "General government",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "National Education",
+     "amt": 82162162,
+     "cat": "Education",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Environment Affairs",
+     "amt": 72007722,
+     "cat": "Economic services",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Commission for Administration",
+     "amt": 140810811,
+     "cat": "General government",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Transport",
+     "amt": 615868726,
+     "cat": "Economic services",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Defence",
+     "amt": 3924671815,
+     "cat": "Defence",
+     "note": "South African Defence Force, including the Armscor and the Namibia/Angola border commitments winding down."
+    },
+    {
+     "name": "SA Communication Service",
+     "amt": 14633205,
+     "cat": "General government",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Public Works",
+     "amt": 795057915,
+     "cat": "Economic services",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Manpower",
+     "amt": 123745174,
+     "cat": "Social services",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Trade and Industry",
+     "amt": 903320463,
+     "cat": "Economic services",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    },
+    {
+     "name": "Central Economic Advisory Council",
+     "amt": 270270,
+     "cat": "General government",
+     "note": "Central government budget vote, 1990/91 actual expenditure from the State Revenue Account."
+    }
+   ]
+  }
+ }
+}
