@@ -372,6 +372,20 @@ tbody tr.sel td .t-g { color: #7dff7d; } tbody tr.sel td .t-o { color: #ffbf5a; 
 @media (max-width: 800px) { .fgrid2, .nwl { grid-template-columns: 1fr !important; } }
 .nwl { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; } .nwl .chartbox { height: 224px; padding: 2px; } .nwl .chartbox svg { height: 100%; width: 100%; }
 .fgrid > fieldset, .fgrid2 > fieldset { min-width: 0; }
+.ast fieldset { margin: 10px 0; padding: 8px 12px 10px; }
+.ast .sum { margin-bottom: 4px; }
+.ast .frow { gap: 8px 14px; margin: 8px 0; }
+.ast .muted { margin: 6px 0 10px; line-height: 1.45; }
+.ast details { margin: 8px 0; } .ast summary { cursor: pointer; padding: 3px 0; }
+.ast-sc { overflow-x: auto; margin: 6px 0 10px; }
+.awin table.rec.ast-t { width: 100%; border-collapse: collapse; font-size: 12px; }
+.awin table.rec.ast-t th, .awin table.rec.ast-t td { width: auto; white-space: normal; padding: 5px 14px 5px 4px; vertical-align: middle; font-weight: normal; border-bottom: 1px solid var(--line, #c0c0c0); }
+.awin table.rec.ast-t th { font-weight: bold; color: #444; white-space: nowrap; }
+.awin table.rec.ast-t td.r, .awin table.rec.ast-t th.r { text-align: right; white-space: nowrap; }
+.awin table.rec.ast-t td input.rate, .awin table.rec.ast-t td select.rate { width: auto; min-width: 110px; max-width: 170px; }
+.awin table.rec.ast-t td input.rate.fg { margin-right: 4px; }
+.ast select.rate { max-width: 100%; }
+#tbl-sw { font-size: 12px; } #tbl-sw td { white-space: normal; } #tbl-sw td:nth-child(4) { min-width: 150px; } #tbl-sw td:last-child { min-width: 160px; } #tbl-sw th, #tbl-sw td { padding: 4px 10px; vertical-align: top; }
 .awin table.rec th { white-space: normal; }
 .awin table.rec td { width: 150px; white-space: nowrap; }
 .awin table.rec td.sf input.rate { width: calc(100% - 20px); }
@@ -1006,7 +1020,7 @@ function tickerUpdate() {
   $("trk").innerHTML = html + html;
 }
 function render() {
-  E = compute(); E.by = Object.fromEntries(E.nat.map(n => [n.iso, n])); fxClear();
+  FLOWC = null; E = compute(); E.by = Object.fromEntries(E.nat.map(n => [n.iso, n])); fxClear();
   try { tickerUpdate(); } catch (e) {}
   const next = S.year + 1;
   $("year").textContent = S.year;
@@ -1756,7 +1770,11 @@ const stkDef = c => { const k = c.sec, t = /^\d\d$/.test(k) ? +k : 0;
   return c.misc ? 4 : k === "72" || k === "40" ? -2 : k === "27" ? 3 : [84, 85].includes(t) ? 8 : k === "30" ? 7 : k === "87" ? 5 : k === "88" ? 6
   : k === "Services: Banking" ? 4 : k === "Services: Insurance" ? 5 : k === "Services: Telecommunications" ? 6 : k === "Services: Real estate" ? -1 : k === "Services: Software" ? 12 : 4; };
 const coOv = c => S.co && S.co[c.name];
-const stkRate = (c, y) => { const o = coOv(c), yy = y == null ? S.year : y; return o && o.yg && o.yg[yy] != null ? o.yg[yy] : o && o.g != null ? o.g : stkDef(c); };   // projected change: default, or set by the Game Master
+const stkBase = (c, yy) => { const o = coOv(c); return o && o.yg && o.yg[yy] != null ? o.yg[yy] : o && o.g != null ? o.g : stkDef(c); };
+let FLOWC = null;
+const flowMap = () => { if (FLOWC) return FLOWC; FLOWC = {}; for (const iso in (S.nx || {})) { const fl = ((S.nx[iso] || {}).ast || {}).fl; if (fl) for (const k in fl) for (const y in fl[k]) ((FLOWC[k] ||= {})[y] = (FLOWC[k][y] || 0) + fl[k][y]); } return FLOWC; };
+/* net buying by nations during year y lifts that year's growth: each 1% of the company's value bought adds one percentage point (selling subtracts), within +-50 */
+const stkRate = (c, y) => { const yy = y == null ? S.year : y, base = stkBase(c, yy), f = FLOWC === null && !S.nx ? null : (flowMap()[c.soc ? "s:" + c.iso + ":" + c.sid : "c:" + c.name] || {})[yy]; if (!f || !E || !E.cur || !E.cur[c.ccy]) return base; const cap = c.cap0 * (yy >= 1990 ? gfNoFlow(c, yy) : 1) / E.cur[c.ccy].anchor; return base + (cap > 0 ? Math.max(-50, Math.min(50, f / cap * 100)) : 0); };   // projected change: default, or set by the Game Master
 const applyCo = c => { if (c.cap00 == null) { c.cap00 = c.cap0; c.sh0 = c.sh; } const o = coOv(c); c.cap0 = c.cap00 * (o && o.k != null ? o.k : 1); c.sh = o && o.sh != null ? o.sh : c.sh0; };
 const projTone = g => g < 0 ? "r" : g === 0 ? "o" : "g";
 const lab = c => c === "USD" ? "US$" : c === "U90" ? "1990 US$" : c;
@@ -1772,6 +1790,7 @@ const sm = { sub: "m", idx: "ALL", mode: "n", cur: "U90", ct: "ov", lt: "co", ln
 const LVH = { USA: [167, 211, 242, 247, 277, 353], JPN: [11543, 13113, 18701, 21564, 30159, 38916], GBR: [1232, 1413, 1679, 1713, 1793, 2423], FRG: [1100, 1366, 1432, 1000, 1328, 1791], def: [100, 125, 155, 150, 175, 215] };
 const hash = t => { let h = 0; for (const ch of t) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return h; };
 /* value of a company at the start of year y, relative to the start of 1990 */
+const gfNoFlow = (c, y) => gf(c, y);
 const gf = (c, y) => {
   if (y >= 1990) { let m = 1; for (let t = 1990; t < y; t++) m *= 1 + stkRate(c, t) / 100; return m; }
   const L = LVH[c.iso] || LVH.def, tilt = ((hash(c.name) % 41) - 20) / 100;
@@ -1911,8 +1930,8 @@ function renderStockSwf() {
   const rows = rowsAll.filter(r => match(r.name, r.country, r.src)).sort((a, b) => cmpV(K(a), K(b)) * st.dir || a.name.localeCompare(b.name));
   const cols = [{ k: "fund", l: "Fund", asc: 1 }, { k: "country", l: "Country", asc: 1 }, { k: "year", l: "Founded", asc: 1, r: 1 }, { k: "src", l: "Funded by", asc: 1 }, { k: "liq", l: "Liquidity", r: 1 }, { k: "inv", l: "Investments", r: 1 }, { k: "pl", l: "Gain / loss", r: 1 }, { k: "tot", l: "Total value", r: 1 }, { k: "hold", l: "Largest holdings", ns: 1 }];
   let html = head(cols, st, "sw") + "<tbody>";
-  for (const r of rows) html += `<tr><td>${esc(r.name)}</td><td>${esc(r.country)}</td><td class="r">${r.year}</td><td>${esc(r.src)}</td>` + (r.sim ? `<td class="r">${money(r.liq)}</td><td class="r">${money(r.inv)}</td><td class="r">${r.cost > 0 ? `<span class="t-${r.inv >= r.cost ? "g" : "r"}">${r.inv >= r.cost ? "+" : ""}${f1.format((r.inv / r.cost - 1) * 100)}%</span>` : "&mdash;"}</td><td class="r">${money(r.tot)}</td><td>${esc(r.top) || "&mdash;"}${r.n > 3 ? " +" + (r.n - 3) : ""}</td>` : `<td class="r muted" colspan="5">Not yet active in the simulation; open the nation's Assets tab to start it</td>`) + "</tr>";
-  $("tbl-sw").innerHTML = html + (rows.length ? "" : `<tr><td class="msg" colspan="9">No funds match.</td></tr>`) + `<tr><td class="msg" colspan="9">Valuations follow the funds' cash and the current value of the shares they hold. Funds created by players appear here at once.</td></tr></tbody>`;
+  for (const r of rows) html += `<tr><td>${esc(r.name)}</td><td>${esc(r.country)}</td><td class="r">${r.year}</td><td>${esc(r.src)}</td>` + (r.sim ? `<td class="r">${money(r.liq)}</td><td class="r">${money(r.inv)}</td><td class="r">${r.cost > 0 ? `<span class="t-${r.inv >= r.cost ? "g" : "r"}">${r.inv >= r.cost ? "+" : ""}${f1.format((r.inv / r.cost - 1) * 100)}%</span>` : "&mdash;"}</td><td class="r">${money(r.tot)}</td><td>${esc(r.top) || "&mdash;"}${r.n > 3 ? " +" + (r.n - 3) : ""}</td>` : `<td class="muted" colspan="5">Not active yet</td>`) + "</tr>";
+  $("tbl-sw").innerHTML = html + (rows.length ? "" : `<tr><td class="msg" colspan="9">No funds match.</td></tr>`) + `<tr><td class="msg" colspan="9">Valuations follow the funds' cash and the current value of the shares they hold. Funds created by players appear here at once; a real fund becomes active when its nation uses the Assets tab.</td></tr></tbody>`;
   $("s-n").textContent = rows.length + " funds"; $("s-w").textContent = "";
 }
 /* ---------- Stock heat map: every company as a square, sized by value, coloured by projected change, grouped by broad sector ---------- */
@@ -2893,6 +2912,7 @@ function asPlace(iso) {
   const own = cat.filter(c => c.iso === iso && (c.soc || stakeOf(c) > 0)).map(c => { const sh = c.soc ? asStateRem(c) : asStateRem(c); return { c, sh, frac: asShRaw(c) ? sh / asShRaw(c) : 0, v: sh * asPps(c) }; });
   return { cat, by, inv, own };
 }
+const asFlow = (x, k, v) => { const f = (((x.ast ||= {}).fl ||= {})[k] ||= {}); f[S.year] = (f[S.year] || 0) + v; };
 const sh0f = n => Math.round(n).toLocaleString("en-US");
 function nwAssets(iso, n) {
   const can = canEdit(iso), x = nxr(iso), ast = x.ast || {}, sw = swfOf(iso), P = asPlace(iso), tile = (l, v) => `<div><span>${l}</span><b>${v}</b></div>`;
@@ -2906,20 +2926,20 @@ function nwAssets(iso, n) {
     <div class="sum">${tile("Liquidity", money(liq))}${tile("Investments", money(invV))}${tile("Bought for", money(invC))}${tile("Gain / loss", invC > 0 ? pl(invV, invC) : "&mdash;")}${tile("Fund total", money(liq + invV))}</div>
     <div class="frow"><label>Amount (US$)</label><input class="rate fg big" data-op="Aamt" size="14" inputmode="decimal"${dis(can)}>${fBtn({ op: "Adep" }, "Treasury &rarr; fund", can)}${fBtn({ op: "Awd" }, "Fund &rarr; treasury", can)}<span class="muted">Treasury ${money(treasuryOf(iso))}</span></div>
     <p class="muted"><b>Liquidity</b> is cash in the fund. <b>Investments</b> are shares it owns, valued at today's share price against what was paid.</p>
-    <details><summary>Send revenue to the fund (${Object.values(rv).filter(v => v > 0).length} lines)</summary>${f.active ? `<table class="rec"><tr><th>Revenue line</th><th>This year</th><th>% to fund</th></tr>${f.rev.filter(r => r.value > 0).map(r => `<tr><td>${esc(r.name)}</td><td class="r">${money(r.value)}</td><td>${fIn({ op: "Arv", id: r.id }, rv[r.id] || 0, can, "fg")}</td></tr>`).join("")}</table><p class="muted">At the year end this share of the line goes into fund liquidity, and not into the treasury or toward the deficit.</p>` : `<p class="muted">No revenue lines yet.</p>`}</details>`;
+    <details><summary>Send revenue to the fund (${Object.values(rv).filter(v => v > 0).length} lines)</summary>${f.active ? `<div class="ast-sc"><table class="rec ast-t"><tr><th>Revenue line</th><th>This year</th><th>% to fund</th></tr>${f.rev.filter(r => r.value > 0).map(r => `<tr><td>${esc(r.name)}</td><td class="r">${money(r.value)}</td><td>${fIn({ op: "Arv", id: r.id }, rv[r.id] || 0, can, "fg")}</td></tr>`).join("")}</table></div><p class="muted">At the year end this share of the line goes into fund liquidity, and not into the treasury or toward the deficit.</p>` : `<p class="muted">No revenue lines yet.</p>`}</details>`;
   }
-  const invT = P.inv.length ? `<table class="rec"><tr><th>Company</th><th>Country</th><th>Shares</th><th>Bought for</th><th>Value now</th><th>Gain / loss</th><th>Sell shares</th></tr>${P.inv.map(r => `<tr><td>${esc(r.c.name)}</td><td>${esc(NBY[r.c.iso].name)}</td><td class="r">${sh0f(r.n)}</td><td class="r">${money(r.cost)}</td><td class="r">${money(r.v)}</td><td class="r">${pl(r.v, r.cost)}</td><td><input class="rate fg" data-op="Asn" data-key="${esc(r.k)}" size="8" placeholder="${sh0f(r.n)}"${dis(can)}>${fBtn({ op: "Asell", key: r.k }, "Sell", can)}</td></tr>`).join("")}</table>` : `<p class="muted">No shares owned.</p>`;
-  const opts = P.cat.filter(c => !(c.soc && c.iso === iso) && (GM ? asAvailGM(c) > 0 : asAvailP(c) > 0)).sort((a, b) => a.name.localeCompare(b.name)).map(c => [asKey(c), `${c.name} (${c.iso}) - ${GM ? asAvailGM(c) : asAvailP(c)} shares at ${money(asPps(c))}`]);
-  const buy = sw ? `<div class="frow">${fSel({ op: "Abuyk" }, opts, "", can)}<label>Shares</label><input class="rate fg" data-op="Abuyn" size="9" inputmode="decimal"${dis(can)}>${fBtn({ op: "Abuy" }, "Buy", can)}</div><p class="muted">Paid from fund liquidity. Only shares that are still available can be bought: state-owned corporations cannot be bought from by players, family-controlled ones sell at most 49%, and a share already held by another nation cannot be bought again.${GM ? " As Game Master you may also buy state-owned and locked shares." : ""}</p>` : `<p class="muted">Create a sovereign wealth fund to buy shares.</p>`;
-  const ownT = P.own.length ? `<table class="rec"><tr><th>Corporation</th><th>Status</th><th>Sector</th><th>State holds</th><th>Value of stake</th><th>On the market</th><th>Privatize</th></tr>${P.own.map(r => { const c = r.c; return `<tr><td>${esc(c.name)}</td><td>${c.soc ? "Created by the state" : esc(statusOf(c))}</td><td>${esc(secLabel(c))}</td><td class="r">${f1.format(r.frac * 100)}%</td><td class="r">${money(r.v)}</td><td>${c.soc ? `<label><input type="checkbox" data-op="Asoclist" data-id="${esc(c.sid)}"${c.list ? " checked" : ""}${dis(can)}> listed</label> offering ${fIn({ op: "Asocpub", id: c.sid }, c.pub || 0, can, "fg")} shares ${fBtn({ op: "Asocdel", id: c.sid }, "&times;", can, "tb2")}` : "Listed"}</td><td>${r.sh > 0 ? `<input class="rate fg" data-op="Aprn" data-key="${esc(asKey(c))}" size="9" placeholder="${sh0f(r.sh)}"${dis(can)}>${fBtn({ op: "Apriv", key: asKey(c) }, "Sell", can)}` : "&mdash;"}</td></tr>`; }).join("")}</table><p class="muted">Privatize sells state-held shares to the market at today's price; the money goes into the sovereign wealth fund's liquidity, and leave the box empty to sell the whole stake. Sold shares can then be bought by other nations. Stakes are the state's real 1990 holdings in each listed company, applied to its value in the game. Total ${money(ownV)}.</p>` : `<p class="muted">No state-owned corporations.</p>`;
+  const invT = P.inv.length ? `<div class="ast-sc"><table class="rec ast-t"><tr><th>Company</th><th>Country</th><th>Shares</th><th>Bought for</th><th>Value now</th><th>Gain / loss</th><th>Sell shares</th></tr>${P.inv.map(r => `<tr><td>${esc(r.c.name)}</td><td>${esc(NBY[r.c.iso].name)}</td><td class="r">${sh0f(r.n)}</td><td class="r">${money(r.cost)}</td><td class="r">${money(r.v)}</td><td class="r">${pl(r.v, r.cost)}</td><td><input class="rate fg" data-op="Asn" data-key="${esc(r.k)}" size="8" placeholder="${sh0f(r.n)}"${dis(can)}>${fBtn({ op: "Asell", key: r.k }, "Sell", can)}</td></tr>`).join("")}</table></div>` : `<p class="muted">No shares owned.</p>`;
+  const opts = P.cat.filter(c => !(c.soc && c.iso === iso) && (GM ? asAvailGM(c) > 0 : asAvailP(c) > 0)).sort((a, b) => a.name.localeCompare(b.name)).map(c => [asKey(c), `${c.name} (${c.iso}) - ${sh0f(GM ? asAvailGM(c) : asAvailP(c))} shares at US$ ${asPps(c).toFixed(asPps(c) < 1 ? 4 : 2)}`]);
+  const buy = sw ? `<div class="frow">${fSel({ op: "Abuyk" }, opts, "", can)}<label>Shares</label><input class="rate fg" data-op="Abuyn" size="9" inputmode="decimal"${dis(can)}>${fBtn({ op: "Abuy" }, "Buy", can)}</div><p class="muted">Paid from fund liquidity. Buying lifts that company's growth for the year (each 1% of its value bought adds about one percentage point) and selling lowers it. Only shares that are still available can be bought: state-owned corporations cannot be bought from by players, family-controlled ones sell at most 49%, and a share already held by another nation cannot be bought again.${GM ? " As Game Master you may also buy state-owned and locked shares." : ""}</p>` : `<p class="muted">Create a sovereign wealth fund to buy shares.</p>`;
+  const ownT = P.own.length ? `<div class="ast-sc"><table class="rec ast-t"><tr><th>Corporation</th><th>Status</th><th>Sector</th><th>State holds</th><th>Value of stake</th><th>On the market</th><th>Privatize</th></tr>${P.own.map(r => { const c = r.c; return `<tr><td>${esc(c.name)}</td><td>${c.soc ? "Created by the state" : esc(statusOf(c))}</td><td>${esc(secLabel(c))}</td><td class="r">${f1.format(r.frac * 100)}%</td><td class="r">${money(r.v)}</td><td>${c.soc ? `<label><input type="checkbox" data-op="Asoclist" data-id="${esc(c.sid)}"${c.list ? " checked" : ""}${dis(can)}> listed</label> offering ${fIn({ op: "Asocpub", id: c.sid }, c.pub || 0, can, "fg")} shares ${fBtn({ op: "Asocdel", id: c.sid }, "&times;", can, "tb2")}` : "Listed"}</td><td>${r.sh > 0 ? `<input class="rate fg" data-op="Aprn" data-key="${esc(asKey(c))}" size="9" placeholder="${sh0f(r.sh)}"${dis(can)}>${fBtn({ op: "Apriv", key: asKey(c) }, "Sell", can)}` : "&mdash;"}</td></tr>`; }).join("")}</table></div><p class="muted">Privatize sells state-held shares to the market at today's price; the money goes into the sovereign wealth fund's liquidity, and leave the box empty to sell the whole stake. Sold shares can then be bought by other nations. Stakes are the state's real 1990 holdings in each listed company, applied to its value in the game. Total ${money(ownV)}.</p>` : `<p class="muted">No state-owned corporations.</p>`;
   const secs = [...new Set(COMP.filter(c => !c.misc).map(c => c.sec))].sort((a, b) => secLabel({ sec: a }).localeCompare(secLabel({ sec: b })));
   const mk = `<div class="frow"><label>Name</label><input class="rate nm" data-op="Anname"${dis(can)}><label>Sector</label><select class="rate" data-op="Ansec"${dis(can)}>${secs.map(s => `<option value="${esc(s)}">${esc(secLabel({ sec: s }))}</option>`).join("")}</select></div>
   <div class="frow"><label>Capital (US$)</label><input class="rate fg big" data-op="Anv" size="12" inputmode="decimal"${dis(can)}><label>Shares issued</label><input class="rate fg" data-op="Ansh" size="10" value="1000000"${dis(can)}><label>Offered to buyers</label><input class="rate fg" data-op="Anpub" size="10" value="0"${dis(can)}><label><input type="checkbox" data-op="Anlist"${dis(can)}> On the stock market</label>${fSel({ op: "Anpay" }, [["t", "Paid from treasury"], ["f", "Paid from fund"]], "t", can)}${fBtn({ op: "Ancreate" }, "Create corporation", can)}</div>
   <p class="muted">The starting capital (minimum US$25,000) must be drawn from the treasury or the fund\'s liquidity; with no money in either, no corporation can be created. A new corporation is worth the capital put in and then follows the market. Only the shares offered can be bought by other nations; the Game Master alone can issue more.</p>`;
   const gm = GM ? `<fieldset><legend>Game Master: issue new shares</legend><div class="frow">${fSel({ op: "Agmk" }, P.cat.slice().sort((a, b) => a.name.localeCompare(b.name)).map(c => [asKey(c), `${c.name} (${c.iso}) - ${sh0f(asShRaw(c))} shares`]), "", true)}<label>New shares</label><input class="rate fg" data-op="Agmn" size="10"> ${fBtn({ op: "Agmgo" }, "Issue", true)}</div></fieldset>` : "";
-  return `<div class="sum">${tile("Fund liquidity", money(liq))}${tile("Fund investments", money(invV))}${tile("State-owned corporations", money(ownV))}${tile("Total assets", money(liq + invV + ownV))}</div>
-  <div class="fgrid2"><fieldset><legend>Sovereign wealth fund</legend>${swf}</fieldset><fieldset><legend>Investments</legend>${invT}${buy}</fieldset></div>
-  <fieldset><legend>State-owned corporations</legend>${ownT}</fieldset><fieldset><legend>Create a state-owned corporation</legend>${mk}</fieldset>${gm}`;
+  return `<div class="ast"><div class="sum">${tile("Fund liquidity", money(liq))}${tile("Fund investments", money(invV))}${tile("State-owned corporations", money(ownV))}${tile("Total assets", money(liq + invV + ownV))}</div>
+  <fieldset><legend>Sovereign wealth fund</legend>${swf}</fieldset><fieldset><legend>Investments</legend>${invT}${buy}</fieldset>
+  <fieldset><legend>State-owned corporations</legend>${ownT}</fieldset><fieldset><legend>Create a state-owned corporation</legend>${mk}</fieldset>${gm}</div>`;
 }
 function asMsg(t) { dialog("Assets", "<p>" + esc(t) + "</p>", [["OK", () => {}]]); }
 function asEvent(iso, op, d, val, a) {
@@ -2940,12 +2960,12 @@ function asEvent(iso, op, d, val, a) {
       if (n > (GM ? ag : ap)) return asMsg(!GM && isStateSt(statusOf(c)) && !c.soc ? "Players cannot buy from state-owned corporations; only the Game Master can." : `Only ${sh0f(GM ? ag : ap)} shares of ${c.name} are available.`), false;
       const cost = n * asPps(c); if (cost > (s.liq || 0) + 1e-6) return asMsg("The fund's liquidity cannot cover " + money(cost) + "."), false;
       if (GM && n > ap && !c.soc) { const take = Math.min(n - ap, asStateRem(c)); if (take > 0) { const o = nxw(c.iso); ((o.ast ||= {}).sold ||= {})[asKey(c)] = asSold(c) + take; } }
-      s.liq -= cost; const h = ((x.ast ||= {}).h ||= {}), k = asKey(c); h[k] = { n: (h[k] ? h[k].n : 0) + n, cost: (h[k] ? h[k].cost : 0) + cost };
+      s.liq -= cost; asFlow(x, asKey(c), cost); const h = ((x.ast ||= {}).h ||= {}), k = asKey(c); h[k] = { n: (h[k] ? h[k].n : 0) + n, cost: (h[k] ? h[k].cost : 0) + cost };
       return true; }
     case "Asell": {
       const inp = [...a.body.querySelectorAll('[data-op="Asn"]')].find(i => i.dataset.key === d.key), h = ((x.ast || {}).h || {})[d.key], P = asPlace(iso), c = P.by[d.key];
       if (!h || !c) return false; let n = inp && inp.value.trim() ? Math.floor(numIn(inp.value)) : h.n; if (!(n > 0)) return false; n = Math.min(n, h.n);
-      const s = swfW(iso), frac = n / h.n; s.liq = (s.liq || 0) + n * asPps(c); h.cost *= 1 - frac; h.n -= n; if (h.n <= 0) delete x.ast.h[d.key]; return true; }
+      const s = swfW(iso), frac = n / h.n; asFlow(x, d.key, -n * asPps(c)); s.liq = (s.liq || 0) + n * asPps(c); h.cost *= 1 - frac; h.n -= n; if (h.n <= 0) delete x.ast.h[d.key]; return true; }
     case "Ancreate": {
       const nm0 = qv("Anname").trim().slice(0, 50), v0 = numIn(qv("Anv")), sh = Math.floor(numIn(qv("Ansh"))), pub = Math.max(0, Math.floor(numIn(qv("Anpub")) || 0)), list = !!(q("Anlist") || {}).checked, pay = qv("Anpay");
       if (!nm0 || !(v0 > 0) || !(sh > 0)) return asMsg("Give the corporation a name, capital and a number of shares."), false;
@@ -2961,7 +2981,7 @@ function asEvent(iso, op, d, val, a) {
       if (!sw) return asMsg("Create a sovereign wealth fund first; the proceeds go into its liquidity."), false;
       const inp = [...a.body.querySelectorAll('[data-op="Aprn"]')].find(i => i.dataset.key === d.key), rem = asStateRem(c);
       let n = inp && inp.value.trim() ? Math.floor(numIn(inp.value)) : rem; if (!(n > 0)) return false; n = Math.min(n, rem); if (!(n > 0)) return asMsg("The state holds no shares of it."), false;
-      sw.liq = (sw.liq || 0) + n * asPps(c); ((x.ast ||= {}).sold ||= {})[d.key] = asSold(c) + n; return true; }
+      sw.liq = (sw.liq || 0) + n * asPps(c); asFlow(x, d.key, -n * asPps(c)); ((x.ast ||= {}).sold ||= {})[d.key] = asSold(c) + n; return true; }
     case "Asoclist": { const s = ((x.ast || {}).soc || []).find(r => r.id === d.id); if (!s) return false; s.list = !!val; return true; }
     case "Asocpub": { const s = ((x.ast || {}).soc || []).find(r => r.id === d.id); if (!s) return false; const p = Math.max(0, Math.floor(numIn(val) || 0)); s.pub = Math.min(p, Math.round(s.sh * 1e6)); return true; }
     case "Asocdel": { const s = ((x.ast || {}).soc || []).find(r => r.id === d.id); if (!s) return false; const c = asCat().find(c => c.soc && c.sid === d.id && c.iso === iso); if (c && asHeld(c) > 0) return asMsg("Other nations still hold shares in it."), false; x.ast.soc = x.ast.soc.filter(r => r !== s); return true; }
