@@ -377,6 +377,7 @@ tbody tr.sel td .t-g { color: #7dff7d; } tbody tr.sel td .t-o { color: #ffbf5a; 
 .ast .frow { gap: 8px 14px; margin: 8px 0; }
 .ast .muted { margin: 6px 0 10px; line-height: 1.45; }
 .ast details { margin: 8px 0; } .ast summary { cursor: pointer; padding: 3px 0; }
+a.colink { color: inherit; text-decoration: underline dotted; cursor: pointer; } a.colink:hover { color: #000080; }
 .ast-sc { overflow-x: auto; margin: 6px 0 10px; }
 .awin table.rec.ast-t { width: 100%; border-collapse: collapse; font-size: 12px; }
 .awin table.rec.ast-t th, .awin table.rec.ast-t td { width: auto; white-space: normal; padding: 5px 14px 5px 4px; vertical-align: middle; font-weight: normal; border-bottom: 1px solid var(--line, #c0c0c0); }
@@ -384,6 +385,13 @@ tbody tr.sel td .t-g { color: #7dff7d; } tbody tr.sel td .t-o { color: #ffbf5a; 
 .awin table.rec.ast-t td.r, .awin table.rec.ast-t th.r { text-align: right; white-space: nowrap; }
 .awin table.rec.ast-t td input.rate, .awin table.rec.ast-t td select.rate { width: auto; min-width: 110px; max-width: 170px; }
 .awin table.rec.ast-t td input.rate.fg { margin-right: 4px; }
+.dlg table.rec.ast-t { width: 100%; border-collapse: collapse; font-size: 12px; }
+.dlg table.rec.ast-t th, .dlg table.rec.ast-t td { width: auto; white-space: normal; padding: 5px 14px 5px 4px; vertical-align: middle; font-weight: normal; border-bottom: 1px solid var(--line, #c0c0c0); }
+.dlg table.rec.ast-t th { font-weight: bold; color: #444; white-space: nowrap; }
+.dlg table.rec.ast-t td.r, .dlg table.rec.ast-t th.r { text-align: right; white-space: nowrap; }
+.dlg table.rec.ast-t td input.rate, .dlg table.rec.ast-t td select.rate { width: auto; min-width: 110px; max-width: 170px; }
+.dlg table.rec.ast-t td input.rate.fg { margin-right: 4px; }
+.dlg.wide { width: min(860px, 94vw); }
 .ast select.rate { max-width: 100%; }
 #tbl-sw { font-size: 12px; } #tbl-sw td { white-space: normal; } #tbl-sw td:nth-child(4) { min-width: 150px; } #tbl-sw td:last-child { min-width: 160px; } #tbl-sw th, #tbl-sw td { padding: 4px 10px; vertical-align: top; }
 .awin table.rec th { white-space: normal; }
@@ -1881,7 +1889,7 @@ function renderStock() {
   const px = (v, cur) => cur + " " + (v >= 100 ? f1 : f2).format(v);
   let n = 0;
   const cell = (k, r) => { const c = r.c; return ({
-    n: () => c.misc ? "" : ++n, name: () => esc(c.name), country: () => esc(r.cn), idx: () => esc(r.ix),
+    n: () => c.misc ? "" : ++n, name: () => c.misc ? esc(c.name) : `<a href="#" class="colink" data-coinfo="${esc(c.name)}">${esc(c.name)}</a>`, country: () => esc(r.cn), idx: () => esc(r.ix),
     val: () => GM && !c.misc ? `<input class="rate" data-f="val" data-co="${esc(c.name)}" value="${fullNums ? Math.round(native ? r.cap : r.v) : +((native ? r.cap : r.v) / 1e9).toPrecision(5)}" inputmode="decimal" aria-label="${esc(c.name)} value">${fullNums ? "" : "&nbsp;bn"}` : r.shown,
     growth: () => GM && !c.misc ? `${arrow(sgn(r.r), projTone(r.r))}<input class="rate" data-f="g" data-co="${esc(c.name)}" value="${r.r}" inputmode="decimal" aria-label="${esc(c.name)} projected change">%` : `${arrow(sgn(r.r), projTone(r.r))}${r.r}%`,
     sector: () => esc(r.sc),
@@ -2797,6 +2805,14 @@ function txEvent(iso, op, d, val, t) {
   }
   return 0;
 }
+
+/* ---- next-year projection of a nation's fiscal figures: re-runs the fiscal engine one year on, with the current rates carried over ---- */
+function fxProject(iso) {
+  const y = S.year, E0 = E, saved = new Map(FXC);
+  try { S.year = y + 1; E = compute(); E.by = Object.fromEntries(E.nat.map(n => [n.iso, n])); fxClear(); const f = fxT(iso); return { R: f.R, X: f.X, net: f.net, active: f.active, year: y + 1, rev: f.rev, exp: f.exp }; }
+  catch (e) { return null; }
+  finally { S.year = y; E = E0; FXC.clear(); saved.forEach((v, k) => FXC.set(k, v)); }
+}
 function nwFis(iso, n, x, can, a) {
   const fx = fxT(iso), gdp = n.nom * 1e9, labs = labelsOf(iso), pr = paramsOf(iso);
   const tile = (l, v, s) => `<div><span>${l}</span><b>${v}</b>${s ? `<span>${s}</span>` : ""}</div>`;
@@ -2806,7 +2822,7 @@ function nwFis(iso, n, x, can, a) {
   const vars = Object.keys(labs).map(k => `<label class="vr"><span>${esc(labs[k])}${(x.cvars || []).some(v => v.key === k) ? ` ${fBtn({ op: "cvdel", k }, "&times;", can, "tb2")}` : ""}</span>${fIn({ op: "var", k }, pr[k], can, "fg")}</label>`).join("");
   const taxes = (x.taxes || []).map(t => `<div class="fcard${t.disabled ? " off" : ""}"><div class="fch">${fIn({ op: "taxname", id: t.id }, t.name, can, "bn")}<label><input type="checkbox" data-op="taxoff" data-id="${t.id}"${t.disabled ? "" : " checked"}${dis(can)}> on</label><label>charged to ${fSel({ op: "taxto", id: t.id }, [["", "Domestic tax"]].concat(natOpts(iso)), t.charged_to || "", can)}</label><b>${money(fx.rev.find(r => r.id === t.id)?.value || 0)}</b>${fBtn({ op: "taxdel", id: t.id }, "Delete", can)}</div>${blocks(iso, "t:" + t.id, t.tokens, can)}</div>`).join("") || '<p class="muted">No revenue mechanisms yet. Add one, or load the six standard ones.</p>';
   const mand = GM || (x.mand || []).length ? `<fieldset><legend>Mandated spending (set by the Game Master)</legend>${(x.mand || []).map(f => `<div class="fcard${f.disabled ? " off" : ""}"><div class="fch">${fIn({ op: "mdname", id: f.id }, f.name, GM, "bn")}<label><input type="checkbox" data-op="mdoff" data-id="${f.id}"${f.disabled ? "" : " checked"}${dis(GM)}> on</label><label>paid to ${fSel({ op: "mdto", id: f.id }, [["", "Spent at home"]].concat(natOpts(iso)), f.paid_to || "", GM)}</label><b>${money(fx.exp.find(l => l.id === "m:" + f.id)?.amount || 0)}</b>${fBtn({ op: "mddel", id: f.id }, "Delete", GM)}</div>${blocks(iso, "m:" + f.id, f.tokens, GM)}</div>`).join("") || '<p class="muted">None.</p>'}<div>${fBtn({ op: "mdadd" }, "+ Add mandated spending", GM)}</div></fieldset>` : "";
-  return `<div class="sum">${tile("Total revenue", fx.active ? money(fx.R) : "&mdash;")}${tile("Total expenditure", fx.active ? money(fx.X) : "&mdash;")}${tile(fx.net >= 0 ? "Net surplus" : "Net deficit", fx.active ? arrow(sgn(fx.net), fx.net >= 0 ? "g" : "r") + money(Math.abs(fx.net)) : "&mdash;")}${tile("Revenue to GDP", fx.active ? f1.format(fx.R / gdp * 100) + "%" : "&mdash;", "of " + money(gdp) + " nominal GDP")}</div>
+  return `<div class="sum">${tile("Total revenue", fx.active ? money(fx.R) : "&mdash;")}${tile("Total expenditure", fx.active ? money(fx.X) : "&mdash;")}${tile(fx.net >= 0 ? "Net surplus" : "Net deficit", fx.active ? arrow(sgn(fx.net), fx.net >= 0 ? "g" : "r") + money(Math.abs(fx.net)) : "&mdash;")}${tile("Revenue to GDP", fx.active ? f1.format(fx.R / gdp * 100) + "%" : "&mdash;", "of " + money(gdp) + " nominal GDP")}</div>${(() => { const pj = fx.active ? fxProject(iso) : null; if (!pj || !pj.active) return ""; const ch = (a, b) => b ? (a >= b ? "+" : "") + f1.format((a / b - 1) * 100) + "% on " + S.year : ""; return `<div class="sum" title="Re-runs this nation's revenue and spending rules one year on, with this year's growth, inflation and rates carried over; it changes as you change the numbers.">${tile("Projected revenue, " + pj.year, money(pj.R), ch(pj.R, fx.R))}${tile("Projected expenditure, " + pj.year, money(pj.X), ch(pj.X, fx.X))}${tile(pj.net >= 0 ? "Projected surplus, " + pj.year : "Projected deficit, " + pj.year, arrow(sgn(pj.net), pj.net >= 0 ? "g" : "r") + money(Math.abs(pj.net)), "net income " + (pj.net >= 0 ? "+" : "-") + money(Math.abs(pj.net)))}</div><p class="muted">Projection for ${pj.year}: the same rules run one year on, with this year's growth and inflation carried over and current debt interest. It updates as you edit the numbers.</p>`; })()}
   <div class="fgrid2"><fieldset><legend>Revenue streams</legend>${mode("rmode", a.rmode)}${pie(revItems, "r", a.rmode, "Revenue, " + S.year)}</fieldset><fieldset><legend>Expenditure</legend>${mode("emode", a.emode)}${pie(expItems, "e", a.emode, "Expenditure, " + S.year)}<label class="vr"><span><input type="checkbox" data-op="infl"${inflAll(x) === 1 ? " checked" : ""}${inflAll(x) === 2 ? " data-ind=\"1\"" : ""}${dis(can)}> Raise all expenditure lines with inflation (each line has its own box too)</span></label></fieldset></div>
   <fieldset><legend>Revenue mechanisms</legend><p class="muted">Each mechanism is a formula built from numbers, statistics (this nation's or another's), variables, operators and functions. Charging one to another nation files it there as locked spending.</p>${taxes}<div>${fBtn({ op: "taxadd" }, "+ Add revenue mechanism", can)}</div></fieldset>
   <fieldset><legend>Variables</legend><p class="muted">Formulas read these. Add your own, then pick them in any formula.</p><div class="vgrid">${vars}</div><div class="frow">${fIn({ op: "cvnew" }, "", can, "wide")} ${fBtn({ op: "cvadd" }, "+ Add variable (type its name first)", can)}</div></fieldset>
@@ -2941,6 +2957,34 @@ function nwAssets(iso, n) {
   <fieldset><legend>Sovereign wealth fund</legend>${swf}</fieldset><fieldset><legend>Investments</legend>${invT}${buy}</fieldset>
   <fieldset><legend>State-owned corporations</legend>${ownT}</fieldset><fieldset><legend>Create a state-owned corporation</legend>${mk}</fieldset>${gm}</div>`;
 }
+
+/* ---- corporation info dialog: base facts and who owns the shares ---- */
+function coInfo(name) {
+  if (!COMP) buildComp(); socSync();
+  const c = COMP.find(q => q.name === name); if (!c) return;
+  const n = NBY[c.iso] || { name: c.iso }, key = asKey(c), tot = asShRaw(c), usd = asUsd(c), pps = asPps(c), base = stkBase(c, S.year), rate = stkRate(c), st = c.soc ? "State-owned (created in the simulation)" : statusOf(c);
+  const holders = [];
+  for (const nt of NAT) { const h = ((nxr(nt.iso).ast || {}).h || {})[key]; if (h && h.n > 0) holders.push({ nm: nt.name, n: h.n, cost: h.cost, v: h.n * pps }); }
+  holders.sort((a, b) => b.v - a.v);
+  const held = holders.reduce((t, h) => t + h.n, 0), stateRem = c.misc ? 0 : asStateRem(c), stakeNow = tot ? stateRem / tot : 0;
+  const other = Math.max(0, tot - stateRem - held), pc = v => tot ? f1.format(v / tot * 100) + "%" : "&mdash;";
+  const row = (a, b, cl) => `<tr><td>${a}</td><td${cl ? ` class="${cl}"` : ""}>${b}</td></tr>`;
+  const info = [row("Country", esc(n.name)), row("Sector", esc(secLabel(c))), row("Ownership status", esc(st)), row("Indices", esc((c.idx || []).join(", ") || "none")), row("Currency", esc(c.ccy)),
+    row("Value", money(usd) + ` (${esc(fmtCur(c.cap0 * gf(c, S.year), c.ccy))})`), row("Shares issued", tot ? sh0f(tot) : "&mdash;"), row("Value per share", tot ? "US$ " + pps.toFixed(pps < 1 ? 4 : 2) : "&mdash;"),
+    row("Projected change, " + S.year, `${rate > 0 ? "+" : ""}${f1.format(rate)}%` + (Math.abs(rate - base) > 0.005 ? ` <span class="muted">(baseline ${f1.format(base)}%, ${rate > base ? "raised" : "lowered"} by net share buying this year)</span>` : ""))].join("");
+  let own = "";
+  if (c.misc) own = `<p class="muted">Miscellaneous groups companies not listed one by one, so it has no individual owners.</p>`;
+  else {
+    const rows = [];
+    if (stakeNow > 0 || c.soc) rows.push(`<tr><td>State of ${esc(n.name)}</td><td class="r">${sh0f(stateRem)}</td><td class="r">${pc(stateRem)}</td><td class="r">${money(stateRem * pps)}</td><td></td></tr>`);
+    for (const h of holders) rows.push(`<tr><td>${esc(h.nm)} (sovereign wealth fund)</td><td class="r">${sh0f(h.n)}</td><td class="r">${pc(h.n)}</td><td class="r">${money(h.v)}</td><td class="r">${h.cost > 0 ? `<span class="t-${h.v >= h.cost ? "g" : "r"}">${h.v >= h.cost ? "+" : ""}${f1.format((h.v / h.cost - 1) * 100)}%</span>` : ""}</td></tr>`);
+    rows.push(`<tr><td>${c.soc ? "Private and other holders" : statusOf(c) === FM ? "Family and private owners" : "Private and public shareholders"}</td><td class="r">${sh0f(other)}</td><td class="r">${pc(other)}</td><td class="r">${money(other * pps)}</td><td></td></tr>`);
+    own = `<div class="ast-sc"><table class="rec ast-t"><tr><th>Owner</th><th class="r">Shares</th><th class="r">Share</th><th class="r">Value</th><th class="r">Gain / loss</th></tr>${rows.join("")}</table></div>
+    <p class="muted">Still available to nations: ${sh0f(asAvailP(c))} shares${GM ? ` (the Game Master can buy up to ${sh0f(asAvailGM(c))})` : ""}. ${c.soc ? "" : isStateSt(statusOf(c)) ? "State-owned: only the Game Master can sell shares to nations." : statusOf(c) === FM || statusOf(c) === SB ? "At most 49% can be bought by nations." : ""}</p>`;
+  }
+  dialog(c.name, `<table class="rec ast-t"><tbody>${info}</tbody></table><h4 style="margin:10px 0 2px">Share owners</h4>${own}`, [["OK", null, 1]], true);
+}
+document.addEventListener("click", e => { const t = e.target.closest && e.target.closest("[data-coinfo]"); if (t) { e.preventDefault(); coInfo(t.dataset.coinfo); return; } const h = e.target.closest && e.target.closest(".hc[data-hi]"); if (h && typeof heatList !== "undefined" && heatList[+h.dataset.hi] && !heatList[+h.dataset.hi].c.misc) coInfo(heatList[+h.dataset.hi].c.name); });
 function asMsg(t) { dialog("Assets", "<p>" + esc(t) + "</p>", [["OK", () => {}]]); }
 function asEvent(iso, op, d, val, a) {
   const q = k => a.body.querySelector(`[data-op="${k}"]`), qv = k => (q(k) || {}).value || "", x = nxw(iso);
