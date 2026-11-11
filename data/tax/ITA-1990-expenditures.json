@@ -1,0 +1,77 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1990,
+ "nations": {
+  "ITA": {
+   "scope": "Italian general government (State, social security institutions and local authorities, consolidated), 1990; 1,198.1 lire per US$. Rates approximate; tax split within groups estimated. Spending by function from ISTAT, scaled to the Bank of Italy total of 706,100 bn lire.",
+   "exps": [
+    {
+     "name": "Public debt interest",
+     "amt": 106001168517,
+     "cat": "Net interest",
+     "note": "Interest on public debt, 1990 (Table 14). The game works out debt interest itself, so this line is skipped on import."
+    },
+    {
+     "name": "General public services",
+     "amt": 38963647911,
+     "cat": "General government",
+     "note": "Legislature, executive, tax and finance administration, foreign affairs and general services, excluding debt interest."
+    },
+    {
+     "name": "Defence",
+     "amt": 16261135681,
+     "cat": "Defence",
+     "note": "Armed forces, Carabinieri military functions and defence procurement."
+    },
+    {
+     "name": "Public order and safety",
+     "amt": 22483985792,
+     "cat": "Law and order",
+     "note": "Police, fire services, courts and prisons."
+    },
+    {
+     "name": "Economic affairs",
+     "amt": 70556255217,
+     "cat": "Economic services",
+     "note": "Subsidies and investment in industry, agriculture, transport, energy and employment schemes."
+    },
+    {
+     "name": "Environmental protection",
+     "amt": 4086269607,
+     "cat": "Environment",
+     "note": "Waste, water treatment and environmental protection."
+    },
+    {
+     "name": "Housing and community amenities",
+     "amt": 13937663776,
+     "cat": "Housing",
+     "note": "Housing, urban development, water supply and street lighting."
+    },
+    {
+     "name": "Health",
+     "amt": 69308200779,
+     "cat": "Health",
+     "note": "National health service (USL) running costs and benefits in kind."
+    },
+    {
+     "name": "Recreation, culture and religion",
+     "amt": 8343592361,
+     "cat": "Culture",
+     "note": "Sport, museums, broadcasting and cultural bodies."
+    },
+    {
+     "name": "Education",
+     "amt": 61232274916,
+     "cat": "Education",
+     "note": "Schools, universities and research."
+    },
+    {
+     "name": "Social protection",
+     "amt": 178175609301,
+     "cat": "Social protection",
+     "note": "Pensions (INPS and others), unemployment and wage supplement, family and welfare benefits."
+    }
+   ]
+  }
+ }
+}

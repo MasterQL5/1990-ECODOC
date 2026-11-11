@@ -1,0 +1,154 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1990,
+ "nations": {
+  "ITA": {
+   "scope": "Italian general government (State, social security institutions and local authorities, consolidated), 1990; 1,198.1 lire per US$. Rates approximate; tax split within groups estimated.",
+   "mechs": [
+    {
+     "kind": "pit",
+     "name": "Personal income tax (IRPEF)",
+     "amt": 91633844420,
+     "sig": 0.85,
+     "eti": 0.35,
+     "bk": [
+      [
+       0,
+       0.1
+      ],
+      [
+       5342,
+       0.22
+      ],
+      [
+       10600,
+       0.26
+      ],
+      [
+       26540,
+       0.33
+      ],
+      [
+       53160,
+       0.4
+      ],
+      [
+       132790,
+       0.45
+      ],
+      [
+       265670,
+       0.5
+      ]
+     ],
+     "std": 0,
+     "item": 0.05,
+     "cap": 4000,
+     "cr": 30,
+     "note": "IRPEF, 1990 net State tax of 56.7 bn euro. 1990 scale: 7 bands from 10% up to 50% above about 318 million lire; bands shown in US$, approximate."
+    },
+    {
+     "kind": "cit",
+     "name": "Corporate income tax (IRPEG)",
+     "amt": 17238813395,
+     "rate": 0.36,
+     "bs": 0.08401,
+     "allow": 0.35,
+     "shift": 0.6,
+     "note": "IRPEG at 36% on company profits. Split of direct taxes other than IRPEF is estimated from January-September 1990 State receipts."
+    },
+    {
+     "kind": "cit",
+     "name": "Local income tax (ILOR)",
+     "amt": 20045714033,
+     "rate": 0.162,
+     "bs": 0.21709,
+     "allow": 0.1,
+     "shift": 0.6,
+     "note": "ILOR, 16.2% on business, self-employed and property income. Estimated share of direct taxes."
+    },
+    {
+     "kind": "flat",
+     "name": "Substitute tax on interest income",
+     "amt": 28042408103,
+     "note": "Withholding on interest from bank deposits and government bonds. Estimated share of direct taxes."
+    },
+    {
+     "kind": "flat",
+     "name": "Withholding on dividends and other direct taxes",
+     "amt": 5546523279,
+     "note": "Tax withheld on distributed profits plus small direct taxes. Estimated share."
+    },
+    {
+     "kind": "cons",
+     "name": "Value-added tax (IVA)",
+     "amt": 65445568622,
+     "rate": 0.19,
+     "gap": 0.08,
+     "el": 0.25,
+     "exempt": 0,
+     "bs": 0.30215,
+     "note": "IVA, standard rate 19% in 1990, reduced 9% and 4%, 38% on luxuries. Estimated share of indirect taxes."
+    },
+    {
+     "kind": "cons",
+     "name": "Mineral oil excise",
+     "amt": 22550060209,
+     "rate": 0.6,
+     "gap": 0.03,
+     "el": 0.15,
+     "exempt": 0,
+     "bs": 0.03297,
+     "note": "Excise on petrol, diesel and heating oil; raised in 1990. Estimated share of indirect taxes."
+    },
+    {
+     "kind": "cons",
+     "name": "Tobacco and other consumption taxes",
+     "amt": 9209279370,
+     "rate": 0.7,
+     "gap": 0.04,
+     "el": 0.1,
+     "exempt": 0,
+     "bs": 0.01154,
+     "note": "Tobacco consumption tax and other manufacturing and consumption duties. Estimated share."
+    },
+    {
+     "kind": "asset",
+     "name": "Taxes on transactions",
+     "amt": 18359984531,
+     "rate": 0.07,
+     "el": 0.3,
+     "bs": 0.23007,
+     "note": "Registration, mortgage, stamp and insurance duties and other taxes on transactions. Estimated share."
+    },
+    {
+     "kind": "flat",
+     "name": "Lotto, lotteries and other indirect taxes",
+     "amt": 2037978481,
+     "note": "Lotto, lotteries and small indirect taxes. Estimated share."
+    },
+    {
+     "kind": "ssc",
+     "name": "Social security contributions",
+     "amt": 155329271346,
+     "rate": 0.42,
+     "base": 40000,
+     "sig": 0.85,
+     "note": "Employer and employee contributions to INPS, INAIL and other funds, actual and imputed, 1990 (Table 14)."
+    },
+    {
+     "kind": "flat",
+     "name": "Other current revenue",
+     "amt": 39813037309,
+     "note": "Property income, sales of goods and services, fees, EC grants and other current receipts (Table 14)."
+    },
+    {
+     "kind": "flat",
+     "name": "Capital revenue",
+     "amt": 1669309740,
+     "note": "Capital taxes and capital transfers received (Table 14)."
+    }
+   ]
+  }
+ }
+}
