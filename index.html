@@ -1892,12 +1892,28 @@ const SWF = [
   ["Saudi Arabian Monetary Agency foreign holdings", "Saudi Arabia", 1952, "Oil revenue"]
 ];
 function renderStockSwf() {
-  const st = SRT.sw, K = { fund: f => f[0], country: f => f[1], year: f => f[2], src: f => f[3] }[st.k];
-  const rows = SWF.filter(f => match(f[0], f[1], f[3])).sort((a, b) => cmpV(K(a), K(b)) * st.dir || a[0].localeCompare(b[0]));
-  let html = head([{ k: "fund", l: "Fund", asc: 1 }, { k: "country", l: "Country", asc: 1 }, { k: "year", l: "Founded", asc: 1, r: 1 }, { k: "src", l: "Funded by", asc: 1 }], st, "sw") + "<tbody>";
-  for (const f of rows) html += `<tr><td>${esc(f[0])}</td><td>${esc(f[1])}</td><td class="r">${f[2]}</td><td>${esc(f[3])}</td></tr>`;
-  $("tbl-sw").innerHTML = html + (rows.length ? "" : `<tr><td class="msg" colspan="4">No funds match.</td></tr>`) + `<tr><td class="msg" colspan="4">Listed only. Valuations and behaviour are not part of the simulation yet.</td></tr></tbody>`;
-  $("s-n").textContent = SWF.length + " funds"; $("s-w").textContent = "";
+  const st = SRT.sw, rowsAll = [];
+  if (!COMP) buildComp(); socSync();
+  const first = {}; for (const f of SWF) if (!(f[1] in first)) first[f[1]] = f[0];
+  const natOf = nm => NAT.find(n => n.name === nm || n.name0 === nm);
+  const mk = (name, iso, country, year, src, sw, real) => {
+    const P = iso ? asPlace(iso) : { inv: [] }, liq = sw ? sw.liq || 0 : 0, inv = sw ? P.inv.reduce((t, r) => t + r.v, 0) : 0, cost = sw ? P.inv.reduce((t, r) => t + r.cost, 0) : 0;
+    const top = P.inv.slice().sort((a, b) => b.v - a.v).slice(0, 3).map(r => r.c.name).join(", ");
+    return { name, country, year, src, liq, inv, cost, tot: liq + inv, top, n: P.inv.length, sim: !!sw, real };
+  };
+  for (const f of SWF) {
+    const n = natOf(f[1]), sw = n && nxr(n.iso).ast && nxr(n.iso).ast.swf;
+    if (sw && first[f[1]] === f[0]) continue;   // this nation's fund is in the simulation under its own record
+    rowsAll.push(mk(f[0], n && n.iso, f[1], f[2], f[3], null, 1));
+  }
+  for (const n of NAT) { const sw = (nxr(n.iso).ast || {}).swf; if (!sw) continue; const f = SWF.find(q => q[0] === first[n.name] && (q[1] === n.name || q[1] === n.name0)); rowsAll.push(mk(sw.name, n.iso, n.name, sw.y || (f ? f[2] : S.year), f ? f[3] : "Created in the simulation", sw, !!f)); }
+  const K = { fund: r => r.name, country: r => r.country, year: r => r.year, src: r => r.src, liq: r => r.liq, inv: r => r.inv, tot: r => r.tot, pl: r => r.cost > 0 ? r.inv / r.cost : 0 }[st.k] || (r => r.name);
+  const rows = rowsAll.filter(r => match(r.name, r.country, r.src)).sort((a, b) => cmpV(K(a), K(b)) * st.dir || a.name.localeCompare(b.name));
+  const cols = [{ k: "fund", l: "Fund", asc: 1 }, { k: "country", l: "Country", asc: 1 }, { k: "year", l: "Founded", asc: 1, r: 1 }, { k: "src", l: "Funded by", asc: 1 }, { k: "liq", l: "Liquidity", r: 1 }, { k: "inv", l: "Investments", r: 1 }, { k: "pl", l: "Gain / loss", r: 1 }, { k: "tot", l: "Total value", r: 1 }, { k: "hold", l: "Largest holdings", ns: 1 }];
+  let html = head(cols, st, "sw") + "<tbody>";
+  for (const r of rows) html += `<tr><td>${esc(r.name)}</td><td>${esc(r.country)}</td><td class="r">${r.year}</td><td>${esc(r.src)}</td>` + (r.sim ? `<td class="r">${money(r.liq)}</td><td class="r">${money(r.inv)}</td><td class="r">${r.cost > 0 ? `<span class="t-${r.inv >= r.cost ? "g" : "r"}">${r.inv >= r.cost ? "+" : ""}${f1.format((r.inv / r.cost - 1) * 100)}%</span>` : "&mdash;"}</td><td class="r">${money(r.tot)}</td><td>${esc(r.top) || "&mdash;"}${r.n > 3 ? " +" + (r.n - 3) : ""}</td>` : `<td class="r muted" colspan="5">Not yet active in the simulation; open the nation's Assets tab to start it</td>`) + "</tr>";
+  $("tbl-sw").innerHTML = html + (rows.length ? "" : `<tr><td class="msg" colspan="9">No funds match.</td></tr>`) + `<tr><td class="msg" colspan="9">Valuations follow the funds' cash and the current value of the shares they hold. Funds created by players appear here at once.</td></tr></tbody>`;
+  $("s-n").textContent = rows.length + " funds"; $("s-w").textContent = "";
 }
 /* ---------- Stock heat map: every company as a square, sized by value, coloured by projected change, grouped by broad sector ---------- */
 const BROAD = c => {
@@ -2909,7 +2925,7 @@ function asMsg(t) { dialog("Assets", "<p>" + esc(t) + "</p>", [["OK", () => {}]]
 function asEvent(iso, op, d, val, a) {
   const q = k => a.body.querySelector(`[data-op="${k}"]`), qv = k => (q(k) || {}).value || "", x = nxw(iso);
   switch (op) {
-    case "Ahcreate": { const nm = qv("Ahnew").trim().slice(0, 60) || NBY[iso].name + " Sovereign Wealth Fund"; (x.ast ||= {}).swf = { name: nm, liq: 0, rv: {} }; return true; }
+    case "Ahcreate": { const nm = qv("Ahnew").trim().slice(0, 60) || NBY[iso].name + " Sovereign Wealth Fund"; (x.ast ||= {}).swf = { name: nm, liq: 0, rv: {}, y: S.year }; return true; }
     case "Ahname": { const s = swfW(iso); if (!s) return false; s.name = String(val).slice(0, 60); return true; }
     case "Adep": case "Awd": { const s = swfW(iso), amt = numIn(qv("Aamt")); if (!s || !(amt > 0)) return false;
       if (op === "Adep") { if (amt > treasuryOf(iso)) return asMsg("The treasury holds less than that."), false; x.tadj = (x.tadj || 0) - amt; s.liq = (s.liq || 0) + amt; }
