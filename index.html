@@ -2544,8 +2544,9 @@ function moveLine(iso, kind, id, sys, cat, def) {
   if (!canEdit(iso)) return; const x = nxw(iso);
   if (kind === "r") { (x.rcat ||= {}); if (cat === "Uncategorised") delete x.rcat[id]; else x.rcat[id] = cat; }
   else if (sys) { (x.lcat ||= {}); if (cat === def) delete x.lcat[id]; else x.lcat[id] = cat; }
+  else if (/^xi:\d+$/.test(id)) { const e = (x.xl || [])[+id.slice(3)]; if (e) e[2] = cat; }
   else { const l = (x.exps || []).find(l => l.id === id); if (l) l.cat = cat === "Uncategorised" ? "" : cat; }
-  save(); render();
+  fxClear(); save(); render();
 }
 function nwRenderAll() { for (const iso in NW) { const a = NW[iso]; if (!a.closed && !a.el.hidden) nwRender(iso); } if (GP && !GP.closed && !GP.el.hidden) gpRender(); }
 const linkify = s => esc(s).replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>').replace(/\n/g, "<br>");
@@ -3030,11 +3031,14 @@ function nwEvent(iso, ev) {
     case "cname": {
       const to = val.trim().slice(0, 40), x = x0(), k = d.kind === "e" ? "ecats" : "rcats";
       if (!to || to === d.from || LOCKED_CATS.includes(to) || to === "Uncategorised") return render();
-      x[k] = (x[k] || []).map(c => c === d.from ? to : c); if (!x[k].includes(to)) x[k].push(to);
+      const ls = fxBuild(iso, 0); x[k] = (x[k] || []).map(c => c === d.from ? to : c); if (!x[k].includes(to)) x[k].push(to);
+      if (d.kind === "r") ls.rev.forEach(r => { if (r.cat === d.from) (x.rcat ||= {})[r.id] = to; });
+      else ls.exp.forEach(l => { if (l.cat !== d.from || l.debt) return; if (/^xi:\d+$/.test(l.id)) { const e = (x.xl || [])[+l.id.slice(3)]; if (e) e[2] = to; } else if (l.sys) (x.lcat ||= {})[l.sys] = to; });
+      if (d.kind === "e") for (const e of x.xl || []) if (e[2] === d.from) e[2] = to;
       if (d.kind === "e") (x.exps || []).forEach(l => { if (l.cat === d.from) l.cat = to; }); else for (const id in x.rcat || {}) if (x.rcat[id] === d.from) x.rcat[id] = to;
       for (const id in x.lcat || {}) if (x.lcat[id] === d.from) x.lcat[id] = to;
       const ck = d.kind === "e" ? "ecol" : "rcol"; if (x[ck] && x[ck][d.from]) { x[ck][to] = x[ck][d.from]; delete x[ck][d.from]; }
-      return done();
+      fxClear(); return done();
     }
     case "cdel": { const x = x0(), k = d.kind === "e" ? "ecats" : "rcats"; x[k] = (x[k] || []).filter(c => c !== d.name); if (d.kind === "e") (x.exps || []).forEach(l => { if (l.cat === d.name) l.cat = ""; }); else for (const id in x.rcat || {}) if (x.rcat[id] === d.name) delete x.rcat[id]; for (const id in x.lcat || {}) if (x.lcat[id] === d.name) delete x.lcat[id]; return done(); }
     case "ccol": { const x = x0(), k = d.kind === "e" ? "ecol" : "rcol"; (x[k] ||= {})[d.name] = val; return done(); }
