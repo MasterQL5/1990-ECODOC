@@ -2899,7 +2899,7 @@ function nwAssets(iso, n) {
   const secs = [...new Set(COMP.filter(c => !c.misc).map(c => c.sec))].sort((a, b) => secLabel({ sec: a }).localeCompare(secLabel({ sec: b })));
   const mk = `<div class="frow"><label>Name</label><input class="rate nm" data-op="Anname"${dis(can)}><label>Sector</label><select class="rate" data-op="Ansec"${dis(can)}>${secs.map(s => `<option value="${esc(s)}">${esc(secLabel({ sec: s }))}</option>`).join("")}</select></div>
   <div class="frow"><label>Capital (US$)</label><input class="rate fg big" data-op="Anv" size="12" inputmode="decimal"${dis(can)}><label>Shares issued</label><input class="rate fg" data-op="Ansh" size="10" value="1000000"${dis(can)}><label>Offered to buyers</label><input class="rate fg" data-op="Anpub" size="10" value="0"${dis(can)}><label><input type="checkbox" data-op="Anlist"${dis(can)}> On the stock market</label>${fSel({ op: "Anpay" }, [["t", "Paid from treasury"], ["f", "Paid from fund"]], "t", can)}${fBtn({ op: "Ancreate" }, "Create corporation", can)}</div>
-  <p class="muted">A new corporation is worth the capital put in and then follows the market. Only the shares offered can be bought by other nations; the Game Master alone can issue more.</p>`;
+  <p class="muted">The starting capital (minimum US$25,000) must be drawn from the treasury or the fund\'s liquidity; with no money in either, no corporation can be created. A new corporation is worth the capital put in and then follows the market. Only the shares offered can be bought by other nations; the Game Master alone can issue more.</p>`;
   const gm = GM ? `<fieldset><legend>Game Master: issue new shares</legend><div class="frow">${fSel({ op: "Agmk" }, P.cat.slice().sort((a, b) => a.name.localeCompare(b.name)).map(c => [asKey(c), `${c.name} (${c.iso}) - ${sh0f(asShRaw(c))} shares`]), "", true)}<label>New shares</label><input class="rate fg" data-op="Agmn" size="10"> ${fBtn({ op: "Agmgo" }, "Issue", true)}</div></fieldset>` : "";
   return `<div class="sum">${tile("Fund liquidity", money(liq))}${tile("Fund investments", money(invV))}${tile("State-owned corporations", money(ownV))}${tile("Total assets", money(liq + invV + ownV))}</div>
   <div class="fgrid2"><fieldset><legend>Sovereign wealth fund</legend>${swf}</fieldset><fieldset><legend>Investments</legend>${invT}${buy}</fieldset></div>
@@ -2933,10 +2933,11 @@ function asEvent(iso, op, d, val, a) {
     case "Ancreate": {
       const nm0 = qv("Anname").trim().slice(0, 50), v0 = numIn(qv("Anv")), sh = Math.floor(numIn(qv("Ansh"))), pub = Math.max(0, Math.floor(numIn(qv("Anpub")) || 0)), list = !!(q("Anlist") || {}).checked, pay = qv("Anpay");
       if (!nm0 || !(v0 > 0) || !(sh > 0)) return asMsg("Give the corporation a name, capital and a number of shares."), false;
+      if (v0 < 25000) return asMsg("The minimum starting capital is US$25,000."), false;
       if (pub > sh) return asMsg("Offered shares cannot exceed shares issued."), false;
       const taken = new Set(asCat().map(c => c.name)); let name = nm0; if (taken.has(name)) name = nm0 + " (" + iso + ")"; if (taken.has(name)) return asMsg("That name is already in use."), false;
-      if (pay === "f") { const s = swfW(iso); if (!s || (s.liq || 0) < v0) return asMsg("The fund's liquidity cannot cover that."), false; s.liq -= v0; }
-      else { if (treasuryOf(iso) < v0) return asMsg("The treasury cannot cover that."), false; x.tadj = (x.tadj || 0) - v0; }
+      if (pay === "f") { const s = swfW(iso); if (!s || (s.liq || 0) < v0) return asMsg(s ? "The fund's liquidity cannot cover that capital." : "There is no sovereign wealth fund to pay the capital from."), false; s.liq -= v0; }
+      else { if (!(treasuryOf(iso) >= v0)) return asMsg("The treasury cannot cover that capital."), false; x.tadj = (x.tadj || 0) - v0; }
       ((x.ast ||= {}).soc ||= []).push({ id: uid(), name, sec: qv("Ansec"), v0, y0: S.year, sh: sh / 1e6, list, pub }); return true; }
     case "Asoclist": { const s = ((x.ast || {}).soc || []).find(r => r.id === d.id); if (!s) return false; s.list = !!val; return true; }
     case "Asocpub": { const s = ((x.ast || {}).soc || []).find(r => r.id === d.id); if (!s) return false; const p = Math.max(0, Math.floor(numIn(val) || 0)); s.pub = Math.min(p, Math.round(s.sh * 1e6)); return true; }
