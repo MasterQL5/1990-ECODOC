@@ -1,0 +1,125 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1990,
+ "nations": {
+  "TUR": {
+   "scope": "Turkey 1990: consolidated central government budget (general and annexed budgets) at 2,608.6 TL per US$, plus social security institutions (SSK, Emekli Sandigi, Bag-Kur) estimated. Funds, state enterprises and local governments not covered.",
+   "mechs": [
+    {
+     "kind": "pit",
+     "name": "Income tax (wage withholding and declared income)",
+     "amt": 7128342791,
+     "sig": 0.85,
+     "eti": 0.35,
+     "bk": [
+      [
+       0,
+       0.25
+      ],
+      [
+       2876,
+       0.3
+      ],
+      [
+       6710,
+       0.35
+      ],
+      [
+       13420,
+       0.4
+      ],
+      [
+       26840,
+       0.45
+      ],
+      [
+       53680,
+       0.5
+      ]
+     ],
+     "std": 0,
+     "item": 0.03,
+     "cap": 1500,
+     "cr": 20,
+     "note": "Income tax, 41% of 1990 tax revenue; 34.4% came from withholding on wages. 1990 scale 25% to 50%, bands approximate."
+    },
+    {
+     "kind": "cit",
+     "name": "Corporate tax",
+     "amt": 1773392597,
+     "rate": 0.46,
+     "bs": 0.0514,
+     "allow": 0.3,
+     "shift": 0.6,
+     "note": "Corporate tax at 46% plus fund levies, 10.2% of 1990 tax revenue."
+    },
+    {
+     "kind": "asset",
+     "name": "Wealth taxes (inheritance, property, vehicles)",
+     "amt": 156475817,
+     "rate": 0.02,
+     "el": 0.3,
+     "bs": 0.05216,
+     "note": "Wealth taxes, 0.9% of 1990 tax revenue."
+    },
+    {
+     "kind": "cons",
+     "name": "Domestic value-added tax (KDV)",
+     "amt": 2938268126,
+     "rate": 0.12,
+     "gap": 0.15,
+     "el": 0.25,
+     "exempt": 0,
+     "bs": 0.16324,
+     "note": "Domestic VAT, 16.9% of 1990 tax revenue; rates 1 to 12%, general rate approximate."
+    },
+    {
+     "kind": "cons",
+     "name": "Excise, import VAT, stamp and other goods and services taxes",
+     "amt": 2312364857,
+     "rate": 0.2,
+     "gap": 0.1,
+     "el": 0.15,
+     "exempt": 0,
+     "bs": 0.07708,
+     "note": "Fuel and other excises, VAT on imports, stamp, banking and insurance taxes, 13.3% of 1990 tax revenue."
+    },
+    {
+     "kind": "tariff",
+     "name": "Foreign trade taxes (customs and import levies)",
+     "amt": 3077357742,
+     "avg": 0.138,
+     "el": 2.5,
+     "note": "Taxes on foreign trade, 17.7% of 1990 tax revenue."
+    },
+    {
+     "kind": "flat",
+     "name": "Other taxes",
+     "amt": 17386202,
+     "note": "Other indirect taxes, 0.1% of 1990 tax revenue."
+    },
+    {
+     "kind": "flat",
+     "name": "Non-tax revenue",
+     "amt": 3698152266,
+     "note": "Property income, state monopolies, fees, fines and other non-tax receipts, 1990 consolidated budget (17.1% of revenue)."
+    },
+    {
+     "kind": "flat",
+     "name": "Annexed budget revenue",
+     "amt": 585371464,
+     "note": "Revenue of annexed-budget bodies such as universities and the highway department (2.7% of revenue)."
+    },
+    {
+     "kind": "ssc",
+     "name": "Social security contributions (estimated)",
+     "amt": 4844467664,
+     "rate": 0.335,
+     "base": 6000,
+     "sig": 0.85,
+     "note": "SSK, Emekli Sandigi and Bag-Kur own income, estimated midway between 1989 (8.1 trn TL) and 1991 (29.3 trn TL) totals, less budget transfers."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1990,
+ "nations": {
+  "TUR": {
+   "scope": "Turkey 1990: consolidated central government budget (general and annexed budgets) at 2,608.6 TL per US$, plus social security institutions (SSK, Emekli Sandigi, Bag-Kur) estimated. Funds, state enterprises and local governments not covered.",
+   "exps": [
+    {
+     "name": "Interest on public debt",
+     "amt": 5353829640,
+     "cat": "Net interest",
+     "note": "Domestic and external debt interest, 1990 (20.4% of spending). The game works out debt interest itself, so this line is skipped on import."
+    },
+    {
+     "name": "Public personnel",
+     "amt": 10148846971,
+     "cat": "Personnel",
+     "note": "Salaries and social contributions of civil servants, teachers, police and the military, 38.7% of 1990 spending."
+    },
+    {
+     "name": "Goods and services",
+     "amt": 2674889899,
+     "cat": "Goods and services",
+     "note": "Other current spending, 10.2% of 1990 spending."
+    },
+    {
+     "name": "Public investment",
+     "amt": 3854558000,
+     "cat": "Investment",
+     "note": "Central government capital spending (14.7% of 1990 spending)."
+    },
+    {
+     "name": "Transfers to state economic enterprises",
+     "amt": 484934448,
+     "cat": "State enterprises",
+     "note": "Budget support to loss-making state economic enterprises."
+    },
+    {
+     "name": "Transfers to local governments, funds and others",
+     "amt": 2684581768,
+     "cat": "Transfers",
+     "note": "Shares of tax revenue for municipalities and provinces, transfers to funds and other transfers; 1990 other transfers less estimated social security transfers."
+    },
+    {
+     "name": "Social security benefits (estimated)",
+     "amt": 5743306443,
+     "cat": "Social protection",
+     "note": "SSK, Emekli Sandigi and Bag-Kur benefits and costs, estimated midway between 1989 (7.7 trn TL) and 1991 (29.0 trn TL)."
+    }
+   ]
+  }
+ }
+}
