@@ -372,6 +372,9 @@ tbody tr.sel td .t-g { color: #7dff7d; } tbody tr.sel td .t-o { color: #ffbf5a; 
 @media (max-width: 800px) { .fgrid2, .nwl { grid-template-columns: 1fr !important; } }
 .nwl { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; } .nwl .chartbox { height: 224px; padding: 2px; } .nwl .chartbox svg { height: 100%; width: 100%; }
 .fgrid > fieldset, .fgrid2 > fieldset { min-width: 0; }
+.mktbar { display: flex; align-items: center; gap: 12px; padding: 6px 10px; margin: 0 0 6px; background: #ffe9a8; border: 2px solid #a07000; }
+.mktbar b { color: #7a1a1a; }
+.ast .mktclosed { padding: 6px 10px; margin: 0 0 8px; background: #ffe9a8; border: 2px solid #a07000; }
 .ast fieldset { margin: 10px 0; padding: 8px 12px 10px; }
 .ast .sum { margin-bottom: 4px; }
 .ast .frow { gap: 8px 14px; margin: 8px 0; }
@@ -571,6 +574,7 @@ td input.rate.nm { width: 190px; text-align: left; }
       <div class="foot">1995 as a stand-in for 1990.</div>
     </section>
     <section class="panel" id="psm" role="tabpanel" aria-labelledby="tab-sm" hidden>
+      <div id="mkt-bar" class="mktbar" hidden></div>
       <div class="tabs" role="tablist">
         <button class="tab" role="tab" id="smt-m" aria-selected="true">Companies</button>
         <button class="tab" role="tab" id="smt-h" aria-selected="false">Heat Map</button>
@@ -1809,9 +1813,9 @@ function renderStock() {
   const m = sm.sub === "m";
   $("smt-m").setAttribute("aria-selected", m); $("smt-h").setAttribute("aria-selected", sm.sub === "h"); $("smt-w").setAttribute("aria-selected", sm.sub === "w");
   $("sm-m").hidden = !m; $("sm-h").hidden = sm.sub !== "h"; $("sm-w").hidden = sm.sub !== "w";
-  if (sm.sub === "h") { if (COMP) socSync(); return renderHeat(); }
+  if (sm.sub === "h") { if (COMP) socSync(); mktBar(); return renderHeat(); }
   if (!m) return renderStockSwf();
-  if (!COMP) buildComp(); socSync();
+  if (!COMP) buildComp(); socSync(); mktBar();
   const searching = !!smq, id = searching ? "ALL" : sm.idx, single = id !== "ALL", native = sm.mode === "n", Y = S.year;
   $("sm-cur").disabled = native; $("sm-cur").value = sm.cur;
   document.querySelectorAll("#sm-ct [data-ct]").forEach(b => b.setAttribute("aria-pressed", b.dataset.ct === sm.ct));
@@ -2954,7 +2958,7 @@ function nwAssets(iso, n) {
   <div class="frow"><label>Capital (US$)</label><input class="rate fg big" data-op="Anv" size="12" inputmode="decimal"${dis(can)}><label>Shares issued</label><input class="rate fg" data-op="Ansh" size="10" value="1000000"${dis(can)}><label>Offered to buyers</label><input class="rate fg" data-op="Anpub" size="10" value="0"${dis(can)}><label><input type="checkbox" data-op="Anlist"${dis(can)}> On the stock market</label>${fSel({ op: "Anpay" }, [["t", "Paid from treasury"], ["f", "Paid from fund"]], "t", can)}${fBtn({ op: "Ancreate" }, "Create corporation", can)}</div>
   <p class="muted">The starting capital (minimum US$25,000) must be drawn from the treasury or the fund\'s liquidity; with no money in either, no corporation can be created. A new corporation is worth the capital put in and then follows the market. Only the shares offered can be bought by other nations; the Game Master alone can issue more.</p>`;
   const gm = GM ? `<fieldset><legend>Game Master: issue new shares</legend><div class="frow">${fSel({ op: "Agmk" }, P.cat.slice().sort((a, b) => a.name.localeCompare(b.name)).map(c => [asKey(c), `${c.name} (${c.iso}) - ${sh0f(asShRaw(c))} shares`]), "", true)}<label>New shares</label><input class="rate fg" data-op="Agmn" size="10"> ${fBtn({ op: "Agmgo" }, "Issue", true)}</div></fieldset>` : "";
-  return `<div class="ast"><div class="sum">${tile("Fund liquidity", money(liq))}${tile("Fund investments", money(invV))}${tile("State-owned corporations", money(ownV))}${tile("Total assets", money(liq + invV + ownV))}</div>
+  return `<div class="ast">${mktClosed() ? `<div class="mktclosed"><b>The stock market is closed.</b> Buying, selling and privatizing are paused${GM ? " for players; you can still trade as Game Master" : " until the Game Master reopens it"}.</div>` : ""}<div class="sum">${tile("Fund liquidity", money(liq))}${tile("Fund investments", money(invV))}${tile("State-owned corporations", money(ownV))}${tile("Total assets", money(liq + invV + ownV))}</div>
   <fieldset><legend>Sovereign wealth fund</legend>${swf}</fieldset><fieldset><legend>Investments</legend>${invT}${buy}</fieldset>
   <fieldset><legend>State-owned corporations</legend>${ownT}</fieldset><fieldset><legend>Create a state-owned corporation</legend>${mk}</fieldset>${gm}</div>`;
 }
@@ -2986,8 +2990,19 @@ function coInfo(name) {
   dialog(c.name, `<table class="rec ast-t"><tbody>${info}</tbody></table><h4 style="margin:10px 0 2px">Share owners</h4>${own}`, [["OK", null, 1]], true);
 }
 document.addEventListener("click", e => { const t = e.target.closest && e.target.closest("[data-coinfo]"); if (t) { e.preventDefault(); coInfo(t.dataset.coinfo); return; } const h = e.target.closest && e.target.closest(".hc[data-hi]"); if (h && typeof heatList !== "undefined" && heatList[+h.dataset.hi] && !heatList[+h.dataset.hi].c.misc) coInfo(heatList[+h.dataset.hi].c.name); });
+const mktClosed = () => !!S.mclosed;
+const mktBlocked = () => mktClosed() && !GM;
+function mktBar() {
+  const el = $("mkt-bar"); if (!el) return;
+  const c = mktClosed();
+  if (!c && !GM) { el.hidden = true; el.innerHTML = ""; return; }
+  el.hidden = false;
+  el.innerHTML = c ? `<b>Market closed.</b> <span>Nations cannot buy or sell shares until the Game Master reopens it.</span>${GM ? ` <button class="btn" type="button" data-mkt="open">Open the market</button>` : ""}` : `<span>Market open.</span> <button class="btn" type="button" data-mkt="close">Close the market</button>`;
+}
+document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-mkt]"); if (!b || !GM) return; S.mclosed = b.dataset.mkt === "close"; save(); render(); });
 function asMsg(t) { dialog("Assets", "<p>" + esc(t) + "</p>", [["OK", () => {}]]); }
 function asEvent(iso, op, d, val, a) {
+  if (mktBlocked() && (op === "Abuy" || op === "Asell" || op === "Apriv")) return asMsg("The stock market is closed by the Game Master. Trading reopens when they open it."), false;
   const q = k => a.body.querySelector(`[data-op="${k}"]`), qv = k => (q(k) || {}).value || "", x = nxw(iso);
   switch (op) {
     case "Ahcreate": { const nm = qv("Ahnew").trim().slice(0, 60) || NBY[iso].name + " Sovereign Wealth Fund"; (x.ast ||= {}).swf = { name: nm, liq: 0, rv: {}, y: S.year }; return true; }
