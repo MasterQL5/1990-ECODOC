@@ -1056,6 +1056,7 @@ function render() {
   $("wtitle").textContent = "ECODOC - World Economic Register, " + S.year + (S.year === BASE ? " (base year)" : "");
   $("m-next").textContent = next;
   $("adv").textContent = "Advance to " + next;
+  { const ok = !CL || GM; $("adv").hidden = !ok; document.querySelectorAll('[data-act="advance"],[data-act="undo"],[data-act="reset"]').forEach(b => { b.hidden = !ok; }); $("year").title = ok ? "Click to go back one year" : "The Game Master advances the year"; }
   $("m-undo").disabled = S.year <= BASE;
   $("w-year").textContent = S.year; $("w-stats").textContent = NAT.length + " nations, " + CUR.length + " currencies";
   $("s-p").textContent = "";
@@ -1139,6 +1140,7 @@ function dropYear(y) {
   if (S.ov) for (const k of Object.values(S.ov)) for (const m of Object.values(k)) delete m[y];
 }
 function act(a) {
+  if ((a === "advance" || a === "undo" || a === "reset") && CL && !GM) { dialog("Game Master only", "<p>Only the Game Master can advance, undo or reset the year.</p>", [["OK", null, 1]]); return; }
   if (a === "advance") dialog("Advance Year", `<p>Advance the register to <b>${S.year + 1}</b>?</p><p>Each nation's ${S.year} inflation, growth and population growth rates carry over as a starting point; only the Game Master can change them afterwards. PPP deflators and exchange rates update from those rates.</p><p>Each nation with revenue or spending filed settles its net income for ${S.year}: a surplus goes to its treasury or pays down debt, and a deficit comes out of its treasury or becomes new debt, following the rules in its Debt tab.</p>`, [["Yes", () => { settleYear(); S.year++; save(); render(); }, 1], ["No"]]);
   if (a === "undo") { if (S.year > BASE) dialog("Undo Advance Year", `<p>Go back to <b>${S.year - 1}</b>? Changes the Game Master made for ${S.year} will be discarded.</p>`, [["Yes", () => { dropYear(S.year); S.year--; save(); render(); }, 1], ["No"]]); }
   if (a === "reset") dialog("Reset to 1990", "<p>Return to the 1990 base year and discard all later changes? Changes to the 1990 figures and to corporations are kept.</p>", [["Yes", () => { for (let y = S.year; y > BASE; y--) dropYear(y); S.year = BASE; for (const k in S.nx) { const x = S.nx[k]; delete x.tadj; delete x.gadj; delete x.log; (x.dt || []).forEach(d => delete d.adj); } save(); render(); }, 1], ["No"]]);
@@ -3355,6 +3357,7 @@ function cloudPush() { if (!cloud.on || !cloud.ready || !cloud.sess) return; cle
 async function doPush(all) {
   if (!cloud.sess) return;
   if (cloud.sess.role === "gm") detMigrate();
+  else if (cloud.last.year != null && canon(S.year) !== cloud.last.year) { cloudSay("Your year differs from the Game Master's. Reloading the shared data."); cloudLoad().catch(() => {}); return; }
   const f = flat(S), rows = [];
   if (all) cloud.last = {};
   for (const k in f) if (cloud.last[k] !== f[k]) rows.push({ k, v: JSON.parse(f[k]) });
