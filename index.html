@@ -1042,7 +1042,7 @@ function tickerUpdate() {
   const big = rows.slice().sort((a, b) => b.usd - a.usd).slice(0, 25), seen = new Set(big.map(x => x.c.name));
   const grow = rows.filter(x => !seen.has(x.c.name) && x.usd > 1e9).sort((a, b) => b.r - a.r).slice(0, 15);
   const item = x => { const cls = x.r > 0 ? "up" : x.r < 0 ? "dn" : "fl", v = x.usd / 1e9, t = v >= 1000 ? (v / 1000).toFixed(2) + "T" : v.toFixed(v < 10 ? 1 : 0) + "B";
-    return `${esc(x.c.name.toUpperCase())} <span class="${cls}">${x.r > 0 ? "\u25B2" : x.r < 0 ? "\u25BC" : "\u25AC"}${Math.abs(x.r).toFixed(1)}%</span> US$${t}`; };
+    return `${esc(dn(x.c).toUpperCase())} <span class="${cls}">${x.r > 0 ? "\u25B2" : x.r < 0 ? "\u25BC" : "\u25AC"}${Math.abs(x.r).toFixed(1)}%</span> US$${t}`; };
   const sep = ' <span class="sp">&nbsp;|&nbsp;</span> ';
   const html = '<span class="sp">LARGEST&nbsp;&gt;&gt;</span> ' + big.map(item).join(sep) + sep + '<span class="sp">TOP&nbsp;GROWTH&nbsp;&gt;&gt;</span> ' + grow.map(item).join(sep) + sep;
   $("trk").innerHTML = html + html;
@@ -1705,7 +1705,10 @@ const SMCO = {
 };
 /* ---------- more corporations, ownership status and share counts ---------- */
 const PT = "Publicly traded", ST = "State-controlled", MX = "Mixed (state stake)", FM = "Family / founder controlled", SB = "Subsidiary (majority-owned)", SP = "State-sponsored enterprise", STS = "State-controlled subsidiary";
-IDX.push(["IBOV", "Ibovespa", "BRA", null], ["IPC", "IPC (Mexico)", "MEX", null], ["SENSEX", "BSE Sensex", "IND", null], ["JSE", "JSE All Share", "ZAF", null], ["STI", "Straits Times Index", "SGP", null], ["KLSE", "KLSE Composite", "MYS", null], ["SET", "SET Index", "THA", null], ["SSE", "Shanghai Composite", "CHN", 100], ["SZSE", "Shenzhen Composite", "CHN", 100]);
+IDX.push(["IBOV", "Ibovespa", "BRA", null], ["IPC", "IPC (Mexico)", "MEX", null], ["SENSEX", "BSE Sensex", "IND", null], ["JSE", "JSE All Share", "ZAF", null], ["STI", "Straits Times Index", "SGP", null], ["KLSE", "KLSE Composite", "MYS", null], ["SET", "SET Index", "THA", null], ["SSE", "Shanghai Composite", "CHN", 100], ["SZSE", "Shenzhen Composite", "CHN", 100], ["BEL20", "BEL 20", "BEL", null], ["OSE", "Oslo Bors All-Share", "NOR", null], ["HEX", "HEX General Index", "FIN", null], ["KFX", "KFX Copenhagen", "DNK", null], ["TASE", "TASE General Index", "ISR", null]);
+const DEFIDX = { USA: "SPX", JPN: "TOPIX", GBR: "FTSE", FRG: "DAX", FRA: "CAC", ITA: "MIB", CAN: "TSX", CHE: "SMI", NLD: "AEX", AUS: "ASX", HKG: "HSI", ESP: "MAD", SWE: "OMX", KOR: "KOSPI", TWN: "TAIEX", BRA: "IBOV", MEX: "IPC", IND: "SENSEX", ZAF: "JSE", SGP: "STI", MYS: "KLSE", THA: "SET", CHN: "SSE", BEL: "BEL20", NOR: "OSE", FIN: "HEX", DNK: "KFX", ISR: "TASE" };
+/* every listed corporation belongs to at least one index: its nation's main index, or an all-share index made for that nation */
+const defIdx = iso => { if (DEFIDX[iso]) return DEFIDX[iso]; const code = iso + "-ALL"; if (!IBY[code]) { const i = [code, NBY[iso].name + " All-Share", iso, null]; IDX.push(i); IBY[code] = i; } return code; };
 IDX.forEach(i => IBY[i[0]] = i);
 const AIR = "Services: Air transport", BNK = "Services: Banking", INS = "Services: Insurance", RET = "Services: Retail", MED = "Services: Media and information", FIN = "Services: Financial services", CON = "Services: Conglomerate", TEL = "Services: Telecommunications", TRD = "Services: Trading company", CNS = "Services: Construction", SHP = "Services: Shipping";
 /* [name, value (bn of the listing currency, or "$n" for US$ bn), indexes, sector, status] */
@@ -1791,7 +1794,6 @@ const SMX = {
     ["Changhong Electric", 1.2, "", "85", ST],
     ["Haier (Qingdao Refrigerator)", 0.8, "", "85", MX],
     ["Tsingtao Brewery", 1.5, "", "22", ST],
-    ["Shanghai Petrochemical", 8, "SSE", "29", MX],
     ["Shanghai Vacuum Electron", 0.06, "SSE", "85", MX],
     ["Shanghai Feilo Acoustics", 0.05, "SSE", "85", MX],
     ["Shanghai Yanzhong Industrial", 0.04, "SSE", "84", MX],
@@ -1825,7 +1827,7 @@ function buildComp() {
     const ccy = NBY[iso].cur, total = usd * CBY[ccy].fx, h = have[iso] || 0;
     COMP.push({ name: "Miscellaneous: " + (h ? "other " : "") + NBY[iso].name + " listed companies", iso, ccy, misc: true, cap0: Math.max(total - h, total * 0.02) * 1e9, idx: MISC_IDX[iso] || [] });
   }
-  COMP.forEach(c => { if (!c.misc) applyCo(c); });
+  COMP.forEach(c => { if (!c.misc) { if (!c.idx.length) c.idx = [defIdx(c.iso)]; applyCo(c); } });
 }
 const secLabel = c => c.misc ? "Various" : /^\d\d$/.test(c.sec) ? "HS " + c.sec + " " + CHN[c.sec] : c.sec;
 const SKEY = KEY + ".stk";
@@ -1835,6 +1837,8 @@ const stkDef = c => { const k = c.sec, t = /^\d\d$/.test(k) ? +k : 0;
   return c.misc ? 4 : k === "72" || k === "40" ? -2 : k === "27" ? 3 : [84, 85].includes(t) ? 8 : k === "30" ? 7 : k === "87" ? 5 : k === "88" ? 6
   : k === "Services: Banking" ? 4 : k === "Services: Insurance" ? 5 : k === "Services: Telecommunications" ? 6 : k === "Services: Real estate" ? -1 : k === "Services: Software" ? 12 : 4; };
 const coOv = c => S.co && S.co[c.name];
+/* a nation can give its own state corporation a new display name (stored in its own record); the original name stays the identifier */
+const dn = c => { const a = c && !c.soc && !c.misc ? (((nxr(c.iso).ast || {}).al) || {})[c.name] : null; return a || (c ? c.name : ""); };
 const stkBase = (c, yy) => { const o = coOv(c); return o && o.yg && o.yg[yy] != null ? o.yg[yy] : o && o.g != null ? o.g : stkDef(c); };
 let FLOWC = null;
 const flowMap = () => { if (FLOWC) return FLOWC; FLOWC = {}; for (const iso in (S.nx || {})) { const fl = ((S.nx[iso] || {}).ast || {}).fl; if (fl) for (const k in fl) for (const y in fl[k]) ((FLOWC[k] ||= {})[y] = (FLOWC[k][y] || 0) + fl[k][y]); } return FLOWC; };
@@ -1872,7 +1876,7 @@ function renderStock() {
   $("sm-cur").disabled = native; $("sm-cur").value = sm.cur;
   document.querySelectorAll("#sm-ct [data-ct]").forEach(b => b.setAttribute("aria-pressed", b.dataset.ct === sm.ct));
   $("sm-ltl").hidden = sm.ct !== "time"; $("sm-lnl").hidden = sm.ct !== "time"; $("sm-ln").value = sm.ln;
-  const cText = c => [c.name, NBY[c.iso].name, secLabel(c), c.misc ? "various" : statusOf(c), c.idx.map(i => IBY[i][1]).join(" ")].join(" ").toLowerCase();
+  const cText = c => [c.name, dn(c), NBY[c.iso].name, secLabel(c), c.misc ? "various" : statusOf(c), c.idx.map(i => IBY[i][1]).join(" ")].join(" ").toLowerCase();
   const list = COMP.filter(c => (id === "ALL" || (id.startsWith("ALL-") ? c.iso === id.slice(4) : c.idx.includes(id))) && (!searching || cText(c).includes(smq)));
   if (!list.length) { $("sm-sum").innerHTML = ""; $("sm-charts").innerHTML = ""; $("tbl-sm").innerHTML = `<tbody><tr><td class="msg">No company matches "${esc(smq)}".</td></tr></tbody>`; $("s-n").textContent = "0 companies"; return; }
   const disp = native ? (single ? list[0].ccy : "U90") : sm.cur, cc = lab(disp);
@@ -1900,7 +1904,7 @@ function renderStock() {
   $("sm-sum").innerHTML = `
     <div><span>${esc(where)}, total value${native && !single ? " (" + cc + ")" : ""}</span><b>${fmtCur(T, cc)}</b></div>
     <div><span>Companies listed</span><b>${named.length}${hasMisc ? " + Miscellaneous" : ""}</b></div>
-    ${big ? `<div><span>Largest company</span><b>${esc(big.c.name)} (${fmtSh(big.usd / TU)})</b></div>` : ""}${extra}
+    ${big ? `<div><span>Largest company</span><b>${esc(dn(big.c))} (${fmtSh(big.usd / TU)})</b></div>` : ""}${extra}
     <div><span>Projected change, value-weighted</span><b>${arrow(sgn(wr), projTone(wr))}${wr > 0 ? "+" : ""}${f1.format(wr)}%</b></div>`;
   const cur = cc;
   const byV = named.slice().sort((a, b) => b.v - a.v);
@@ -1912,7 +1916,7 @@ function renderStock() {
   let html = "";
   if (sm.ct === "ov") {
     const byC = grp(r => r.c.iso, k => NBY[k].name);
-    const left = id === "ALL" ? pieOf(byC, "All other markets") : (() => { const p = pieOf(byV.map(r => ({ v: r.v, label: r.c.name })), "Other named companies"); rows.filter(r => r.c.misc).forEach(r => p.push({ v: r.v, label: "Miscellaneous", color: "#CCCCFF" })); return p; })();
+    const left = id === "ALL" ? pieOf(byC, "All other markets") : (() => { const p = pieOf(byV.map(r => ({ v: r.v, label: dn(r.c) })), "Other named companies"); rows.filter(r => r.c.misc).forEach(r => p.push({ v: r.v, label: "Miscellaneous", color: "#CCCCFF" })); return p; })();
     html = box(pieSvg(left, id === "ALL" ? "Value by country" : "Value by company, " + where, cur)) + box(barSvg(byV.slice(0, 10).map(r => ({ v: r.v, label: r.c.name })), "Largest companies, " + where, XLS[0], false, cur, true));
   } else if (sm.ct === "sec") {
     const bySec = grp(r => r.c.misc ? null : secName(r), k => k);
@@ -1920,7 +1924,7 @@ function renderStock() {
       (id === "ALL" ? box(barSvg(IDX.map(i => ({ v: rows.filter(r => r.c.idx.includes(i[0])).reduce((t, r) => t + r.v, 0), label: i[1] })).sort((a, b) => b.v - a.v).slice(0, 10), "Value of each index (members overlap)", XLS[6], false, cur, true))
         : box(barSvg(bySec.slice(0, 10).map(x => ({ v: x.v, label: x.label })), "Largest sectors, " + where, XLS[6], false, cur, true)));
   } else if (sm.ct === "gro") {
-    const gains = named.filter(r => r.r > 0).sort((a, b) => b.r - a.r).slice(0, 10).map(r => ({ v: r.r, label: r.c.name, tip: f1.format(r.r) + "% projected change" }));
+    const gains = named.filter(r => r.r > 0).sort((a, b) => b.r - a.r).slice(0, 10).map(r => ({ v: r.r, label: dn(r.c), tip: f1.format(r.r) + "% projected change" }));
     const sg = grp(r => r.c.misc ? null : secName(r), k => k).map(x => ({ label: x.label, v: x.rows.reduce((t, r) => t + r.r * r.usd, 0) / x.rows.reduce((t, r) => t + r.usd, 0) })).filter(x => x.v > 0).sort((a, b) => b.v - a.v).slice(0, 10).map(x => ({ ...x, tip: f1.format(x.v) + "% value-weighted" }));
     html = (gains.length ? box(barSvg(gains, "Largest projected gains, " + where, XLS[1], "% projected change", cur, true)) : none("No company has a projected gain.")) +
       (sg.length ? box(barSvg(sg, "Projected change by sector, " + where, XLS[0], "% projected change", cur, true)) : none("No sector has a projected gain."));
@@ -1931,7 +1935,7 @@ function renderStock() {
     if (mode === "ix") { groups = IDX.map(i => ({ label: i[1], rows: rows.filter(r => r.c.idx.includes(i[0])) })).filter(g => g.rows.length); what = "indexes"; }
     else if (mode === "mk") { groups = grp(r => r.c.iso, k => NBY[k].name); what = "markets"; }
     else if (mode === "sec") { groups = grp(r => r.c.misc ? null : secName(r), k => k); what = "sectors"; }
-    else { groups = byV.map(r => ({ label: r.c.name, rows: [r] })); what = "companies"; }
+    else { groups = byV.map(r => ({ label: dn(r.c), rows: [r] })); what = "companies"; }
     groups.forEach(g => g.v = g.rows.reduce((t, r) => t + r.v, 0));
     groups = groups.sort((a, b) => b.v - a.v); if (sm.ln) groups = groups.slice(0, sm.ln);
     const ys = []; for (let y = 1986; y <= Y + 1; y++) ys.push(y);
@@ -1946,7 +1950,7 @@ function renderStock() {
   const px = (v, cur) => cur + " " + (v >= 100 ? f1 : f2).format(v);
   let n = 0;
   const cell = (k, r) => { const c = r.c; return ({
-    n: () => c.misc ? "" : ++n, name: () => c.misc ? esc(c.name) : `<a href="#" class="colink" data-coinfo="${esc(c.name)}">${esc(c.name)}</a>`, country: () => esc(r.cn), idx: () => esc(r.ix),
+    n: () => c.misc ? "" : ++n, name: () => c.misc ? esc(c.name) : `<a href="#" class="colink" data-coinfo="${esc(c.name)}">${esc(dn(c))}</a>`, country: () => esc(r.cn), idx: () => esc(r.ix),
     val: () => GM && !c.misc ? `<input class="rate" data-f="val" data-co="${esc(c.name)}" value="${fullNums ? Math.round(native ? r.cap : r.v) : +((native ? r.cap : r.v) / 1e9).toPrecision(5)}" inputmode="decimal" aria-label="${esc(c.name)} value">${fullNums ? "" : "&nbsp;bn"}` : r.shown,
     growth: () => GM && !c.misc ? `${arrow(sgn(r.r), projTone(r.r))}<input class="rate" data-f="g" data-co="${esc(c.name)}" value="${r.r}" inputmode="decimal" aria-label="${esc(c.name)} projected change">%` : `${arrow(sgn(r.r), projTone(r.r))}${r.r}%`,
     sector: () => esc(r.sc),
@@ -2069,7 +2073,7 @@ function renderHeat() {
     html += `<div class="hg" style="left:${gr.x}px;top:${gr.y}px;width:${gr.w}px;height:${gr.h}px"><div class="hl" style="width:${gr.w}px" title="${esc(g.name)}">${esc(g.name)} ${wavg > 0 ? "+" : ""}${f1.format(wavg)}%</div>`;
     const hh = Math.max(0, gr.h - HEAD);
     for (const cell of squarify(g.rs.map(r => ({ r, v: r.usd })), 0, HEAD, gr.w, hh)) {
-      const r = cell.i.r, col = heatCol(r.g), n = heatList.push(r) - 1, lbl = r.c.misc ? "Miscellaneous (" + NBY[r.c.iso].name + ")" : r.c.name;
+      const r = cell.i.r, col = heatCol(r.g), n = heatList.push(r) - 1, lbl = r.c.misc ? "Miscellaneous (" + NBY[r.c.iso].name + ")" : dn(r.c);
       const showName = cell.w > 46 && cell.h > 22, showPct = cell.w > 40 && cell.h > 36;
       html += `<div class="hc" data-hi="${n}" style="left:${cell.x}px;top:${cell.y}px;width:${cell.w}px;height:${cell.h}px;background:${col.bg};color:${col.fg}" title="${esc(lbl)}: ${r.g > 0 ? "+" : ""}${f1.format(r.g)}%, ${esc(fmtCur(r.usd, "1990 US$"))}">${showName ? `<span>${esc(lbl)}</span>` : ""}${showPct ? `<b>${r.g > 0 ? "+" : ""}${f1.format(r.g)}%</b>` : ""}</div>`;
     }
@@ -2092,7 +2096,7 @@ function companyRecord(r) {
     L("Projected change", `${arrow(sgn(r.g), projTone(r.g))}${r.g > 0 ? "+" : ""}${f1.format(r.g)}% a year`),
     L("Shares", c.sh ? (fullNums ? f0.format(c.sh * 1e6) : f1.format(c.sh) + " million") : DASH),
     L("Value per share", c.sh ? esc(cur + " " + (pxv >= 100 ? f0 : f2).format(pxv)) : DASH)];
-  dialog(c.misc ? "Miscellaneous, " + T.name : c.name, `<table class="rec">${rowsH.join("")}</table>`, [["OK", null, 1]]);
+  dialog(c.misc ? "Miscellaneous, " + T.name : dn(c), `<table class="rec">${rowsH.join("")}</table>`, [["OK", null, 1]]);
 }
 {
   const selI = $("sm-i");
@@ -2962,7 +2966,7 @@ function socSync() {
   SOCU = [];
   for (const n of NAT) for (const s of ((nxr(n.iso).ast || {}).soc || [])) {
     const ccy = NBY[n.iso].cur, an = E.cur[ccy] && E.cur[ccy].anchor; if (!an) continue;
-    const c = { name: s.name, iso: n.iso, ccy, sec: s.sec, status: ST, soc: 1, sid: s.id, idx: [], sh: s.sh, list: !!s.list, pub: s.pub || 0, v0: s.v0, y0: s.y0 };
+    const c = { name: s.name, iso: n.iso, ccy, sec: s.sec, status: ST, soc: 1, sid: s.id, idx: [defIdx(n.iso)], sh: s.sh, list: !!s.list, pub: s.pub || 0, v0: s.v0, y0: s.y0 };
     c.cap0 = s.v0 * an / gf(c, s.y0); applyCo(c);
     SOCU.push(c); if (s.list) COMP.push(c);
   }
@@ -3002,10 +3006,10 @@ function nwAssets(iso, n) {
     <p class="muted"><b>Liquidity</b> is cash in the fund. <b>Investments</b> are shares it owns, valued at today's share price against what was paid.</p>
     <details><summary>Send revenue to the fund (${Object.values(rv).filter(v => v > 0).length} lines)</summary>${f.active ? `<div class="ast-sc"><table class="rec ast-t"><tr><th>Revenue line</th><th>This year</th><th>% to fund</th></tr>${f.rev.filter(r => r.value > 0).map(r => `<tr><td>${esc(r.name)}</td><td class="r">${money(r.value)}</td><td>${fIn({ op: "Arv", id: r.id }, rv[r.id] || 0, can, "fg")}</td></tr>`).join("")}</table></div><p class="muted">At the year end this share of the line goes into fund liquidity, and not into the treasury or toward the deficit.</p>` : `<p class="muted">No revenue lines yet.</p>`}</details>`;
   }
-  const invT = P.inv.length ? `<div class="ast-sc"><table class="rec ast-t"><tr><th>Company</th><th>Country</th><th>Shares</th><th>Bought for</th><th>Value now</th><th>Gain / loss</th><th>Sell shares</th></tr>${P.inv.map(r => `<tr><td>${esc(r.c.name)}</td><td>${esc(NBY[r.c.iso].name)}</td><td class="r">${sh0f(r.n)}</td><td class="r">${money(r.cost)}</td><td class="r">${money(r.v)}</td><td class="r">${pl(r.v, r.cost)}</td><td><input class="rate fg" data-op="Asn" data-key="${esc(r.k)}" size="8" placeholder="${sh0f(r.n)}"${dis(can)}>${fBtn({ op: "Asell", key: r.k }, "Sell", can)}</td></tr>`).join("")}</table></div>` : `<p class="muted">No shares owned.</p>`;
+  const invT = P.inv.length ? `<div class="ast-sc"><table class="rec ast-t"><tr><th>Company</th><th>Country</th><th>Shares</th><th>Bought for</th><th>Value now</th><th>Gain / loss</th><th>Sell shares</th></tr>${P.inv.map(r => `<tr><td>${esc(dn(r.c))}</td><td>${esc(NBY[r.c.iso].name)}</td><td class="r">${sh0f(r.n)}</td><td class="r">${money(r.cost)}</td><td class="r">${money(r.v)}</td><td class="r">${pl(r.v, r.cost)}</td><td><input class="rate fg" data-op="Asn" data-key="${esc(r.k)}" size="8" placeholder="${sh0f(r.n)}"${dis(can)}>${fBtn({ op: "Asell", key: r.k }, "Sell", can)}</td></tr>`).join("")}</table></div>` : `<p class="muted">No shares owned.</p>`;
   const opts = P.cat.filter(c => !(c.soc && c.iso === iso) && (GM ? asAvailGM(c) > 0 : asAvailP(c) > 0)).sort((a, b) => a.name.localeCompare(b.name)).map(c => [asKey(c), `${c.name} (${c.iso}) - ${sh0f(GM ? asAvailGM(c) : asAvailP(c))} shares at US$ ${asPps(c).toFixed(asPps(c) < 1 ? 4 : 2)}`]);
   const buy = sw ? `<div class="frow">${fSel({ op: "Abuyk" }, opts, "", can)}<label>Shares</label><input class="rate fg" data-op="Abuyn" size="9" inputmode="decimal"${dis(can)}>${fBtn({ op: "Abuy" }, "Buy", can)}</div><p class="muted">Paid from fund liquidity. Buying lifts that company's growth for the year (each 1% of its value bought adds about one percentage point) and selling lowers it. Only shares that are still available can be bought: state-owned corporations cannot be bought from by players, family-controlled ones sell at most 49%, and a share already held by another nation cannot be bought again.${GM ? " As Game Master you may also buy state-owned and locked shares." : ""}</p>` : `<p class="muted">Create a sovereign wealth fund to buy shares.</p>`;
-  const ownT = P.own.length ? `<div class="ast-sc"><table class="rec ast-t"><tr><th>Corporation</th><th>Status</th><th>Sector</th><th>State holds</th><th>Value of stake</th><th>On the market</th><th>Privatize</th></tr>${P.own.map(r => { const c = r.c; return `<tr><td>${esc(c.name)}</td><td>${c.soc ? "Created by the state" : esc(statusOf(c))}</td><td>${esc(secLabel(c))}</td><td class="r">${f1.format(r.frac * 100)}%</td><td class="r">${money(r.v)}</td><td>${c.soc ? `<label><input type="checkbox" data-op="Asoclist" data-id="${esc(c.sid)}"${c.list ? " checked" : ""}${dis(can)}> listed</label> offering ${fIn({ op: "Asocpub", id: c.sid }, c.pub || 0, can, "fg")} shares ${fBtn({ op: "Asocdel", id: c.sid }, "&times;", can, "tb2")}` : "Listed"}</td><td>${r.sh > 0 ? `<input class="rate fg" data-op="Aprn" data-key="${esc(asKey(c))}" size="9" placeholder="${sh0f(r.sh)}"${dis(can)}>${fBtn({ op: "Apriv", key: asKey(c) }, "Sell", can)}` : "&mdash;"}</td></tr>`; }).join("")}</table></div><p class="muted">Privatize sells state-held shares to the market at today's price; the money goes into the sovereign wealth fund's liquidity, and leave the box empty to sell the whole stake. Sold shares can then be bought by other nations. Stakes are the state's real 1990 holdings in each listed company, applied to its value in the game. Total ${money(ownV)}.</p>` : `<p class="muted">No state-owned corporations.</p>`;
+  const ownT = P.own.length ? `<div class="ast-sc"><table class="rec ast-t"><tr><th>Corporation</th><th>Status</th><th>Sector</th><th>State holds</th><th>Value of stake</th><th>On the market</th><th>Privatize</th></tr>${P.own.map(r => { const c = r.c; return `<tr><td>${c.soc ? `<input class="rate nm"${attr({ op: "Asocname", id: c.sid })} value="${esc(c.name)}"${dis(can)}>` : c.iso === iso ? `<input class="rate nm"${attr({ op: "Aal", id: c.name })} value="${esc(dn(c))}" title="Rename (display name)"${dis(can)}>` : esc(dn(c))}</td><td>${c.soc ? "Created by the state" : esc(statusOf(c))}</td><td>${esc(secLabel(c))}</td><td class="r">${f1.format(r.frac * 100)}%</td><td class="r">${money(r.v)}</td><td>${c.soc ? `<label><input type="checkbox" data-op="Asoclist" data-id="${esc(c.sid)}"${c.list ? " checked" : ""}${dis(can)}> listed</label> offering ${fIn({ op: "Asocpub", id: c.sid }, c.pub || 0, can, "fg")} shares ${fBtn({ op: "Asocdel", id: c.sid }, "&times;", can, "tb2")}` : "Listed"}</td><td>${r.sh > 0 ? `<input class="rate fg" data-op="Aprn" data-key="${esc(asKey(c))}" size="9" placeholder="${sh0f(r.sh)}"${dis(can)}>${fBtn({ op: "Apriv", key: asKey(c) }, "Sell", can)}` : "&mdash;"}</td></tr>`; }).join("")}</table></div><p class="muted">Privatize sells state-held shares to the market at today's price; the money goes into the sovereign wealth fund's liquidity, and leave the box empty to sell the whole stake. Sold shares can then be bought by other nations. Stakes are the state's real 1990 holdings in each listed company, applied to its value in the game. Total ${money(ownV)}.</p>` : `<p class="muted">No state-owned corporations.</p>`;
   const secs = [...new Set(COMP.filter(c => !c.misc).map(c => c.sec))].sort((a, b) => secLabel({ sec: a }).localeCompare(secLabel({ sec: b })));
   const mk = `<div class="frow"><label>Name</label><input class="rate nm" data-op="Anname"${dis(can)}><label>Sector</label><select class="rate" data-op="Ansec"${dis(can)}>${secs.map(s => `<option value="${esc(s)}">${esc(secLabel({ sec: s }))}</option>`).join("")}</select></div>
   <div class="frow"><label>Capital (US$)</label><input class="rate fg big" data-op="Anv" size="12" inputmode="decimal"${dis(can)}><label>Shares issued</label><input class="rate fg" data-op="Ansh" size="10" value="1000000"${dis(can)}><label>Offered to buyers</label><input class="rate fg" data-op="Anpub" size="10" value="0"${dis(can)}><label><input type="checkbox" data-op="Anlist"${dis(can)}> On the stock market</label>${fSel({ op: "Anpay" }, [["t", "Paid from treasury"], ["f", "Paid from fund"]], "t", can)}${fBtn({ op: "Ancreate" }, "Create corporation", can)}</div>
@@ -3040,7 +3044,7 @@ function coInfo(name) {
     own = `<div class="ast-sc"><table class="rec ast-t"><tr><th>Owner</th><th class="r">Shares</th><th class="r">Share</th><th class="r">Value</th><th class="r">Gain / loss</th></tr>${rows.join("")}</table></div>
     <p class="muted">Still available to nations: ${sh0f(asAvailP(c))} shares${GM ? ` (the Game Master can buy up to ${sh0f(asAvailGM(c))})` : ""}. ${c.soc ? "" : isStateSt(statusOf(c)) ? "State-owned: only the Game Master can sell shares to nations." : statusOf(c) === FM || statusOf(c) === SB ? "At most 49% can be bought by nations." : ""}</p>`;
   }
-  dialog(c.name, `<table class="rec ast-t"><tbody>${info}</tbody></table><h4 style="margin:10px 0 2px">Share owners</h4>${own}`, [["OK", null, 1]], true);
+  dialog(dn(c), `<table class="rec ast-t"><tbody>${info}</tbody></table><h4 style="margin:10px 0 2px">Share owners</h4>${own}`, [["OK", null, 1]], true);
 }
 document.addEventListener("click", e => { const t = e.target.closest && e.target.closest("[data-coinfo]"); if (t) { e.preventDefault(); coInfo(t.dataset.coinfo); return; } const h = e.target.closest && e.target.closest(".hc[data-hi]"); if (h && typeof heatList !== "undefined" && heatList[+h.dataset.hi] && !heatList[+h.dataset.hi].c.misc) coInfo(heatList[+h.dataset.hi].c.name); });
 const mktClosed = () => !!S.mclosed;
@@ -3096,6 +3100,8 @@ function asEvent(iso, op, d, val, a) {
       let n = inp && inp.value.trim() ? Math.floor(numIn(inp.value)) : rem; if (!(n > 0)) return false; n = Math.min(n, rem); if (!(n > 0)) return asMsg("The state holds no shares of it."), false;
       sw.liq = (sw.liq || 0) + n * asPps(c); asFlow(x, d.key, -n * asPps(c)); ((x.ast ||= {}).sold ||= {})[d.key] = asSold(c) + n; return true; }
     case "Asoclist": { const s = ((x.ast || {}).soc || []).find(r => r.id === d.id); if (!s) return false; s.list = !!val; return true; }
+    case "Asocname": { const s = ((x.ast || {}).soc || []).find(r => r.id === d.id); if (!s) return false; const nn = String(val == null ? "" : val).trim().slice(0, 80); if (!nn || nn === s.name) return false; if (asCat().some(c => c.name === nn)) return asMsg("That name is already in use."), false; const old = s.name; if (S.co && S.co[old]) { if (!GM) return asMsg("The Game Master has adjusted this corporation, so only the Game Master can rename it."), false; S.co[nn] = S.co[old]; delete S.co[old]; } s.name = nn; return true; }
+    case "Aal": { const c = asCat().find(r => !r.soc && r.iso === iso && r.name === d.id); if (!c) return false; const nn = String(val == null ? "" : val).trim().slice(0, 80), al = ((x.ast ||= {}).al ||= {}); if (!nn || nn === c.name) { if (!al[c.name]) return false; delete al[c.name]; return true; } if (nn === al[c.name]) return false; if (asCat().some(r => r !== c && (r.name === nn || dn(r) === nn))) return asMsg("That name is already in use."), false; al[c.name] = nn; return true; }
     case "Asocpub": { const s = ((x.ast || {}).soc || []).find(r => r.id === d.id); if (!s) return false; const p = Math.max(0, Math.floor(numIn(val) || 0)); s.pub = Math.min(p, Math.round(s.sh * 1e6)); return true; }
     case "Asocdel": { const s = ((x.ast || {}).soc || []).find(r => r.id === d.id); if (!s) return false; const c = asCat().find(c => c.soc && c.sid === d.id && c.iso === iso); if (c && asHeld(c) > 0) return asMsg("Other nations still hold shares in it."), false; x.ast.soc = x.ast.soc.filter(r => r !== s); return true; }
     case "Agmgo": { if (!GM) return false; const c = asCat().find(c => asKey(c) === qv("Agmk")), n = Math.floor(numIn(qv("Agmn"))); if (!c || !(n > 0)) return false; ((S.co ||= {})[c.name] ||= {}).sh = (asShRaw(c) + n) / 1e6; applyCo(c); return true; }
