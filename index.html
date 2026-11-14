@@ -1639,7 +1639,7 @@ const IBY = Object.fromEntries(IDX.map(i => [i[0], i]));
 /* approximate whole-market value, end of 1989, US$ bn */
 const MKT = { USA: 3500, JPN: 4260, GBR: 830, FRG: 365, FRA: 360, ITA: 140, CAN: 290, CHE: 210, NLD: 166, AUS: 107, HKG: 77, ESP: 112, SWE: 99,
   BEL: 65, TWN: 100, KOR: 140, SGP: 34, ZAF: 135, MYS: 40, DNK: 40, NOR: 22, FIN: 25, AUT: 11, MEX: 22, BRA: 16, IND: 25, THA: 12, GRC: 4,
-  PRT: 8, IRL: 9, NZL: 14, TUR: 6, ISR: 6, PHL: 11, IDN: 2, ARG: 3, CHL: 9, VEN: 2, COL: 1.4, PAK: 2 };
+  PRT: 8, IRL: 9, NZL: 14, TUR: 6, ISR: 6, PHL: 11, IDN: 2, ARG: 3, CHL: 9, VEN: 2, COL: 1.4, PAK: 2, CHN: 250 };
 const MISC_IDX = { KOR: ["KOSPI"], TWN: ["TAIEX"] };
 const D = "DJIA,SPX";
 const SMCO = {
@@ -1705,7 +1705,7 @@ const SMCO = {
 };
 /* ---------- more corporations, ownership status and share counts ---------- */
 const PT = "Publicly traded", ST = "State-controlled", MX = "Mixed (state stake)", FM = "Family / founder controlled", SB = "Subsidiary (majority-owned)", SP = "State-sponsored enterprise", STS = "State-controlled subsidiary";
-IDX.push(["IBOV", "Ibovespa", "BRA", null], ["IPC", "IPC (Mexico)", "MEX", null], ["SENSEX", "BSE Sensex", "IND", null], ["JSE", "JSE All Share", "ZAF", null], ["STI", "Straits Times Index", "SGP", null], ["KLSE", "KLSE Composite", "MYS", null], ["SET", "SET Index", "THA", null]);
+IDX.push(["IBOV", "Ibovespa", "BRA", null], ["IPC", "IPC (Mexico)", "MEX", null], ["SENSEX", "BSE Sensex", "IND", null], ["JSE", "JSE All Share", "ZAF", null], ["STI", "Straits Times Index", "SGP", null], ["KLSE", "KLSE Composite", "MYS", null], ["SET", "SET Index", "THA", null], ["SSE", "Shanghai Composite", "CHN", 100], ["SZSE", "Shenzhen Composite", "CHN", 100]);
 IDX.forEach(i => IBY[i[0]] = i);
 const AIR = "Services: Air transport", BNK = "Services: Banking", INS = "Services: Insurance", RET = "Services: Retail", MED = "Services: Media and information", FIN = "Services: Financial services", CON = "Services: Conglomerate", TEL = "Services: Telecommunications", TRD = "Services: Trading company", CNS = "Services: Construction", SHP = "Services: Shipping";
 /* [name, value (bn of the listing currency, or "$n" for US$ bn), indexes, sector, status] */
@@ -1765,6 +1765,41 @@ const SMX = {
     ["Keppel", "$1", "STI", "89", MX], ["Singapore Press Holdings", "$1", "STI", "49", PT]],
   MYS: [["Malayan Banking", "$3.5", "KLSE", BNK, MX], ["Telekom Malaysia", "$4", "KLSE", TEL, MX], ["Sime Darby", "$2.5", "KLSE", CON, MX], ["Genting", "$2.5", "KLSE", "Services: Leisure", FM], ["Public Bank", "$1", "KLSE", BNK, FM]],
   THA: [["Siam Cement", "$2", "SET", "25", MX], ["Bangkok Bank", "$2", "SET", BNK, PT], ["Siam Commercial Bank", "$1", "SET", BNK, MX]],
+  CHN: [["CNPC (China National Petroleum)", 150, "", "27", ST],
+    ["Sinopec (China Petrochemical)", 110, "", "27", ST],
+    ["CNOOC", 40, "", "27", ST],
+    ["Industrial and Commercial Bank of China", 120, "", BNK, ST],
+    ["Bank of China", 90, "", BNK, ST],
+    ["China Construction Bank", 80, "", BNK, ST],
+    ["Agricultural Bank of China", 80, "", BNK, ST],
+    ["China Telecom (MPT)", 100, "", TEL, ST],
+    ["Baosteel", 60, "", "72", ST],
+    ["Anshan Iron & Steel", 25, "", "72", ST],
+    ["CITIC Group", 25, "", CON, ST],
+    ["FAW (First Automobile Works)", 15, "", "87", ST],
+    ["Dongfeng Motor", 14, "", "87", ST],
+    ["Shanghai Automotive (SAIC)", 12, "", "87", ST],
+    ["COSCO", 15, "", SHP, ST],
+    ["Air China", 10, "", AIR, ST],
+    ["China Eastern Airlines", 6, "", AIR, ST],
+    ["China Southern Airlines", 5, "", AIR, ST],
+    ["AVIC (Aviation Industries of China)", 18, "", "88", ST],
+    ["Norinco", 12, "", "93", ST],
+    ["Sinochem", 12, "", TRD, ST],
+    ["COFCO", 10, "", TRD, ST],
+    ["Huaneng Power", 8, "", "27", ST],
+    ["Changhong Electric", 1.2, "", "85", ST],
+    ["Haier (Qingdao Refrigerator)", 0.8, "", "85", MX],
+    ["Tsingtao Brewery", 1.5, "", "22", ST],
+    ["Shanghai Petrochemical", 8, "SSE", "29", MX],
+    ["Shanghai Vacuum Electron", 0.06, "SSE", "85", MX],
+    ["Shanghai Feilo Acoustics", 0.05, "SSE", "85", MX],
+    ["Shanghai Yanzhong Industrial", 0.04, "SSE", "84", MX],
+    ["Shanghai Erfangji (Second Textile Machinery)", 0.05, "SSE", "84", MX],
+    ["Shanghai Fenghua Pen", 0.03, "SSE", "96", MX],
+    ["Shenzhen Development Bank", 1.0, "SZSE", BNK, MX],
+    ["China Vanke", 0.25, "SZSE", "Services: Real estate", PT],
+    ["China Southern Glass (CSG)", 0.4, "SZSE", "70", MX]],
   ISR: [["Teva", "$0.5", "", "30", PT], ["Bank Leumi", "$0.8", "", BNK, ST], ["Elbit Systems", "$0.2", "", "93", PT], ["Koor Industries", "$0.4", "", CON, PT]]
 };
 /* ownership status of the companies listed earlier; anything not listed here is publicly traded */
