@@ -2114,7 +2114,8 @@ const wc = { iso: "USA" };
 const nomAt = (n, y) => y >= BASE ? nomLevel(n.iso, y) : n.gdp * Math.pow((NOM85[n.iso] || n.gdp * 0.65) / n.gdp, (BASE - y) / 5);
 const infAt = (n, y) => y >= BASE ? rateOf(n.iso, y) : (INFH[n.iso] ? INFH[n.iso][y - 1985] : Math.max(0, n.infl * (0.7 + (hash(n.iso + y) % 61) / 100)));
 const realAt = (n, y) => nomAt(n, y) / (deflOf(n, y) / 100);
-const tbAt = (n, y) => { const p = TBP[n.iso] || 0, f = y >= BASE ? 1 : 1 + ((hash(n.iso + "t" + y) % 41) - 20) / 50; return p * f / 100 * nomAt(n, y); };
+const tbAdj = (iso, y) => { const m = S.tba && S.tba[iso]; if (!m) return 0; let v = 0, b = -1; for (const k in m) if (+k <= y && +k > b) { b = +k; v = +m[k] || 0; } return v; };   /* Game Master trade-balance shifts, in points of GDP, from the year given onward */
+const tbAt = (n, y) => { const p = (TBP[n.iso] || 0) + tbAdj(n.iso, y), f = y >= BASE ? 1 : 1 + ((hash(n.iso + "t" + y) % 41) - 20) / 50; return p * f / 100 * nomAt(n, y); };
 const popAt = (n, y) => y >= BASE ? popLevel(n.iso, y) : n.pop * Math.pow(1 + n.popg / 100, y - BASE);
 const stockAt = (iso, y) => { if (!COMP) buildComp(); const rs = COMP.filter(c => c.iso === iso); return rs.length ? rs.reduce((t, c) => t + c.cap0 * gf(c, y) / CBY[c.ccy].fx, 0) / 1e9 : null; };
 function renderWelcome() {
