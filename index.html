@@ -420,6 +420,8 @@ a.colink { color: inherit; text-decoration: underline dotted; cursor: pointer; }
 .gh { display: block; padding: 3px 8px; background: var(--face); box-shadow: var(--raised); white-space: nowrap; }
 .pill b.t-g, .pill b.t-o, .pill b.t-r { font-weight: bold; }
 td input.rate.nm { width: 190px; text-align: left; }
+
+input::placeholder, textarea::placeholder { color: #8a8a8a; opacity: 1; font-style: normal; }
 </style>
 
 <div class="cwin" id="cwin" role="dialog" aria-label="Chess" hidden>
@@ -1135,15 +1137,32 @@ $("adv").onclick = () => act("advance");
 $("year").onclick = () => act("undo");
 $("year").onkeydown = e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); act("undo"); } };
 
+/* Every advance stores a full copy of the register as it stood in the year being left; undoing restores that copy exactly, so nothing from the settlement or from later changes is left behind */
+const SNAPX = new Set(["snap", "accts", "pl"]);
+function snapTake(y) { const o = {}; for (const k in S) if (!SNAPX.has(k) && S[k] !== undefined) o[k] = S[k]; (S.snap ||= {})[y] = JSON.stringify(o); }
+function snapRestore(y) {
+  const raw = S.snap && S.snap[y]; if (!raw) return false;
+  const o = JSON.parse(raw);
+  for (const k of Object.keys(S)) if (!SNAPX.has(k) && !(k in o)) delete S[k];
+  for (const k in o) S[k] = o[k];
+  delete S.snap[y]; if (!Object.keys(S.snap).length) delete S.snap;
+  try { afterLoad(); } catch (_) {} fxClear(); FLOWC = null;
+  return true;
+}
+/* years advanced before snapshots existed: undo the recorded settlement as closely as the log allows */
+function legacyUndo() {
+  dropYear(S.year); S.year--;
+  for (const k in S.nx) { const x = S.nx[k], l = x.log || [], i = l.findIndex(e => e.y === S.year && e.net !== undefined); if (i >= 0) { const e = l[i]; x.tadj = (x.tadj || 0) - (e.t || 0); x.gadj = (x.gadj || 0) - (e.d || 0); l.splice(i, 1); } }
+}
 function dropYear(y) {
   delete S.rates[y]; if (S.growth) delete S.growth[y]; if (S.popg) delete S.popg[y];
   if (S.ov) for (const k of Object.values(S.ov)) for (const m of Object.values(k)) delete m[y];
 }
 function act(a) {
   if ((a === "advance" || a === "undo" || a === "reset") && CL && !GM) { dialog("Game Master only", "<p>Only the Game Master can advance, undo or reset the year.</p>", [["OK", null, 1]]); return; }
-  if (a === "advance") dialog("Advance Year", `<p>Advance the register to <b>${S.year + 1}</b>?</p><p>Each nation's ${S.year} inflation, growth and population growth rates carry over as a starting point; only the Game Master can change them afterwards. PPP deflators and exchange rates update from those rates.</p><p>Each nation with revenue or spending filed settles its net income for ${S.year}: a surplus goes to its treasury or pays down debt, and a deficit comes out of its treasury or becomes new debt, following the rules in its Debt tab.</p>`, [["Yes", () => { settleYear(); S.year++; save(); render(); }, 1], ["No"]]);
-  if (a === "undo") { if (S.year > BASE) dialog("Undo Advance Year", `<p>Go back to <b>${S.year - 1}</b>? Changes the Game Master made for ${S.year} will be discarded.</p>`, [["Yes", () => { dropYear(S.year); S.year--; save(); render(); }, 1], ["No"]]); }
-  if (a === "reset") dialog("Reset to 1990", "<p>Return to the 1990 base year and discard all later changes? Changes to the 1990 figures and to corporations are kept.</p>", [["Yes", () => { for (let y = S.year; y > BASE; y--) dropYear(y); S.year = BASE; for (const k in S.nx) { const x = S.nx[k]; delete x.tadj; delete x.gadj; delete x.log; (x.dt || []).forEach(d => delete d.adj); } save(); render(); }, 1], ["No"]]);
+  if (a === "advance") dialog("Advance Year", `<p>Advance the register to <b>${S.year + 1}</b>?</p><p>Each nation's ${S.year} inflation, growth and population growth rates carry over as a starting point; only the Game Master can change them afterwards. PPP deflators and exchange rates update from those rates.</p><p>Each nation with revenue or spending filed settles its net income for ${S.year}: a surplus goes to its treasury or pays down debt, and a deficit comes out of its treasury or becomes new debt, following the rules in its Debt tab.</p>`, [["Yes", () => { snapTake(S.year); settleYear(); S.year++; save(); render(); }, 1], ["No"]]);
+  if (a === "undo") { if (S.year > BASE) dialog("Undo Advance Year", `<p>Go back to <b>${S.year - 1}</b>? Everything returns exactly to how ${S.year - 1} stood when it was advanced: all changes made since, including settlements, debt, treasuries, trades and what players did in ${S.year}, are discarded.</p>`, [["Yes", () => { if (!snapRestore(S.year - 1)) legacyUndo(); save(); render(); }, 1], ["No"]]); }
+  if (a === "reset") dialog("Reset to 1990", "<p>Return to the 1990 base year and discard all later changes? Changes to the 1990 figures and to corporations are kept.</p>", [["Yes", () => { let old = false; while (S.year > BASE) { if (!snapRestore(S.year - 1)) { legacyUndo(); old = true; } } if (old) for (const k in S.nx) { const x = S.nx[k]; delete x.tadj; delete x.gadj; delete x.log; (x.dt || []).forEach(d => delete d.adj); } save(); render(); }, 1], ["No"]]);
   if (a === "zoomc") { let c = false; try { c = localStorage.getItem(KEY + ".compact") !== "1"; localStorage.setItem(KEY + ".compact", c ? "1" : "0"); } catch (e) {} applyCompact(c); return; }
   if (a.startsWith("tab-")) setTab(a.slice(4));  if (a === "fixed") dialog("Fixed Rates", FIXED_HTML, [["OK", null, 1]], true);
   if (a === "gdp") dialog("Nominal vs Real vs PPP", GDP_HTML, [["OK", null, 1]], true);
@@ -3057,7 +3076,7 @@ function mktBar() {
   el.hidden = false;
   el.innerHTML = c ? `<b>Market closed.</b> <span>Nations cannot buy or sell shares until the Game Master reopens it.</span>${GM ? ` <button class="btn" type="button" data-mkt="open">Open the market</button>` : ""}` : `<span>Market open.</span> <button class="btn" type="button" data-mkt="close">Close the market</button>`;
 }
-document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-mkt]"); if (!b || !GM) return; S.mclosed = b.dataset.mkt === "close"; save(); render(); });
+document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-mkt]"); if (!b || !GM || USER.role !== "gm") return; S.mclosed = b.dataset.mkt === "close"; save(); render(); });
 function asMsg(t) { dialog("Assets", "<p>" + esc(t) + "</p>", [["OK", () => {}]]); }
 function asEvent(iso, op, d, val, a) {
   if (mktBlocked() && (op === "Abuy" || op === "Asell" || op === "Apriv")) return asMsg("The stock market is closed by the Game Master. Trading reopens when they open it."), false;
@@ -3336,6 +3355,23 @@ const FILES_HTML = `<p>Double-click a nation (or select it and press <b>Open Nat
     tip.style.left = Math.min(e.clientX + 14, innerWidth - tip.offsetWidth - 4) + "px"; tip.style.top = (e.clientY + 16) + "px";
   });
 }
+
+/* empty text boxes always show light gray guidance text saying what to type */
+const PH = { Aamt: "Amount in US$", Asn: "Shares to sell", Abuyn: "Number of shares", Aprn: "Shares to sell", Anname: "Corporation name", Anv: "Starting capital in US$", Ansh: "Shares issued", Anpub: "Shares offered to investors", Agmn: "New shares to issue", Aoff: "Shares offered (0 = closed)", Asocpub: "Shares offered (0 = closed)", Asocname: "Corporation name", Aal: "Display name", Arv: "% of this line to the fund" };
+function phText(el) {
+  const op = el.dataset && el.dataset.op; if (op && PH[op]) return PH[op];
+  const al = el.getAttribute("aria-label") || el.title; if (al) return al;
+  const lab = el.closest("label"); if (lab) { const s = [...lab.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent).join(" ").replace(/:\s*$/, "").trim(); if (s) return s; }
+  let s = el.previousElementSibling; while (s && s.tagName !== "LABEL") s = s.previousElementSibling;
+  if (s) { const x = s.textContent.replace(/:\s*$/, "").trim(); if (x) return x; }
+  const td = el.closest("td"); if (td) { const tb = td.closest("table"), th = tb && tb.rows[0] && tb.rows[0].cells[td.cellIndex]; if (th && th.textContent.trim()) return th.textContent.trim(); }
+  const fs = el.closest("fieldset"), lg = fs && fs.querySelector("legend"); if (lg) return lg.textContent.trim();
+  return "Type here";
+}
+function fillPh(root) {
+  (root || document).querySelectorAll('input:not([type]), input[type="text"], input[type="number"], input[type="search"], input[type="email"], input[type="password"], textarea').forEach(el => { if (!el.placeholder && !el.readOnly) el.placeholder = phText(el); });
+}
+{ let pend = 0; const run = () => { pend = 0; fillPh(); }; fillPh(); new MutationObserver(() => { if (!pend) pend = requestAnimationFrame(run); }).observe(document.body, { childList: true, subtree: true }); }
 /* ---------- Optional cloud sync (Supabase) ----------
    Off unless config.js gives a project URL and key. Static files (page, song, background) come from the web host.
    Only small editable state is stored: one row per S[top][sub] entry, so a change sends and receives just that row. */
