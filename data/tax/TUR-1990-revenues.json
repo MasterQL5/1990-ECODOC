@@ -1,0 +1,90 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1990,
+ "nations": {
+  "TUR": {
+   "scope": "Turkey 1990 player data sheet (SBB, IMF, OECD, TCMB, World Bank): central budget $25.08B revenue, $29.54B expenditure, at ~2,609 TL per US$. Income/profit tax split and the unclassified spending residual from historical 1990 consolidated-budget data.",
+   "mechs": [
+    {
+     "kind": "pit",
+     "name": "Income tax (direct taxes on income)",
+     "amt": 6936660000.000001,
+     "sig": 0.85,
+     "eti": 0.35,
+     "bk": [
+      [
+       0,
+       0.25
+      ],
+      [
+       2876,
+       0.3
+      ],
+      [
+       6710,
+       0.35
+      ],
+      [
+       13420,
+       0.4
+      ],
+      [
+       26840,
+       0.45
+      ],
+      [
+       53680,
+       0.5
+      ]
+     ],
+     "std": 0,
+     "item": 0.03,
+     "cap": 1500,
+     "cr": 20,
+     "note": "Direct taxes $8.66B (22.60tn TL, OECD); personal share 80% from historical 1990 income vs corporate tax. 25-50% progressive brackets (GIB)."
+    },
+    {
+     "kind": "cit",
+     "name": "Corporate tax",
+     "amt": 1723340000,
+     "rate": 0.46,
+     "bs": 0.05,
+     "allow": 0.3,
+     "shift": 0.6,
+     "note": "Direct taxes $8.66B, corporate share 20% (historical). 46% statutory rate, 49.2% with surcharges (OECD)."
+    },
+    {
+     "kind": "cons",
+     "name": "Domestic goods and services tax (KDV / VAT)",
+     "amt": 7400000000,
+     "rate": 0.1,
+     "gap": 0.15,
+     "el": 0.25,
+     "exempt": 0,
+     "bs": 0.55,
+     "note": "$7.40B (19.30tn TL, OECD). 10% standard rate, 1-5% reduced, 15% luxury (Official Gazette)."
+    },
+    {
+     "kind": "tariff",
+     "name": "Foreign trade taxes and customs",
+     "amt": 3220000000,
+     "avg": 0.138,
+     "el": 2.5,
+     "note": "$3.22B (8.40tn TL, OECD)."
+    },
+    {
+     "kind": "flat",
+     "name": "Other taxes and levies",
+     "amt": 1370000000,
+     "note": "$1.37B (3.58tn TL, OECD)."
+    },
+    {
+     "kind": "flat",
+     "name": "Non-tax revenue and funds",
+     "amt": 4430000000,
+     "note": "$4.43B (11.55tn TL, TCMB)."
+    }
+   ]
+  }
+ }
+}

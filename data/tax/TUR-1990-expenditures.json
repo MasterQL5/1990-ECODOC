@@ -1,0 +1,47 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1990,
+ "nations": {
+  "TUR": {
+   "scope": "Turkey 1990 player data sheet (SBB, IMF, OECD, TCMB, World Bank): central budget $25.08B revenue, $29.54B expenditure, at ~2,609 TL per US$. Income/profit tax split and the unclassified spending residual from historical 1990 consolidated-budget data.",
+   "exps": [
+    {
+     "name": "Domestic and external debt interest",
+     "amt": 4910000000,
+     "cat": "Net interest",
+     "note": "$4.91B (12.80tn TL, IMF). The game works out debt interest itself, so this line is skipped on import."
+    },
+    {
+     "name": "Personnel expenditures",
+     "amt": 10430000000,
+     "cat": "Personnel",
+     "note": "$10.43B (27.20tn TL, IMF); includes the NATO-definition defense budget of $5.315B."
+    },
+    {
+     "name": "Current goods and services",
+     "amt": 3990000000,
+     "cat": "Goods and services",
+     "note": "$3.99B (10.40tn TL, IMF)."
+    },
+    {
+     "name": "Capital and public investment",
+     "amt": 3890000000,
+     "cat": "Investment",
+     "note": "$3.89B (10.16tn TL, IMF)."
+    },
+    {
+     "name": "Subsidies and transfers to SEEs and agriculture",
+     "amt": 4030000000.0000005,
+     "cat": "Subsidies",
+     "note": "$4.03B (10.50tn TL, IMF): DFIF price supports, SEE duty losses, export rebates."
+    },
+    {
+     "name": "Other transfers (residual to doc total)",
+     "amt": 2290000000,
+     "cat": "Transfers",
+     "note": "Doc total $29.54B less listed lines; historical 1990 other transfers to funds, local governments and SEEs."
+    }
+   ]
+  }
+ }
+}
