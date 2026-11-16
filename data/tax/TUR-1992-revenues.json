@@ -7,8 +7,8 @@
    "mechs": [
     {
      "kind": "pit",
-     "name": "Income tax (wage withholding, cadastre-matched)",
-     "amt": 14468904139,
+     "name": "Income tax (wage withholding and declared income)",
+     "amt": 15297033419,
      "sig": 0.85,
      "eti": 0.35,
      "bk": [
@@ -41,33 +41,33 @@
      "item": 0.03,
      "cap": 1500,
      "cr": 20,
-     "note": "Phase III-IV 1992 table: industrial turnover, payroll and VAT gains $43.60B, split by the 1990 sheet mix (direct taxes 41.9%). PIT brackets 25-50% kept, cadastre matching applied."
+     "note": "Phase III-IV 1992 table: industrial turnover, payroll and VAT gains $43.60B, split by the 1990 sheet mix (direct taxes 41.9%). Historical 25-50% scale."
     },
     {
      "kind": "cit",
-     "name": "Corporate tax (46% + 20% alternative minimum)",
-     "amt": 3617226035,
+     "name": "Corporate tax",
+     "amt": 3824258355,
      "rate": 0.46,
      "bs": 0.0651,
      "allow": 0.3,
      "shift": 0.6,
-     "note": "CIT 46% base with a 20% Alternative Minimum Tax (tax-changes screenshot)."
+     "note": "Historical 46% statutory rate."
     },
     {
      "kind": "cons",
-     "name": "Value-added tax (12% standard, 20% luxury, 4% reduced)",
-     "amt": 15453065877,
-     "rate": 0.12,
+     "name": "Value-added tax (KDV)",
+     "amt": 16337523759,
+     "rate": 0.1,
      "gap": 0.15,
      "el": 0.25,
      "exempt": 0,
      "bs": 0.2,
-     "note": "VAT raised from 10% to 12%, luxury 15% to 20%, reduced rates consolidated at 4%. Share 35.8% of tax per 1990 sheet."
+     "note": "Historical 10% standard rate (1-5% reduced, 15% luxury). Share 35.8% of tax per 1990 sheet."
     },
     {
      "kind": "cons",
      "name": "Excise and other taxes on goods and services",
-     "amt": 2848889240,
+     "amt": 3011945721,
      "rate": 0.2,
      "gap": 0.1,
      "el": 0.15,
@@ -78,7 +78,7 @@
     {
      "kind": "tariff",
      "name": "Foreign trade taxes (customs)",
-     "amt": 6733738203,
+     "amt": 7119144431,
      "avg": 0.138,
      "el": 2.5,
      "note": "Customs and foreign trade, 15.6% of tax per 1990 sheet ($3.22B)."
@@ -86,23 +86,8 @@
     {
      "kind": "flat",
      "name": "Non-tax revenue, EBF consolidation and concessions",
-     "amt": 9260091960,
+     "amt": 9790094316,
      "note": "Non-tax and extra-budgetary fund receipts (1990 sheet $4.43B) scaled into the 1992 total."
-    },
-    {
-     "kind": "asset",
-     "name": "Idle land and mining tax and lease fees",
-     "amt": 2224458688,
-     "rate": 0.02,
-     "el": 0.3,
-     "bs": 0.05,
-     "note": "1992 table: 4-10% idle arable/mining tax and concession fees, $1.85B."
-    },
-    {
-     "kind": "flat",
-     "name": "Accelerated depreciation and 150% R&D credit",
-     "amt": -1082169092,
-     "note": "1992 table: 2-year machinery write-off and automation tax credit, -$0.90B."
     }
    ]
   }
