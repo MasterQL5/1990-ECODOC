@@ -370,6 +370,19 @@ tbody tr.sel td .t-g { color: #7dff7d; } tbody tr.sel td .t-o { color: #ffbf5a; 
 .fgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 8px; }
 .fgrid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
 @media (max-width: 800px) { .fgrid2, .nwl { grid-template-columns: 1fr !important; } }
+/* debt tab: keep tables, inputs and notes inside their panels */
+.awin .fgrid2 { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); }
+.awin .fgrid2 table.rec { table-layout: auto; font-size: 12px; }
+.awin .fgrid2 table.rec th { white-space: normal; padding: 2px 8px 2px 0; vertical-align: middle; }
+.awin .fgrid2 table.rec td { white-space: normal; overflow-wrap: anywhere; font-weight: normal; vertical-align: middle; padding: 3px 4px 3px 0; }
+.awin .fgrid2 table.rec td.r { white-space: nowrap; overflow-wrap: normal; }
+.awin .fgrid2 table.rec td .muted, .awin .fgrid2 table.rec td.muted { font-size: 11px; font-weight: normal; line-height: 1.3; }
+.awin .fgrid2 input.rate.big { width: 100%; max-width: 150px; min-width: 90px; }
+.awin .fgrid2 input.rate.bn { width: 100%; max-width: 120px; min-width: 70px; }
+.awin .fgrid2 select.rate { width: 100%; max-width: 160px; min-width: 100px; }
+.awin .fgrid2 .frow > * { min-width: 0; max-width: 100%; }
+.awin .fgrid2 .frow input.rate, .awin .fgrid2 .frow select.rate { flex: 0 1 auto; }
+.awin .fgrid2 p.muted { overflow-wrap: anywhere; line-height: 1.4; }
 .nwl { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; } .nwl .chartbox { height: 224px; padding: 2px; } .nwl .chartbox svg { height: 100%; width: 100%; }
 .fgrid > fieldset, .fgrid2 > fieldset { min-width: 0; }
 .mktbar { display: flex; align-items: center; gap: 12px; padding: 6px 10px; margin: 0 0 6px; background: #ffe9a8; border: 2px solid #a07000; }
@@ -655,7 +668,6 @@ const CUR = [
   ["USD","US Dollar","USA",1,"Reserve currency",1],
   ["JPY","Japanese Yen","JPN",144.79,"Floating",144.79],
   ["DEM","Deutsche Mark","FRG",1.616,"ERM",1.616],
-  ["DDM","East German Mark","GDR",1.616,"Official 1:1 with DM",1.616],
   ["FRF","French Franc","FRA",5.446,"ERM",5.446],
   ["GBP","Pound Sterling","GBR",0.5633,"Floating",0.5633],
   ["ITL","Italian Lira","ITA",1198.1,"ERM",1198.1],
@@ -731,14 +743,14 @@ const CUR = [
 
 /* Nations: iso, name, currency, 1990 nominal GDP (US$ bn), 1990 inflation (%) */
 const NAT = [
-  ["USA","United States","USD",5963,5.4],["JPN","Japan","JPY",3133,3.1],["FRG","West Germany","DEM",1550,2.7],
+  ["USA","United States","USD",5963,5.4],["JPN","Japan","JPY",3133,3.1],["FRG","Germany","DEM",1710,2.7],
   ["FRA","France","FRF",1270,3.4],["ITA","Italy","ITL",1140,6.5],["GBR","United Kingdom","GBP",1010,9.5],
   ["RUS","Russia","SUR",517.01,6.0],["UKR","Ukraine","UAK",81.39,7],["BLR","Belarus","BYR",17.39,6],["KAZ","Kazakhstan","KZT",26.93,6],["UZB","Uzbekistan","UZS",13.36,5],["GEO","Georgia","GEK",7.5,6],["AZE","Azerbaijan","AZM",8.88,6],["LTU","Lithuania","LTL",9.0,8],["MDA","Moldova","MDL",3.59,6],["LVA","Latvia","LVL",7.5,8],["ARM","Armenia","AMD",2.26,6],["KGZ","Kyrgyzstan","KGS",2.66,5],["TJK","Tajikistan","TJR",2.7,5],["TKM","Turkmenistan","TMM",3.19,5],["EST","Estonia","EEK",4.6,8],["CAN","Canada","CAD",580,4.8],["ESP","Spain","ESP",520,6.7],
   ["BRA","Brazil","BRC",460,1795],["CHN","China","CNY",390,3.1],["IND","India","INR",320,9.0],
   ["AUS","Australia","AUD",310,7.3],["NLD","Netherlands","NLG",280,2.5],["MEX","Mexico","MXP",262,26.7],
   ["KOR","South Korea","KRW",264,8.6],["CHE","Switzerland","CHF",230,5.4],["SWE","Sweden","SEK",240,10.4],
   ["BEL","Belgium","BEF",200,3.5],["TWN","Taiwan (Republic of China)","TWD",166,4.1],["AUT","Austria","ATS",160,3.3],
-  ["GDR","East Germany","DDM",160,1.0],["TUR","Turkey","TRL",150,60.3],["ARG","Argentina","ARA",141,1344],
+  ["TUR","Turkey","TRL",150,60.3],["ARG","Argentina","ARA",141,1344],
   ["DNK","Denmark","DKK",130,2.7],["YUG","Yugoslavia","YUD",120,580],["SAU","Saudi Arabia","SAR",117,2.1],
   ["IDN","Indonesia","IDR",107,7.5],["NOR","Norway","NOK",105,4.1],["FIN","Finland","FIM",134,6.1],
   ["ZAF","South Africa","ZAR",112,14.3],["IRN","Iran","IRR",95,9.0],["THA","Thailand","THB",85,5.9],
@@ -756,14 +768,14 @@ const NAT = [
 /* 1990 price level relative to the US (US = 1.00): what a basket costs at market exchange rates. Rough estimates of OECD / World Bank style
    comparisons, from memory. PPP GDP = nominal GDP divided by this. */
 const PLI = { USA: 1, JPN: 1.28, FRG: 1.11, FRA: 1.14, ITA: 1.06, GBR: 1.06, RUS: 0.30, UKR: 0.3, BLR: 0.32, KAZ: 0.28, UZB: 0.22, GEO: 0.28, AZE: 0.26, LTU: 0.35, MDA: 0.26, LVA: 0.36, ARM: 0.26, KGZ: 0.22, TJK: 0.2, TKM: 0.24, EST: 0.38, CAN: 0.98, ESP: 0.87, BRA: 0.46, CHN: 0.35, IND: 0.32, AUS: 1.05, NLD: 1.17, MEX: 0.37,
-  KOR: 0.82, CHE: 1.45, SWE: 1.35, BEL: 1.18, TWN: 0.70, AUT: 1.25, GDR: 0.55, TUR: 0.45, ARG: 0.60, DNK: 1.40, YUG: 0.55, SAU: 0.85, IDN: 0.30, NOR: 1.38, FIN: 1.45,
+  KOR: 0.82, CHE: 1.45, SWE: 1.35, BEL: 1.18, TWN: 0.70, AUT: 1.25, TUR: 0.45, ARG: 0.60, DNK: 1.40, YUG: 0.55, SAU: 0.85, IDN: 0.30, NOR: 1.38, FIN: 1.45,
   ZAF: 0.55, IRN: 0.40, THA: 0.45, GRC: 0.82, PRT: 0.67, POL: 0.30, IRQ: 0.50, VEN: 0.60, IRL: 1.05, PHL: 0.38, MYS: 0.48, EGY: 0.28, NZL: 1.00, COL: 0.38, PAK: 0.28,
   CSK: 0.38, ROU: 0.25, SGP: 0.88, NGA: 0.30, ARE: 0.95, HUN: 0.45, CHL: 0.45, MAR: 0.40, BGR: 0.30, ISR: 0.85, DZA: 0.40, KWT: 0.80, HKG: 0.80, COD: 0.25, SYR: 0.30, VNM: 0.18 };
 /* Population 1990 (millions) and annual growth (%), approximate */
 const POP = {
-  USA:[249.6,0.9],JPN:[123.5,0.4],FRG:[63.3,0.5],FRA:[56.7,0.5],ITA:[56.7,0.2],GBR:[57.2,0.3],RUS:[148.3,0.6],UKR:[51.9,0.3],BLR:[10.2,0.4],KAZ:[16.7,0.9],UZB:[20.5,2.5],GEO:[5.5,0.8],AZE:[7.2,1.4],LTU:[3.7,0.8],MDA:[4.4,0.6],LVA:[2.7,0.1],ARM:[3.3,1.2],KGZ:[4.4,1.8],TJK:[5.3,3.0],TKM:[3.7,2.7],EST:[1.6,0.3],CAN:[27.7,1.3],
+  USA:[249.6,0.9],JPN:[123.5,0.4],FRG:[79.4,0.3],FRA:[56.7,0.5],ITA:[56.7,0.2],GBR:[57.2,0.3],RUS:[148.3,0.6],UKR:[51.9,0.3],BLR:[10.2,0.4],KAZ:[16.7,0.9],UZB:[20.5,2.5],GEO:[5.5,0.8],AZE:[7.2,1.4],LTU:[3.7,0.8],MDA:[4.4,0.6],LVA:[2.7,0.1],ARM:[3.3,1.2],KGZ:[4.4,1.8],TJK:[5.3,3.0],TKM:[3.7,2.7],EST:[1.6,0.3],CAN:[27.7,1.3],
   ESP:[38.8,0.2],BRA:[150.4,1.8],CHN:[1135.2,1.5],IND:[873.3,2.1],AUS:[17.1,1.4],NLD:[14.9,0.7],MEX:[83.2,2.1],KOR:[42.9,1.0],
-  CHE:[6.7,0.9],SWE:[8.6,0.5],BEL:[10.0,0.2],TWN:[20.4,1.0],AUT:[7.7,0.5],GDR:[16.1,-0.5],TUR:[56.1,2.1],ARG:[32.6,1.3],
+  CHE:[6.7,0.9],SWE:[8.6,0.5],BEL:[10.0,0.2],TWN:[20.4,1.0],AUT:[7.7,0.5],TUR:[56.1,2.1],ARG:[32.6,1.3],
   DNK:[5.1,0.1],YUG:[23.8,0.5],SAU:[16.1,3.0],IDN:[181.4,1.7],NOR:[4.2,0.4],FIN:[5.0,0.4],ZAF:[36.8,2.4],IRN:[56.4,3.0],
   THA:[56.6,1.5],GRC:[10.2,0.4],PRT:[10.0,0.1],POL:[38.1,0.3],IRQ:[18.1,3.0],VEN:[19.8,2.4],IRL:[3.5,0.1],PHL:[61.0,2.3],
   MYS:[17.8,2.4],EGY:[53.2,2.4],NZL:[3.4,0.7],COL:[33.2,1.9],PKR:[112.4,2.7],PAK:[112.4,2.7],CSK:[15.6,0.1],ROU:[23.2,0.0],
@@ -821,7 +833,7 @@ function rateOf(iso, y) {
    Nominal GDP   = moves with economic growth only (US$), never with inflation.
    Real GDP      = nominal GDP / GDP deflator x 100. */
 /* real GDP growth, % a year. 1990 values are rough historical figures; later years start from the 1990 rate (negative or extreme ones eased to 0 to 6) and can be edited. */
-const GR90 = {USA:1.9,JPN:4.9,FRG:5.3,FRA:2.9,ITA:2.0,GBR:0.7,RUS:-1.5,UKR:-3.4,BLR:-3.0,KAZ:-0.4,UZB:1.6,GEO:-12.0,AZE:-11.0,LTU:-5.0,MDA:-3.0,LVA:-3.0,ARM:-7.0,KGZ:3.0,TJK:-1.6,TKM:2.0,EST:-1.5,CAN:-0.2,ESP:3.8,BRA:-4.3,CHN:3.9,IND:5.9,AUS:1.4,NLD:4.1,MEX:5.1,KOR:9.8,CHE:3.7,SWE:1.4,BEL:3.1,TWN:5.4,AUT:4.6,GDR:-8.0,TUR:9.3,ARG:-2.0,DNK:1.0,YUG:-7.9,SAU:8.2,IDN:9.0,NOR:2.0,FIN:0.0,ZAF:0.5,IRN:11.0,THA:11.2,GRC:0.0,PRT:4.0,POL:-7.0,IRQ:-10.0,VEN:6.5,IRL:8.5,PHL:3.0,MYS:9.0,EGY:5.7,NZL:0.0,COL:4.3,PAK:4.5,CSK:-0.4,ROU:-5.6,SGP:9.2,NGA:8.2,ARE:3.0,HUN:-3.5,CHL:3.3,MAR:4.0,BGR:-9.1,ISR:5.0,DZA:0.8,KWT:-40.0,HKG:3.4,COD:-1.6,SYR:7.0,VNM:5.1};
+const GR90 = {USA:1.9,JPN:4.9,FRG:5.3,FRA:2.9,ITA:2.0,GBR:0.7,RUS:-1.5,UKR:-3.4,BLR:-3.0,KAZ:-0.4,UZB:1.6,GEO:-12.0,AZE:-11.0,LTU:-5.0,MDA:-3.0,LVA:-3.0,ARM:-7.0,KGZ:3.0,TJK:-1.6,TKM:2.0,EST:-1.5,CAN:-0.2,ESP:3.8,BRA:-4.3,CHN:3.9,IND:5.9,AUS:1.4,NLD:4.1,MEX:5.1,KOR:9.8,CHE:3.7,SWE:1.4,BEL:3.1,TWN:5.4,AUT:4.6,TUR:9.3,ARG:-2.0,DNK:1.0,YUG:-7.9,SAU:8.2,IDN:9.0,NOR:2.0,FIN:0.0,ZAF:0.5,IRN:11.0,THA:11.2,GRC:0.0,PRT:4.0,POL:-7.0,IRQ:-10.0,VEN:6.5,IRL:8.5,PHL:3.0,MYS:9.0,EGY:5.7,NZL:0.0,COL:4.3,PAK:4.5,CSK:-0.4,ROU:-5.6,SGP:9.2,NGA:8.2,ARE:3.0,HUN:-3.5,CHL:3.3,MAR:4.0,BGR:-9.1,ISR:5.0,DZA:0.8,KWT:-40.0,HKG:3.4,COD:-1.6,SYR:7.0,VNM:5.1};
 const growthOf = (iso, y) => {
   const r = S.growth && S.growth[y];
   if (y < BASE) return GR90[iso] ?? 2;
@@ -1732,7 +1744,8 @@ IDX.forEach(i => IBY[i[0]] = i);
 const AIR = "Services: Air transport", BNK = "Services: Banking", INS = "Services: Insurance", RET = "Services: Retail", MED = "Services: Media and information", FIN = "Services: Financial services", CON = "Services: Conglomerate", TEL = "Services: Telecommunications", TRD = "Services: Trading company", CNS = "Services: Construction", SHP = "Services: Shipping";
 /* [name, value (bn of the listing currency, or "$n" for US$ bn), indexes, sector, status] */
 const SMX = {
-  USA: [["Lockheed", 3.0, "SPX", "88", PT], ["Martin Marietta", 2.8, "SPX", "88", PT], ["General Dynamics", 3.0, "SPX", "93", PT], ["McDonnell Douglas", 3.5, "SPX", "88", PT],
+  USA: [["Cisco Systems", 1.5, "COMP", "85"], ["Applied Materials", 1.1, "COMP", "84"], ["Qualcomm", 0.4, "COMP", "85"], ["EMC", 1.3, "COMP", "84"], ["3Com", 1.0, "COMP", "85"], ["Berkshire Hathaway", 7.0, "SPX", "Services: Insurance", PT],
+    ["Lockheed", 3.0, "SPX", "88", PT], ["Martin Marietta", 2.8, "SPX", "88", PT], ["General Dynamics", 3.0, "SPX", "93", PT], ["McDonnell Douglas", 3.5, "SPX", "88", PT],
     ["Northrop", 1.0, "SPX", "88", PT], ["Grumman", 0.7, "SPX", "88", PT], ["Raytheon", 6.0, "SPX", "93", PT], ["Litton Industries", 3.0, "SPX", "93", PT], ["Loral", 1.5, "SPX", "93", PT], ["E-Systems", 1.5, "SPX", "93", PT],
     ["Walt Disney", 11, "SPX", "Services: Entertainment", PT], ["Time Warner", 7, "SPX", MED, PT], ["Capital Cities/ABC", 7, "SPX", MED, PT], ["CBS", 5, "SPX", MED, PT], ["Gannett", 6, "SPX", "49", PT],
     ["Caterpillar", 7, "SPX", "84", PT], ["Deere", 5, "SPX", "84", PT], ["Honeywell", 4, "SPX", "90", PT], ["Medtronic", 3, "SPX", "90", PT],
@@ -1754,7 +1767,7 @@ const SMX = {
   GBR: [["British Aerospace", 2.0, "FTSE", "88", PT], ["Rio Tinto-Zinc", 4.5, "FTSE", "26", PT], ["Cadbury Schweppes", 3.2, "FTSE", "18", PT], ["Reed International", 3.0, "FTSE", "49", PT],
     ["Allied-Lyons", 4.0, "FTSE", "22", PT], ["Bass", 4.5, "FTSE", "22", PT], ["Vickers", 0.8, "FTSE", "93", PT], ["British Steel", 2.5, "FTSE", "72", PT], ["Thorn EMI", 2.7, "FTSE", "85", PT],
     ["Racal Electronics", 2.0, "FTSE", "85", PT], ["BAA", 2.0, "FTSE", "Services: Airports", PT], ["Royal Insurance", 2.0, "FTSE", INS, PT], ["Legal & General", 3.0, "FTSE", INS, PT]],
-  FRG: [["Lufthansa", 5.5, "DAX", AIR, ST], ["Mannesmann", 9, "DAX", "73", PT], ["Henkel", 7, "DAX", "34", FM], ["Metro", 8, "DAX", RET, PT], ["Karstadt", 5, "DAX", RET, PT],
+  FRG: [["SAP", 1.3, "", "Services: Software", PT], ["Lufthansa", 5.5, "DAX", AIR, ST], ["Mannesmann", 9, "DAX", "73", PT], ["Henkel", 7, "DAX", "34", FM], ["Metro", 8, "DAX", RET, PT], ["Karstadt", 5, "DAX", RET, PT],
     ["Preussag", 4, "DAX", CON, PT], ["Continental", 3, "DAX", "40", PT], ["Porsche", 3, "", "87", FM], ["Messerschmitt-Bolkow-Blohm", 1.5, "", "88", SB],
     ["Heidelberger Zement", 3, "", "25", PT], ["AEG", 3, "", "85", SB]],
   FRA: [["Thomson-CSF", 20, "CAC", "93", ST], ["Dassault Aviation", 15, "CAC", "88", FM], ["Matra", 15, "CAC", "93", PT], ["Rhone-Poulenc", 40, "CAC", "29", MX], ["Pechiney", 35, "CAC", "76", ST],
@@ -1821,7 +1834,8 @@ const SMX = {
     ["Shenzhen Development Bank", 1.0, "SZSE", BNK, MX],
     ["China Vanke", 0.25, "SZSE", "Services: Real estate", PT],
     ["China Southern Glass (CSG)", 0.4, "SZSE", "70", MX]],
-  ISR: [["Teva", "$0.5", "", "30", PT], ["Bank Leumi", "$0.8", "", BNK, ST], ["Elbit Systems", "$0.2", "", "93", PT], ["Koor Industries", "$0.4", "", CON, PT]]
+  ISR: [["Teva", "$0.5", "", "30", PT], ["Bank Leumi", "$0.8", "", BNK, ST], ["Elbit Systems", "$0.2", "", "93", PT], ["Koor Industries", "$0.4", "", CON, PT]],
+  TWN: [["TSMC (Taiwan Semiconductor)", 35, "", "85", "Private (pre-IPO)"]]
 };
 /* ownership status of the companies listed earlier; anything not listed here is publicly traded */
 const STATUS = {};
@@ -2349,10 +2363,10 @@ const FIXED_HTML = `
 /* ================= NATION FILES, DEBT, CREDIT, GM PANEL ================= */
 /* 1990 general-government gross debt as % of GDP: rough figures from memory (IMF / OECD / World Bank style), not audited. */
 /* Rough effective interest rate (% a year) on each nation's 1990 government debt: about what its 1990 interest bill divided by its debt gives. Approximate figures. */
-const IRL90 = { USA:7,JPN:5.5,FRG:7,FRA:7.7,ITA:10,GBR:8.8,RUS:4,UKR:4,BLR:4,KAZ:4,UZB:4,GEO:4,AZE:4,LTU:4,MDA:4,LVA:4,ARM:4,KGZ:4,TJK:4,TKM:4,EST:4,CAN:9.2,ESP:10.5,BRA:10,CHN:5,IND:7.5,AUS:10,NLD:7.1,MEX:11,KOR:9,CHE:5.5,SWE:9.5,BEL:8.5,TWN:6,AUT:7,GDR:4,TUR:18,ARG:8,DNK:11,YUG:7,SAU:5,IDN:6,NOR:10,FIN:10,ZAF:12,IRN:5,THA:8,GRC:12,PRT:14,POL:8,IRQ:4,VEN:8,IRL:9,PHL:8,MYS:6,EGY:4,NZL:11,COL:9,PAK:6,CSK:3,ROU:3,SGP:4,NGA:5,ARE:4,HUN:7,CHL:9,MAR:4.5,BGR:6,ISR:6,DZA:6,KWT:5,HKG:4,COD:4,SYR:4,VNM:12 };
-const DEBT90 = { USA:56,JPN:63,FRG:43,FRA:35,ITA:95,GBR:34,RUS:40,UKR:6,BLR:5,KAZ:4,UZB:3,GEO:3,AZE:3,LTU:3,MDA:3,LVA:3,ARM:3,KGZ:3,TJK:3,TKM:3,EST:3,CAN:67,ESP:42,BRA:55,CHN:7,IND:65,AUS:25,NLD:77,MEX:47,KOR:14,CHE:34,SWE:42,BEL:129,TWN:16,AUT:56,GDR:30,TUR:33,ARG:60,DNK:58,YUG:40,SAU:25,IDN:42,NOR:36,FIN:14,ZAF:36,IRN:15,THA:20,GRC:80,PRT:62,POL:80,IRQ:130,VEN:60,IRL:93,PHL:70,MYS:75,EGY:125,NZL:50,COL:35,PAK:80,CSK:15,ROU:3,SGP:76,NGA:105,ARE:5,HUN:76,CHL:45,MAR:95,BGR:60,ISR:120,DZA:60,KWT:5,HKG:1,COD:110,SYR:130,VNM:150 };
+const IRL90 = { USA:7,JPN:5.5,FRG:7,FRA:7.7,ITA:10,GBR:8.8,RUS:4,UKR:4,BLR:4,KAZ:4,UZB:4,GEO:4,AZE:4,LTU:4,MDA:4,LVA:4,ARM:4,KGZ:4,TJK:4,TKM:4,EST:4,CAN:9.2,ESP:10.5,BRA:10,CHN:5,IND:7.5,AUS:10,NLD:7.1,MEX:11,KOR:9,CHE:5.5,SWE:9.5,BEL:8.5,TWN:6,AUT:7,TUR:18,ARG:8,DNK:11,YUG:7,SAU:5,IDN:6,NOR:10,FIN:10,ZAF:12,IRN:5,THA:8,GRC:12,PRT:14,POL:8,IRQ:4,VEN:8,IRL:9,PHL:8,MYS:6,EGY:4,NZL:11,COL:9,PAK:6,CSK:3,ROU:3,SGP:4,NGA:5,ARE:4,HUN:7,CHL:9,MAR:4.5,BGR:6,ISR:6,DZA:6,KWT:5,HKG:4,COD:4,SYR:4,VNM:12 };
+const DEBT90 = { USA:56,JPN:63,FRG:42,FRA:35,ITA:95,GBR:34,RUS:40,UKR:6,BLR:5,KAZ:4,UZB:3,GEO:3,AZE:3,LTU:3,MDA:3,LVA:3,ARM:3,KGZ:3,TJK:3,TKM:3,EST:3,CAN:67,ESP:42,BRA:55,CHN:7,IND:65,AUS:25,NLD:77,MEX:47,KOR:14,CHE:34,SWE:42,BEL:129,TWN:16,AUT:56,TUR:33,ARG:60,DNK:58,YUG:40,SAU:25,IDN:42,NOR:36,FIN:14,ZAF:36,IRN:15,THA:20,GRC:80,PRT:62,POL:80,IRQ:130,VEN:60,IRL:93,PHL:70,MYS:75,EGY:125,NZL:50,COL:35,PAK:80,CSK:15,ROU:3,SGP:76,NGA:105,ARE:5,HUN:76,CHL:45,MAR:95,BGR:60,ISR:120,DZA:60,KWT:5,HKG:1,COD:110,SYR:130,VNM:150 };
 /* guessed 1990 credit ratings */
-const CREDIT90 = { USA:"AAA",JPN:"AAA",FRG:"AAA",FRA:"AAA",ITA:"AA",GBR:"AAA",RUS:"BB",UKR:"B",BLR:"B",KAZ:"B",UZB:"B",GEO:"CCC",AZE:"CCC",LTU:"B",MDA:"CCC",LVA:"B",ARM:"CCC",KGZ:"CCC",TJK:"CCC",TKM:"B",EST:"B",CAN:"AAA",ESP:"AA",BRA:"CC",CHN:"BBB",IND:"BBB",AUS:"AA",NLD:"AAA",MEX:"BB",KOR:"A",CHE:"AAA",SWE:"AAA",BEL:"AA",TWN:"A",AUT:"AAA",GDR:"BB",TUR:"BB",ARG:"C",DNK:"AA",YUG:"CC",SAU:"A",IDN:"BB",NOR:"AAA",FIN:"AAA",ZAF:"BB",IRN:"B",THA:"A",GRC:"BB",PRT:"A",POL:"CCC",IRQ:"CC",VEN:"B",IRL:"A",PHL:"B",MYS:"A",EGY:"B",NZL:"AA",COL:"BB",PAK:"B",CSK:"BBB",ROU:"BB",SGP:"AAA",NGA:"CCC",ARE:"A",HUN:"BB",CHL:"BB",MAR:"B",BGR:"D",ISR:"A",DZA:"B",KWT:"BB",HKG:"AA",COD:"C",SYR:"C",VNM:"CCC" };
+const CREDIT90 = { USA:"AAA",JPN:"AAA",FRG:"AAA",FRA:"AAA",ITA:"AA",GBR:"AAA",RUS:"BB",UKR:"B",BLR:"B",KAZ:"B",UZB:"B",GEO:"CCC",AZE:"CCC",LTU:"B",MDA:"CCC",LVA:"B",ARM:"CCC",KGZ:"CCC",TJK:"CCC",TKM:"B",EST:"B",CAN:"AAA",ESP:"AA",BRA:"CC",CHN:"BBB",IND:"BBB",AUS:"AA",NLD:"AAA",MEX:"BB",KOR:"A",CHE:"AAA",SWE:"AAA",BEL:"AA",TWN:"A",AUT:"AAA",TUR:"BB",ARG:"C",DNK:"AA",YUG:"CC",SAU:"A",IDN:"BB",NOR:"AAA",FIN:"AAA",ZAF:"BB",IRN:"B",THA:"A",GRC:"BB",PRT:"A",POL:"CCC",IRQ:"CC",VEN:"B",IRL:"A",PHL:"B",MYS:"A",EGY:"B",NZL:"AA",COL:"BB",PAK:"B",CSK:"BBB",ROU:"BB",SGP:"AAA",NGA:"CCC",ARE:"A",HUN:"BB",CHL:"BB",MAR:"B",BGR:"D",ISR:"A",DZA:"B",KWT:"BB",HKG:"AA",COD:"C",SYR:"C",VNM:"CCC" };
 const TIERS0 = [["AAA",1.5],["AA",1.7],["A",2.2],["BBB",3.0],["BB",4.27],["B",5.8],["CCC",7.6],["CC",9.8],["C",12.4],["D",20]];
 const TIERS_DEF = TIERS0.map(t => t.slice());
 if (Array.isArray(S.tierList) && S.tierList.length) TIERS0.splice(0, TIERS0.length, ...S.tierList.map(t => [String(t[0]), +t[1]]));
