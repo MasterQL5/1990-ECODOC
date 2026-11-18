@@ -1,0 +1,738 @@
+[
+ {
+  "item": "Export-Import Bank",
+  "saving_bill": 600000000.0,
+  "applied": 240330109,
+  "to_pool": 359669891.0,
+  "line": "Export-Import Bank",
+  "note": "Sec.V self-sufficient"
+ },
+ {
+  "item": "Overseas Private Investment Corp.",
+  "saving_bill": 650000000.0,
+  "applied": 84996087,
+  "to_pool": 565003913.0,
+  "line": "Other development programs, net of allowances",
+  "note": "terminated"
+ },
+ {
+  "item": "FDR Memorial Commission",
+  "saving_bill": 48000000.0,
+  "applied": 47832557,
+  "to_pool": 167443.0,
+  "line": "Other general government programs",
+  "note": "terminated"
+ },
+ {
+  "item": "U.S. Institute of Peace",
+  "saving_bill": 15000000.0,
+  "applied": 15000000.0,
+  "to_pool": 0.0,
+  "line": "Other foreign affairs",
+  "note": "privatized"
+ },
+ {
+  "item": "North-South Center",
+  "saving_bill": 2000000.0,
+  "applied": 2000000.0,
+  "to_pool": 0.0,
+  "line": "Other foreign affairs",
+  "note": "privatized"
+ },
+ {
+  "item": "East-West Center",
+  "saving_bill": 22000000.0,
+  "applied": 22000000.0,
+  "to_pool": 0.0,
+  "line": "Other foreign affairs",
+  "note": "privatized"
+ },
+ {
+  "item": "Inst. of American Indian Arts",
+  "saving_bill": 6000000.0,
+  "applied": 6000000.0,
+  "to_pool": 0.0,
+  "line": "Research and general education aids",
+  "note": "terminated"
+ },
+ {
+  "item": "Japan-US Friendship Commission",
+  "saving_bill": 14900000.0,
+  "applied": 14900000.0,
+  "to_pool": 0.0,
+  "line": "Research and general education aids",
+  "note": "terminated"
+ },
+ {
+  "item": "Commission of Fine Arts",
+  "saving_bill": 2200000.0,
+  "applied": 0,
+  "to_pool": 2200000.0,
+  "line": "Other general government programs",
+  "note": "terminated"
+ },
+ {
+  "item": "National Endowment for the Arts",
+  "saving_bill": 154000000.0,
+  "applied": 154000000.0,
+  "to_pool": 0.0,
+  "line": "Research and general education aids",
+  "note": "terminated"
+ },
+ {
+  "item": "National Endowment for the Humanities",
+  "saving_bill": 177000000.0,
+  "applied": 177000000.0,
+  "to_pool": 0.0,
+  "line": "Research and general education aids",
+  "note": "terminated"
+ },
+ {
+  "item": "ACTION",
+  "saving_bill": 224000000.0,
+  "applied": 115171205,
+  "to_pool": 108828795.0,
+  "line": "Domestic volunteer programs",
+  "note": "terminated"
+ },
+ {
+  "item": "Advisory Council on Historic Preservation",
+  "saving_bill": 1800000.0,
+  "applied": 1800000.0,
+  "to_pool": 0.0,
+  "line": "Other resources management",
+  "note": "terminated"
+ },
+ {
+  "item": "Interagency Council on the Homeless",
+  "saving_bill": 819000000.0,
+  "applied": 108729099,
+  "to_pool": 710270901.0,
+  "line": "Homeless shelter and transitional housing",
+  "note": "terminated"
+ },
+ {
+  "item": "Civil Aeronautics Board (residual)",
+  "saving_bill": 829000000.0,
+  "applied": 684649760,
+  "to_pool": 144350240.0,
+  "line": "Aeronautical research, carrier subsidies and other (derived)",
+  "note": "terminated"
+ },
+ {
+  "item": "Admin. Conference of the US",
+  "saving_bill": 1900000.0,
+  "applied": 0,
+  "to_pool": 1900000.0,
+  "line": "Other general government programs",
+  "note": "terminated"
+ },
+ {
+  "item": "Board for International Broadcasting",
+  "saving_bill": 425200000.0,
+  "applied": 158299158,
+  "to_pool": 266900842.0,
+  "line": "Board for International Broadcasting",
+  "note": "disbanded"
+ },
+ {
+  "item": "Consumer Product Safety Commission",
+  "saving_bill": 33600000.0,
+  "applied": 33600000.0,
+  "to_pool": 0.0,
+  "line": "Consumer safety (FDA, USDA inspection)",
+  "note": "privatized"
+ },
+ {
+  "item": "Advisory Commission on Intergovt. Relations",
+  "saving_bill": 1300000.0,
+  "applied": 0,
+  "to_pool": 1300000.0,
+  "line": "Other general government programs",
+  "note": "terminated"
+ },
+ {
+  "item": "Appalachian Regional Commission",
+  "saving_bill": 200000000.0,
+  "applied": 96706653,
+  "to_pool": 103293347.0,
+  "line": "Appalachian Regional Commission",
+  "note": "abolished"
+ },
+ {
+  "item": "Arms Control and Disarmament Agency (net of ACISA $25M)",
+  "saving_bill": 8899999.999999998,
+  "applied": 8899999.999999998,
+  "to_pool": 0.0,
+  "line": "Other foreign affairs",
+  "note": "replaced by Under Sec. State"
+ },
+ {
+  "item": "Natl Capital Arts & Cultural Affairs",
+  "saving_bill": 7000000.0,
+  "applied": 7000000.0,
+  "to_pool": 0.0,
+  "line": "Research and general education aids",
+  "note": "abolished"
+ },
+ {
+  "item": "Commission on National Community Service",
+  "saving_bill": 500000.0,
+  "applied": 0,
+  "to_pool": 500000.0,
+  "line": "Domestic volunteer programs",
+  "note": "terminated"
+ },
+ {
+  "item": "Corporation for Public Broadcasting",
+  "saving_bill": 298900000.0,
+  "applied": 298900000.0,
+  "to_pool": 0.0,
+  "line": "Research and general education aids",
+  "note": "privatized"
+ },
+ {
+  "item": "Delaware River Basin Commission",
+  "saving_bill": 600000.0,
+  "applied": 600000.0,
+  "to_pool": 0.0,
+  "line": "Other water resources",
+  "note": "offloaded"
+ },
+ {
+  "item": "Interstate Commission on Potomac River Basin",
+  "saving_bill": 400000.0,
+  "applied": 400000.0,
+  "to_pool": 0.0,
+  "line": "Other water resources",
+  "note": "terminated"
+ },
+ {
+  "item": "Susquehanna River Basin Commission",
+  "saving_bill": 13600000.0,
+  "applied": 13600000.0,
+  "to_pool": 0.0,
+  "line": "Other water resources",
+  "note": "terminated"
+ },
+ {
+  "item": "Marine Mammal Commission",
+  "saving_bill": 1100000.0,
+  "applied": 1100000.0,
+  "to_pool": 0.0,
+  "line": "Other resources management",
+  "note": "terminated"
+ },
+ {
+  "item": "Natl Commission on Libraries and Info Science",
+  "saving_bill": 1000000.0,
+  "applied": 1000000.0,
+  "to_pool": 0.0,
+  "line": "Research and general education aids",
+  "note": "terminated"
+ },
+ {
+  "item": "Office of Government Ethics",
+  "saving_bill": 8000000.0,
+  "applied": 0,
+  "to_pool": 8000000.0,
+  "line": "Other general government programs",
+  "note": "terminated"
+ },
+ {
+  "item": "Pennsylvania Avenue Development Corp.",
+  "saving_bill": 184000000.0,
+  "applied": 143223075,
+  "to_pool": 40776925.0,
+  "line": "Pennsylvania Avenue Development Corporation",
+  "note": "privatized"
+ },
+ {
+  "item": "Corp. for National and Community Service",
+  "saving_bill": 100000000.0,
+  "applied": 0,
+  "to_pool": 100000000.0,
+  "line": "Domestic volunteer programs",
+  "note": "privatized"
+ },
+ {
+  "item": "Legal Services Corporation",
+  "saving_bill": 415000000.0,
+  "applied": 326188681,
+  "to_pool": 88811319.0,
+  "line": "Representation of indigents in civil cases",
+  "note": "federal funding ended"
+ },
+ {
+  "item": "National Capital Planning Commission",
+  "saving_bill": 8000000.0,
+  "applied": 0,
+  "to_pool": 8000000.0,
+  "line": "Other general government programs",
+  "note": "terminated"
+ },
+ {
+  "item": "Neighborhood Reinvestment Corp.",
+  "saving_bill": 36000000.0,
+  "applied": 36000000.0,
+  "to_pool": 0.0,
+  "line": "Other community development",
+  "note": "terminated"
+ },
+ {
+  "item": "State Justice Institute",
+  "saving_bill": 13900000.0,
+  "applied": 13900000.0,
+  "to_pool": 0.0,
+  "line": "Other litigative activities",
+  "note": "terminated"
+ },
+ {
+  "item": "Thomas Jefferson Commemorative Commission",
+  "saving_bill": 1300000.0,
+  "applied": 0,
+  "to_pool": 1300000.0,
+  "line": "Other general government programs",
+  "note": "terminated"
+ },
+ {
+  "item": "Small Business Administration (1.1B to 201M)",
+  "saving_bill": 899000000.0,
+  "applied": 743421756,
+  "to_pool": 155578244.0,
+  "line": "Small and minority business assistance",
+  "note": "wound down"
+ },
+ {
+  "item": "Office of Personnel Management",
+  "saving_bill": 197000000.0,
+  "applied": 84130881,
+  "to_pool": 112869119.0,
+  "line": "Central personnel management",
+  "note": "terminated"
+ },
+ {
+  "item": "Peace Corps (halved)",
+  "saving_bill": 100000000.0,
+  "applied": 100000000.0,
+  "to_pool": 0.0,
+  "line": "Peace Corps",
+  "note": "halved"
+ },
+ {
+  "item": "Tennessee Valley Authority econ. development",
+  "saving_bill": 79300000.0,
+  "applied": 79300000.0,
+  "to_pool": 0.0,
+  "line": "Tennessee Valley Authority (regional)",
+  "note": "subsidies terminated (unquantified in bill: line zeroed)"
+ },
+ {
+  "item": "Selective Service System (to ~$4M in DoD)",
+  "saving_bill": 20000000.0,
+  "applied": 20000000.0,
+  "to_pool": 0.0,
+  "line": "Defense-related activities",
+  "note": "reduced"
+ },
+ {
+  "item": "FMCS + NMB merged (net)",
+  "saving_bill": 2000000.0,
+  "applied": 2000000.0,
+  "to_pool": 0.0,
+  "line": "Other labor services",
+  "note": "merged"
+ },
+ {
+  "item": "African Development Fdn + Inter-American Fdn",
+  "saving_bill": 34320000.0,
+  "applied": 34320000.0,
+  "to_pool": 0.0,
+  "line": "Agency for International Development",
+  "note": "merged into USAID, budget cut"
+ },
+ {
+  "item": "Postal Regulatory Commission",
+  "saving_bill": 15000000.0,
+  "applied": 15000000.0,
+  "to_pool": 0.0,
+  "line": "Payments to the Postal Service fund",
+  "note": "terminated"
+ },
+ {
+  "item": "FCC (-20%)",
+  "saving_bill": 25700000.000000004,
+  "applied": 25700000.000000004,
+  "to_pool": 0.0,
+  "line": "International trade and other commerce",
+  "note": "reduced"
+ },
+ {
+  "item": "Rural Electrification Administration",
+  "saving_bill": 36000000.0,
+  "applied": 36000000.0,
+  "to_pool": 0.0,
+  "line": "Rural development",
+  "note": "wound down"
+ },
+ {
+  "item": "CSRS + Extension merged into CSREES",
+  "saving_bill": 10000000.0,
+  "applied": 10000000.0,
+  "to_pool": 0.0,
+  "line": "Agricultural research and extension (derived)",
+  "note": "merged"
+ },
+ {
+  "item": "Foreign Agricultural Service",
+  "saving_bill": 130000000.0,
+  "applied": 130000000.0,
+  "to_pool": 0.0,
+  "line": "Other agricultural programs and overhead",
+  "note": "terminated"
+ },
+ {
+  "item": "Commodity Credit Corporation",
+  "saving_bill": 30300000000.0,
+  "applied": 9408910118,
+  "to_pool": 20891089882.0,
+  "line": "Commodity Credit Corporation",
+  "note": "terminated"
+ },
+ {
+  "item": "USDA Office of Consumer Affairs",
+  "saving_bill": 2000000.0,
+  "applied": 2000000.0,
+  "to_pool": 0.0,
+  "line": "Other agricultural programs and overhead",
+  "note": "terminated"
+ },
+ {
+  "item": "Federal Agricultural Mortgage Corp.",
+  "saving_bill": 40300000.0,
+  "applied": 40300000.0,
+  "to_pool": 0.0,
+  "line": "Agricultural credit, TEFAP and other (derived)",
+  "note": "terminated"
+ },
+ {
+  "item": "Economics and Statistics Admin. umbrella",
+  "saving_bill": 10000000.0,
+  "applied": 10000000.0,
+  "to_pool": 0.0,
+  "line": "Economic and demographic statistics",
+  "note": "terminated"
+ },
+ {
+  "item": "Economic Development Administration",
+  "saving_bill": 400000000.0,
+  "applied": 148728164,
+  "to_pool": 251271836.0,
+  "line": "Economic development assistance",
+  "note": "terminated"
+ },
+ {
+  "item": "Minority Business Development Agency",
+  "saving_bill": 44000000.0,
+  "applied": 0,
+  "to_pool": 44000000.0,
+  "line": "Small and minority business assistance",
+  "note": "terminated"
+ },
+ {
+  "item": "National Technical Information Service",
+  "saving_bill": 4000000.0,
+  "applied": 4000000.0,
+  "to_pool": 0.0,
+  "line": "International trade and other commerce",
+  "note": "privatized"
+ },
+ {
+  "item": "US Travel and Tourism Administration",
+  "saving_bill": 17000000.0,
+  "applied": 17000000.0,
+  "to_pool": 0.0,
+  "line": "International trade and other commerce",
+  "note": "terminated"
+ },
+ {
+  "item": "Commerce Office of Consumer Affairs",
+  "saving_bill": 2000000.0,
+  "applied": 2000000.0,
+  "to_pool": 0.0,
+  "line": "International trade and other commerce",
+  "note": "terminated"
+ },
+ {
+  "item": "Ballistic Missile Defense Organization",
+  "saving_bill": 1000000000.0,
+  "applied": 1000000000.0,
+  "to_pool": 0.0,
+  "line": "Research, development, test and evaluation",
+  "note": "reduced"
+ },
+ {
+  "item": "Education Office of Educ. Research and Improvement",
+  "saving_bill": 20000000.0,
+  "applied": 20000000.0,
+  "to_pool": 0.0,
+  "line": "Research and general education aids",
+  "note": "overhead cut"
+ },
+ {
+  "item": "Public Health Service umbrella",
+  "saving_bill": 100000000.0,
+  "applied": 100000000.0,
+  "to_pool": 0.0,
+  "line": "Other health care services (HRSA, IHS, CDC)",
+  "note": "consolidated"
+ },
+ {
+  "item": "HHS Office of Consumer Affairs",
+  "saving_bill": 1000000.0,
+  "applied": 1000000.0,
+  "to_pool": 0.0,
+  "line": "Other health care services (HRSA, IHS, CDC)",
+  "note": "terminated"
+ },
+ {
+  "item": "HUD field office network",
+  "saving_bill": 170000000.0,
+  "applied": 170000000.0,
+  "to_pool": 0.0,
+  "line": "Other housing assistance",
+  "note": "consolidated"
+ },
+ {
+  "item": "Bureau of Mines",
+  "saving_bill": 170000000.0,
+  "applied": 170000000.0,
+  "to_pool": 0.0,
+  "line": "Other natural resource programs",
+  "note": "terminated"
+ },
+ {
+  "item": "Women's Bureau",
+  "saving_bill": 8000000.0,
+  "applied": 8000000.0,
+  "to_pool": 0.0,
+  "line": "Other labor services",
+  "note": "terminated"
+ },
+ {
+  "item": "Office of the American Workplace",
+  "saving_bill": 15000000.0,
+  "applied": 15000000.0,
+  "to_pool": 0.0,
+  "line": "Other labor services",
+  "note": "terminated"
+ },
+ {
+  "item": "Bureau of Democracy, Human Rights and Labor",
+  "saving_bill": 300000000.0,
+  "applied": 300000000.0,
+  "to_pool": 0.0,
+  "line": "State Department salaries and expenses",
+  "note": "merged, funding ended"
+ },
+ {
+  "item": "USAID (7.0B to 6.6B)",
+  "saving_bill": 400000000.0,
+  "applied": 400000000.0,
+  "to_pool": 0.0,
+  "line": "Agency for International Development",
+  "note": "reorganized"
+ },
+ {
+  "item": "Interstate Commerce Commission (STB ~15M)",
+  "saving_bill": 40000000.0,
+  "applied": 24847090,
+  "to_pool": 15152910.0,
+  "line": "Surface transportation regulation",
+  "note": "terminated"
+ },
+ {
+  "item": "Office of Revenue Sharing",
+  "saving_bill": 2000000.0,
+  "applied": 2000000.0,
+  "to_pool": 0.0,
+  "line": "Other fiscal assistance",
+  "note": "terminated"
+ },
+ {
+  "item": "National Critical Materials Council",
+  "saving_bill": 500000.0,
+  "applied": 0,
+  "to_pool": 500000.0,
+  "line": "Other general government programs",
+  "note": "terminated"
+ },
+ {
+  "item": "Points of Light Foundation appropriation",
+  "saving_bill": 6000000.0,
+  "applied": 0,
+  "to_pool": 6000000.0,
+  "line": "Domestic volunteer programs",
+  "note": "terminated"
+ },
+ {
+  "item": "Student loans: FFEL to Direct Lending (~4.3B/5y)",
+  "saving_bill": 860000000.0,
+  "applied": 860000000.0,
+  "to_pool": 0.0,
+  "line": "Guaranteed student loan program",
+  "note": "replaced"
+ },
+ {
+  "item": "EEOC (into DoJ CRD)",
+  "saving_bill": 221000000.0,
+  "applied": 221000000.0,
+  "to_pool": 0.0,
+  "line": "Other labor services",
+  "note": "consolidated"
+ },
+ {
+  "item": "Commission on Civil Rights (into DoJ CRD)",
+  "saving_bill": 9500000.0,
+  "applied": 9500000.0,
+  "to_pool": 0.0,
+  "line": "Other litigative activities",
+  "note": "consolidated"
+ },
+ {
+  "item": "HUD Fair Housing office (into DoJ CRD)",
+  "saving_bill": 40000000.0,
+  "applied": 40000000.0,
+  "to_pool": 0.0,
+  "line": "Other housing assistance",
+  "note": "consolidated"
+ },
+ {
+  "item": "HHS Office for Civil Rights (into DoJ CRD)",
+  "saving_bill": 18000000.0,
+  "applied": 18000000.0,
+  "to_pool": 0.0,
+  "line": "Other health care services (HRSA, IHS, CDC)",
+  "note": "consolidated"
+ },
+ {
+  "item": "Education Office of Civil Rights (into DoJ CRD)",
+  "saving_bill": 59000000.0,
+  "applied": 59000000.0,
+  "to_pool": 0.0,
+  "line": "Research and general education aids",
+  "note": "consolidated"
+ },
+ {
+  "item": "Community Relations Service (into DoJ CRD)",
+  "saving_bill": 5000000.0,
+  "applied": 1253795.0,
+  "to_pool": 3746205.0,
+  "line": "Other litigative activities",
+  "note": "consolidated"
+ },
+ {
+  "item": "DoJ Civil Rights Division pre-expansion",
+  "saving_bill": 65000000.0,
+  "applied": 65000000.0,
+  "to_pool": 0.0,
+  "line": "Civil and criminal prosecution and representation",
+  "note": "absorbed into expanded CRD"
+ },
+ {
+  "item": "Fannie Mae (privatized, merged into FHFA)",
+  "saving_bill": 6900000000.0,
+  "applied": 0,
+  "to_pool": 6900000000.0,
+  "line": null,
+  "note": "GSE: no federal outlay line in doc"
+ },
+ {
+  "item": "Freddie Mac (privatized, merged into FHFA)",
+  "saving_bill": 2250000000.0,
+  "applied": 0,
+  "to_pool": 2250000000.0,
+  "line": null,
+  "note": "GSE: no federal outlay line in doc"
+ },
+ {
+  "item": "Federal Home Loan Banks de-subsidized",
+  "saving_bill": 40000000.0,
+  "applied": 0,
+  "to_pool": 40000000.0,
+  "line": null,
+  "note": "no line in doc"
+ },
+ {
+  "item": "NPR federal workforce reduction (108B to ~95B)",
+  "saving_bill": 13000000000.0,
+  "applied": 0,
+  "to_pool": 13000000000.0,
+  "line": null,
+  "note": "steady-state, cross-cutting"
+ },
+ {
+  "item": "Departmental consolidations (overhead, minimum)",
+  "saving_bill": 2500000000.0,
+  "applied": 0,
+  "to_pool": 2500000000.0,
+  "line": null,
+  "note": "cross-cutting"
+ },
+ {
+  "item": "INCREASE: NASA (12.3B to 15.27B)",
+  "saving_bill": -2970000000.0,
+  "applied": -2970000000.0,
+  "to_pool": 0,
+  "line": "*NASA",
+  "note": "bill lists NASA twice (14.3B to 23.853B on p.15; 12.3B to 15.27B on p.17); used the latter, which fits the bill's Budget Increases total"
+ },
+ {
+  "item": "INCREASE: National Science Foundation (+12M)",
+  "saving_bill": -12000000.0,
+  "applied": -12000000.0,
+  "to_pool": 0,
+  "line": "National Science Foundation",
+  "note": ""
+ },
+ {
+  "item": "INCREASE: Atomic Energy Commission (~1.0B to ~1.08B)",
+  "saving_bill": -80000000.0,
+  "applied": -80000000.0,
+  "to_pool": 0,
+  "line": "Nuclear Regulatory Commission",
+  "note": ""
+ },
+ {
+  "item": "INCREASE: Technology & Manufacturing Extension Program",
+  "saving_bill": -79900000.0,
+  "applied": -79900000.0,
+  "to_pool": 0,
+  "line": "Commerce science and technology (NOAA, NIST)",
+  "note": ""
+ },
+ {
+  "item": "INCREASE: U.S. Public Service Academy (replaces OPM)",
+  "saving_bill": -425000000.0,
+  "applied": -425000000.0,
+  "to_pool": 0,
+  "line": "U.S. Public Service Academy",
+  "note": "new line"
+ },
+ {
+  "item": "INCREASE: U.S. Digital Service",
+  "saving_bill": -21300000.0,
+  "applied": -21300000.0,
+  "to_pool": 0,
+  "line": "U.S. Digital Service",
+  "note": "new line"
+ },
+ {
+  "item": "INCREASE: DoJ Civil Rights Division (expanded to ~385M)",
+  "saving_bill": -385000000.0,
+  "applied": -385000000.0,
+  "to_pool": 0,
+  "line": "DoJ Civil Rights Division (expanded)",
+  "note": "new line (absorbs five bodies + 65M existing)"
+ }
+]
