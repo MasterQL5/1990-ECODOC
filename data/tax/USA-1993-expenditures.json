@@ -1,0 +1,2618 @@
+{
+ "format": "ecodoc-ledger-1",
+ "nation": "USA",
+ "year": 1993,
+ "note": "Step 1 baseline. type=protected lines (defense, Social Security, Medicare, Medicaid) are never trimmed; discretionary lines took the IRS offset pro rata (3.30%).",
+ "lines": [
+  {
+   "name": "Military personnel",
+   "amt_usd": 55113000000,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 55113000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Military personnel"
+  },
+  {
+   "name": "Operation and maintenance",
+   "amt_usd": 64823000000,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 64823000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Operation and maintenance"
+  },
+  {
+   "name": "Procurement",
+   "amt_usd": 73042100000,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 73042100000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Procurement"
+  },
+  {
+   "name": "Research, development, test and evaluation",
+   "amt_usd": 38700000000,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 38700000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Research, development, test and evaluation"
+  },
+  {
+   "name": "Military construction",
+   "amt_usd": 861000000,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 861000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Military construction"
+  },
+  {
+   "name": "Family housing",
+   "amt_usd": 145000000,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 145000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Family housing"
+  },
+  {
+   "name": "Other defense (net)",
+   "amt_usd": -355000000,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -355000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Other defense (net)"
+  },
+  {
+   "name": "DOE weapons activities",
+   "amt_usd": 2893906769,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 2893906769,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Atomic energy defense activities"
+  },
+  {
+   "name": "New production reactor",
+   "amt_usd": 343153480,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 343153480,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Atomic energy defense activities"
+  },
+  {
+   "name": "Defense environmental restoration and waste management",
+   "amt_usd": 2215127857,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 2215127857,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Atomic energy defense activities"
+  },
+  {
+   "name": "Materials production and other defense programs",
+   "amt_usd": 1787911184,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 1787911184,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Atomic energy defense activities"
+  },
+  {
+   "name": "Defense Nuclear Facilities Safety Board",
+   "amt_usd": 6900710,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 6900710,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Atomic energy defense activities"
+  },
+  {
+   "name": "Defense-related activities",
+   "amt_usd": 514900000,
+   "category": "National defense",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 514900000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Defense-related activities"
+  },
+  {
+   "name": "Agency for International Development",
+   "amt_usd": 1473800074,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1524061149,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Development and humanitarian assistance"
+  },
+  {
+   "name": "Multilateral development banks",
+   "amt_usd": 813075776,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 840804138,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Development and humanitarian assistance"
+  },
+  {
+   "name": "Food aid (P.L. 480)",
+   "amt_usd": 633461403,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 655064368,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Development and humanitarian assistance"
+  },
+  {
+   "name": "Refugee programs",
+   "amt_usd": 317532551,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 328361379,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Development and humanitarian assistance"
+  },
+  {
+   "name": "Voluntary contributions to international organizations",
+   "amt_usd": 170526740,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 176342222,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Development and humanitarian assistance"
+  },
+  {
+   "name": "State Dept. narcotics assistance",
+   "amt_usd": 81788687,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 84577931,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Development and humanitarian assistance"
+  },
+  {
+   "name": "Peace Corps",
+   "amt_usd": 104240484,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 107795402,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Development and humanitarian assistance"
+  },
+  {
+   "name": "Other development programs, net of allowances",
+   "amt_usd": 84996087,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 87894713,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Development and humanitarian assistance"
+  },
+  {
+   "name": "Offsetting receipts (development aid)",
+   "amt_usd": -197901303,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": -197901303,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Development and humanitarian assistance"
+  },
+  {
+   "name": "Foreign military financing",
+   "amt_usd": 3508784685,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 3628444939,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "International security assistance"
+  },
+  {
+   "name": "Economic support fund",
+   "amt_usd": 2923703356,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 3023410553,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "International security assistance"
+  },
+  {
+   "name": "Other security assistance",
+   "amt_usd": 135411837,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 140029793,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "International security assistance"
+  },
+  {
+   "name": "Foreign military credit sales repayments",
+   "amt_usd": -465885285,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": -465885285,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "International security assistance"
+  },
+  {
+   "name": "State Department salaries and expenses",
+   "amt_usd": 1287486385,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1331393595,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conduct of foreign affairs"
+  },
+  {
+   "name": "Foreign buildings",
+   "amt_usd": 259950744,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 268815857,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conduct of foreign affairs"
+  },
+  {
+   "name": "United Nations programs",
+   "amt_usd": 604604541,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 625223399,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conduct of foreign affairs"
+  },
+  {
+   "name": "Other foreign affairs",
+   "amt_usd": 109821888,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 113567149,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conduct of foreign affairs"
+  },
+  {
+   "name": "U.S. Information Agency",
+   "amt_usd": 746358280,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 771811373,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Foreign information and exchange"
+  },
+  {
+   "name": "Board for International Broadcasting",
+   "amt_usd": 158299158,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 163697642,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Foreign information and exchange"
+  },
+  {
+   "name": "Other information programs",
+   "amt_usd": 12079052,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 12490985,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Foreign information and exchange"
+  },
+  {
+   "name": "Export-Import Bank",
+   "amt_usd": 240330109,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 240330109,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "International financial programs (net)"
+  },
+  {
+   "name": "International Monetary Fund",
+   "amt_usd": 3870617,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 3870617,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "International financial programs (net)"
+  },
+  {
+   "name": "Exchange stabilization fund",
+   "amt_usd": -527811366,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -527811366,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "International financial programs (net)"
+  },
+  {
+   "name": "Foreign military sales trust fund (net)",
+   "amt_usd": 29557437,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 29557437,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "International financial programs (net)"
+  },
+  {
+   "name": "Other financial programs and offsets",
+   "amt_usd": -36946796,
+   "category": "International affairs",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -36946796,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "International financial programs (net)"
+  },
+  {
+   "name": "National Science Foundation",
+   "amt_usd": 1684804725,
+   "category": "Science, space and technology",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1742261702,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General science and basic research"
+  },
+  {
+   "name": "DOE general science programs",
+   "amt_usd": 813283953,
+   "category": "Science, space and technology",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 841019415,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General science and basic research"
+  },
+  {
+   "name": "DOD general science programs",
+   "amt_usd": 48079235,
+   "category": "Science, space and technology",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 49718883,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General science and basic research"
+  },
+  {
+   "name": "NASA: space flight control and data communications",
+   "amt_usd": 3739113051,
+   "category": "Science, space and technology",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 3866628204,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Space flight, Space science, applications and technology, Supporting space activities"
+  },
+  {
+   "name": "NASA: research and development",
+   "amt_usd": 4071025753,
+   "category": "Science, space and technology",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 4209860141,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Space flight, Space science, applications and technology, Supporting space activities"
+  },
+  {
+   "name": "NASA: construction of facilities",
+   "amt_usd": 329001188,
+   "category": "Science, space and technology",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 340221131,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Space flight, Space science, applications and technology, Supporting space activities"
+  },
+  {
+   "name": "NASA: other",
+   "amt_usd": 10918181,
+   "category": "Science, space and technology",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 11290524,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Space flight, Space science, applications and technology, Supporting space activities"
+  },
+  {
+   "name": "Energy R&D (DOE)",
+   "amt_usd": 536979550,
+   "category": "Energy",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 555292190,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy supply"
+  },
+  {
+   "name": "Strategic petroleum reserves",
+   "amt_usd": -47356636,
+   "category": "Energy",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -47356636,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy supply"
+  },
+  {
+   "name": "Federal power marketing",
+   "amt_usd": -55434189,
+   "category": "Energy",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -55434189,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy supply"
+  },
+  {
+   "name": "Tennessee Valley Authority",
+   "amt_usd": 190376843,
+   "category": "Energy",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 190376843,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy supply"
+  },
+  {
+   "name": "Uranium enrichment",
+   "amt_usd": -43397051,
+   "category": "Energy",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -43397051,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy supply"
+  },
+  {
+   "name": "Nuclear waste program",
+   "amt_usd": 44980885,
+   "category": "Energy",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 44980885,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy supply"
+  },
+  {
+   "name": "Nuclear waste fund receipts",
+   "amt_usd": -63353359,
+   "category": "Energy",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -63353359,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy supply"
+  },
+  {
+   "name": "Nonconventional fuel subsidies",
+   "amt_usd": 13779356,
+   "category": "Energy",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 13779356,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy supply"
+  },
+  {
+   "name": "Rural electric and telephone",
+   "amt_usd": -16155106,
+   "category": "Energy",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -16155106,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy supply"
+  },
+  {
+   "name": "Isotopes",
+   "amt_usd": 1267067,
+   "category": "Energy",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1267067,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy supply"
+  },
+  {
+   "name": "Energy conservation",
+   "amt_usd": 180833042,
+   "category": "Energy",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 187000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Energy conservation"
+  },
+  {
+   "name": "Emergency energy preparedness",
+   "amt_usd": 199206453,
+   "category": "Energy",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 206000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Emergency energy preparedness"
+  },
+  {
+   "name": "Nuclear Regulatory Commission",
+   "amt_usd": 26179209,
+   "category": "Energy",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 27072000,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy information, policy and regulation"
+  },
+  {
+   "name": "Other energy programs",
+   "amt_usd": 337420918,
+   "category": "Energy",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 348928000,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Energy information, policy and regulation"
+  },
+  {
+   "name": "Corps of Engineers (civil works)",
+   "amt_usd": 2003257143,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 2071574318,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Water resources"
+  },
+  {
+   "name": "Bureau of Reclamation",
+   "amt_usd": 510437725,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 527845207,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Water resources"
+  },
+  {
+   "name": "Other water resources",
+   "amt_usd": 132355236,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 136868953,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Water resources"
+  },
+  {
+   "name": "Offsetting receipts (water)",
+   "amt_usd": -256288478,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -256288478,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Water resources"
+  },
+  {
+   "name": "Forest Service and other land management",
+   "amt_usd": 414145344,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 428268963,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conservation and land management"
+  },
+  {
+   "name": "Bureau of Land Management",
+   "amt_usd": 134349401,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 138931125,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conservation and land management"
+  },
+  {
+   "name": "Mining reclamation and enforcement",
+   "amt_usd": 44388569,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 45902354,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conservation and land management"
+  },
+  {
+   "name": "Conservation reserve program",
+   "amt_usd": 275261116,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 275261116,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conservation and land management"
+  },
+  {
+   "name": "Other agricultural land conservation",
+   "amt_usd": 146734525,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 146734525,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conservation and land management"
+  },
+  {
+   "name": "Other resources management",
+   "amt_usd": 52970358,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 54776809,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conservation and land management"
+  },
+  {
+   "name": "Offsetting receipts (land management)",
+   "amt_usd": -387874891,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -387874891,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Conservation and land management"
+  },
+  {
+   "name": "Federal land acquisition",
+   "amt_usd": 113389772,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 117256709,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Recreational resources"
+  },
+  {
+   "name": "Urban park and historic preservation",
+   "amt_usd": 15738643,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 16275379,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Recreational resources"
+  },
+  {
+   "name": "Operation of recreational resources (NPS)",
+   "amt_usd": 840228946,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 868883314,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Recreational resources"
+  },
+  {
+   "name": "Offsetting receipts (recreation)",
+   "amt_usd": -51415403,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -51415403,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Recreational resources"
+  },
+  {
+   "name": "EPA regulatory, enforcement and research",
+   "amt_usd": 869886642,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 899552428,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Pollution control and abatement"
+  },
+  {
+   "name": "Superfund (hazardous substance response)",
+   "amt_usd": 511859253,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 529315214,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Pollution control and abatement"
+  },
+  {
+   "name": "Oil pollution funds",
+   "amt_usd": 58243690,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 60229977,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Pollution control and abatement"
+  },
+  {
+   "name": "Sewage treatment construction grants",
+   "amt_usd": 744148794,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 769526536,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Pollution control and abatement"
+  },
+  {
+   "name": "Leaking underground storage tank fund",
+   "amt_usd": 29464455,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 30469283,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Pollution control and abatement"
+  },
+  {
+   "name": "Offsetting receipts (pollution control)",
+   "amt_usd": -86093438,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -86093438,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Pollution control and abatement"
+  },
+  {
+   "name": "Other natural resource programs",
+   "amt_usd": 1061858153,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1098070753,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other natural resources"
+  },
+  {
+   "name": "Offsetting receipts (other natural resources)",
+   "amt_usd": -8070753,
+   "category": "Natural resources and environment",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -8070753,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other natural resources"
+  },
+  {
+   "name": "Commodity Credit Corporation",
+   "amt_usd": 9408910118,
+   "category": "Agriculture",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 9408910118,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Farm income stabilization"
+  },
+  {
+   "name": "Crop insurance",
+   "amt_usd": 713475652,
+   "category": "Agriculture",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 713475652,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Farm income stabilization"
+  },
+  {
+   "name": "Agricultural credit, TEFAP and other (derived)",
+   "amt_usd": 648614229,
+   "category": "Agriculture",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 648614229,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Farm income stabilization"
+  },
+  {
+   "name": "Agricultural research and extension (derived)",
+   "amt_usd": 920400994,
+   "category": "Agriculture",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 951789474,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Agricultural research and services"
+  },
+  {
+   "name": "Marketing programs",
+   "amt_usd": 110545839,
+   "category": "Agriculture",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 114315789,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Agricultural research and services"
+  },
+  {
+   "name": "Animal and plant health inspection",
+   "amt_usd": 283998980,
+   "category": "Agriculture",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 293684211,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Agricultural research and services"
+  },
+  {
+   "name": "Economic intelligence",
+   "amt_usd": 156962876,
+   "category": "Agriculture",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 162315789,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Agricultural research and services"
+  },
+  {
+   "name": "Other agricultural programs and overhead",
+   "amt_usd": 189332653,
+   "category": "Agriculture",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 195789474,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Agricultural research and services"
+  },
+  {
+   "name": "Offsetting receipts (agricultural services)",
+   "amt_usd": -73894737,
+   "category": "Agriculture",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -73894737,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Agricultural research and services"
+  },
+  {
+   "name": "GNMA mortgage-backed securities",
+   "amt_usd": 1186038815,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1186038815,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Mortgage credit and deposit insurance"
+  },
+  {
+   "name": "GNMA mortgage purchase activities",
+   "amt_usd": -2455567,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -2455567,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Mortgage credit and deposit insurance"
+  },
+  {
+   "name": "FHA mortgage credit",
+   "amt_usd": 374473953,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 374473953,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Mortgage credit and deposit insurance"
+  },
+  {
+   "name": "Housing for the elderly or handicapped",
+   "amt_usd": 149789581,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 149789581,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Mortgage credit and deposit insurance"
+  },
+  {
+   "name": "Rural housing programs (FmHA)",
+   "amt_usd": 696767109,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 696767109,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Mortgage credit and deposit insurance"
+  },
+  {
+   "name": "Federal Housing Finance Board",
+   "amt_usd": -613892,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -613892,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Mortgage credit and deposit insurance"
+  },
+  {
+   "name": "Payments to the Postal Service fund",
+   "amt_usd": 456980298,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 472564719,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Postal Service"
+  },
+  {
+   "name": "Postal Service operations",
+   "amt_usd": 1261435281,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1261435281,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Postal Service"
+  },
+  {
+   "name": "Small and minority business assistance",
+   "amt_usd": 743421756,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 768774704,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other advancement of commerce"
+  },
+  {
+   "name": "Commerce science and technology (NOAA, NIST)",
+   "amt_usd": 592754946,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 612969697,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other advancement of commerce"
+  },
+  {
+   "name": "Economic and demographic statistics",
+   "amt_usd": 316202053,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 326985507,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other advancement of commerce"
+  },
+  {
+   "name": "International trade and other commerce",
+   "amt_usd": 604649694,
+   "category": "Commerce and housing credit",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 625270092,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other advancement of commerce"
+  },
+  {
+   "name": "Highways",
+   "amt_usd": 10643250651,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 11006217942,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Ground transportation"
+  },
+  {
+   "name": "Highway safety",
+   "amt_usd": 230456752,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 238316030,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Ground transportation"
+  },
+  {
+   "name": "Mass transit",
+   "amt_usd": 2403334702,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 2485295741,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Ground transportation"
+  },
+  {
+   "name": "Railroads (Amtrak and FRA)",
+   "amt_usd": 595087785,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 615382093,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Ground transportation"
+  },
+  {
+   "name": "Surface transportation regulation",
+   "amt_usd": 24847090,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 25694451,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Ground transportation"
+  },
+  {
+   "name": "Offsetting receipts (ground)",
+   "amt_usd": -28906257,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -28906257,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Ground transportation"
+  },
+  {
+   "name": "Airports and airways (FAA)",
+   "amt_usd": 5358268313,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 5541001596,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Air transportation"
+  },
+  {
+   "name": "Aeronautical research, carrier subsidies and other (derived)",
+   "amt_usd": 684649760,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 707998404,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Air transportation"
+  },
+  {
+   "name": "Marine safety and transportation (Coast Guard)",
+   "amt_usd": 2646624132,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 2736882083,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Water transportation"
+  },
+  {
+   "name": "Ocean shipping",
+   "amt_usd": 260296155,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 269173047,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Water transportation"
+  },
+  {
+   "name": "Panama Canal Commission",
+   "amt_usd": -9551302,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -9551302,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Water transportation"
+  },
+  {
+   "name": "Offsetting receipts (water transport)",
+   "amt_usd": -161503828,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -161503828,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Water transportation"
+  },
+  {
+   "name": "Miscellaneous transportation programs",
+   "amt_usd": 131368975,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 135849057,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other transportation"
+  },
+  {
+   "name": "Offsetting receipts (other transport)",
+   "amt_usd": -15849057,
+   "category": "Transportation",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -15849057,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other transportation"
+  },
+  {
+   "name": "Community development block grants",
+   "amt_usd": 2716383388,
+   "category": "Community and regional development",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 2809020342,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Community development"
+  },
+  {
+   "name": "Pennsylvania Avenue Development Corporation",
+   "amt_usd": 143223075,
+   "category": "Community and regional development",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 148107418,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Community development"
+  },
+  {
+   "name": "Other community development",
+   "amt_usd": 402157445,
+   "category": "Community and regional development",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 415872240,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Community development"
+  },
+  {
+   "name": "Rural development",
+   "amt_usd": 1086449234,
+   "category": "Community and regional development",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1123500465,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Area and regional development"
+  },
+  {
+   "name": "Economic development assistance",
+   "amt_usd": 148728164,
+   "category": "Community and regional development",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 153800248,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Area and regional development"
+  },
+  {
+   "name": "Indian programs",
+   "amt_usd": 1031759953,
+   "category": "Community and regional development",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1066946113,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Area and regional development"
+  },
+  {
+   "name": "Appalachian Regional Commission",
+   "amt_usd": 96706653,
+   "category": "Community and regional development",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 100004645,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Area and regional development"
+  },
+  {
+   "name": "Tennessee Valley Authority (regional)",
+   "amt_usd": 79314029,
+   "category": "Community and regional development",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 79314029,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Area and regional development"
+  },
+  {
+   "name": "Offsetting receipts (regional development)",
+   "amt_usd": -296565500,
+   "category": "Community and regional development",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -296565500,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Area and regional development"
+  },
+  {
+   "name": "Disaster relief and insurance",
+   "amt_usd": 27076605,
+   "category": "Community and regional development",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 28000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Disaster relief and insurance"
+  },
+  {
+   "name": "School improvement programs",
+   "amt_usd": 961466509,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 994255448,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Elementary, secondary and vocational education"
+  },
+  {
+   "name": "Compensatory education (Chapter 1)",
+   "amt_usd": 3864672228,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 3996469332,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Elementary, secondary and vocational education"
+  },
+  {
+   "name": "Special education",
+   "amt_usd": 1664347893,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1721107230,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Elementary, secondary and vocational education"
+  },
+  {
+   "name": "Impact aid",
+   "amt_usd": 466628612,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 482542070,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Elementary, secondary and vocational education"
+  },
+  {
+   "name": "Vocational and adult education",
+   "amt_usd": 712284480,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 736575552,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Elementary, secondary and vocational education"
+  },
+  {
+   "name": "Educational excellence",
+   "amt_usd": 47015477,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 48618848,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Elementary, secondary and vocational education"
+  },
+  {
+   "name": "Other elementary and secondary programs",
+   "amt_usd": 427840843,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 442431520,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Elementary, secondary and vocational education"
+  },
+  {
+   "name": "Student financial assistance (Pell grants)",
+   "amt_usd": 5443613668,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 5629257488,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Higher education"
+  },
+  {
+   "name": "Guaranteed student loan program",
+   "amt_usd": 4707987990,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 4707987990,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Higher education"
+  },
+  {
+   "name": "Higher education programs",
+   "amt_usd": 634550950,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 656191072,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Higher education"
+  },
+  {
+   "name": "Other higher education",
+   "amt_usd": 237465164,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 245563450,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Higher education"
+  },
+  {
+   "name": "Research and general education aids",
+   "amt_usd": 1263897251,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1307000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Research and general education aids"
+  },
+  {
+   "name": "Training and employment services (JTPA)",
+   "amt_usd": 3151063537,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 3258524409,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Training and employment"
+  },
+  {
+   "name": "Trade adjustment assistance",
+   "amt_usd": 56519816,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 56519816,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Training and employment"
+  },
+  {
+   "name": "Older Americans employment",
+   "amt_usd": 298330033,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 308503997,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Training and employment"
+  },
+  {
+   "name": "Federal-State employment service",
+   "amt_usd": 936501956,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 936501956,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Training and employment"
+  },
+  {
+   "name": "Other training and employment",
+   "amt_usd": 53137665,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 54949821,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Training and employment"
+  },
+  {
+   "name": "Other labor services",
+   "amt_usd": 674981087,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 698000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Other labor services"
+  },
+  {
+   "name": "Social services block grant",
+   "amt_usd": 1670877577,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1727859596,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Social services"
+  },
+  {
+   "name": "Grants to States for special services",
+   "amt_usd": 258389283,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 267201145,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Social services"
+  },
+  {
+   "name": "Rehabilitation services",
+   "amt_usd": 1258528860,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1301448531,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Social services"
+  },
+  {
+   "name": "Foster care and adoption assistance",
+   "amt_usd": 1749457841,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1749457841,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Social services"
+  },
+  {
+   "name": "ACF service programs (Head Start and others)",
+   "amt_usd": 2275973956,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 2353591606,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Social services"
+  },
+  {
+   "name": "Domestic volunteer programs",
+   "amt_usd": 115171205,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 119098894,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Social services"
+  },
+  {
+   "name": "Interim assistance to States for legalization",
+   "amt_usd": 568342388,
+   "category": "Education, training and social services",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 568342388,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Social services"
+  },
+  {
+   "name": "Medicaid grants to States",
+   "amt_usd": 34973730744,
+   "category": "Health",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 34973730744,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Health care services (incl. Medicaid)"
+  },
+  {
+   "name": "Health insurance tax credit",
+   "amt_usd": 252473086,
+   "category": "Health",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 252473086,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Health care services (incl. Medicaid)"
+  },
+  {
+   "name": "Federal employees' health benefits",
+   "amt_usd": 1586441538,
+   "category": "Health",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1586441538,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Health care services (incl. Medicaid)"
+  },
+  {
+   "name": "Other health care services (HRSA, IHS, CDC)",
+   "amt_usd": 2880133307,
+   "category": "Health",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 2978354632,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Health care services (incl. Medicaid)"
+  },
+  {
+   "name": "National Institutes of Health",
+   "amt_usd": 6369431766,
+   "category": "Health",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 6586648805,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Health research"
+  },
+  {
+   "name": "Other health research and training",
+   "amt_usd": 938350580,
+   "category": "Health",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 970351195,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Health research"
+  },
+  {
+   "name": "Health professional education",
+   "amt_usd": 417753338,
+   "category": "Health",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 432000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Health professional education"
+  },
+  {
+   "name": "Consumer safety (FDA, USDA inspection)",
+   "amt_usd": 863994730,
+   "category": "Health",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 893459584,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Consumer and occupational health"
+  },
+  {
+   "name": "Occupational safety and health",
+   "amt_usd": 331243986,
+   "category": "Health",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 342540416,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Consumer and occupational health"
+  },
+  {
+   "name": "Medicare: hospital insurance (HI)",
+   "amt_usd": 59529266888,
+   "category": "Medicare",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 59529266888,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Medicare"
+  },
+  {
+   "name": "Medicare: supplementary medical insurance (SMI)",
+   "amt_usd": 43364217191,
+   "category": "Medicare",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 43364217191,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Medicare"
+  },
+  {
+   "name": "Medicare premiums and collections",
+   "amt_usd": -10609484079,
+   "category": "Medicare",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -10609484079,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Medicare"
+  },
+  {
+   "name": "Railroad retirement",
+   "amt_usd": 2599964705,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 2599964705,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General retirement and disability insurance"
+  },
+  {
+   "name": "Special benefits for disabled coal miners",
+   "amt_usd": 843105554,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 843105554,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General retirement and disability insurance"
+  },
+  {
+   "name": "Pension Benefit Guaranty Corporation (net)",
+   "amt_usd": 1725914140,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1725914140,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General retirement and disability insurance"
+  },
+  {
+   "name": "Other retirement and disability programs",
+   "amt_usd": 108015601,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 108015601,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General retirement and disability insurance"
+  },
+  {
+   "name": "Civilian retirement and disability",
+   "amt_usd": 28472959423,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 28472959423,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Federal employee retirement and disability"
+  },
+  {
+   "name": "Military retirement",
+   "amt_usd": 20573765574,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 20573765574,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Federal employee retirement and disability"
+  },
+  {
+   "name": "Federal employees' workers' compensation",
+   "amt_usd": 202625901,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 202625901,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Federal employee retirement and disability"
+  },
+  {
+   "name": "Federal employees' life insurance fund",
+   "amt_usd": -938350898,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -938350898,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Federal employee retirement and disability"
+  },
+  {
+   "name": "Unemployment compensation",
+   "amt_usd": 15593000000,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 15593000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Unemployment compensation"
+  },
+  {
+   "name": "Subsidized housing (Section 8 and others)",
+   "amt_usd": 10748233820,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 10748233820,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Housing assistance"
+  },
+  {
+   "name": "Renewal of Section 8 contracts",
+   "amt_usd": 1622238150,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1622238150,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Housing assistance"
+  },
+  {
+   "name": "HOPE grants",
+   "amt_usd": 69586623,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 69586623,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Housing assistance"
+  },
+  {
+   "name": "Public housing operating subsidies",
+   "amt_usd": 1608465798,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1608465798,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Housing assistance"
+  },
+  {
+   "name": "Low-rent public housing loans",
+   "amt_usd": 87708139,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 87708139,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Housing assistance"
+  },
+  {
+   "name": "Homeless shelter and transitional housing",
+   "amt_usd": 108729099,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 108729099,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Housing assistance"
+  },
+  {
+   "name": "HOME investment partnerships",
+   "amt_usd": 205860427,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 205860427,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Housing assistance"
+  },
+  {
+   "name": "Shelter plus care",
+   "amt_usd": 22470680,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 22470680,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Housing assistance"
+  },
+  {
+   "name": "Other housing assistance",
+   "amt_usd": 1262707264,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1262707264,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Housing assistance"
+  },
+  {
+   "name": "Food stamps",
+   "amt_usd": 13336680145,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 13336680145,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Food and nutrition assistance"
+  },
+  {
+   "name": "Aid to Puerto Rico (nutrition)",
+   "amt_usd": 617591242,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 617591242,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Food and nutrition assistance"
+  },
+  {
+   "name": "Child nutrition and other food programs",
+   "amt_usd": 6013728613,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 6013728613,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Food and nutrition assistance"
+  },
+  {
+   "name": "Supplemental security income (SSI)",
+   "amt_usd": 12261684920,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 12261684920,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other income security"
+  },
+  {
+   "name": "Family support payments (AFDC)",
+   "amt_usd": 8998377322,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 8998377322,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other income security"
+  },
+  {
+   "name": "JOBS training for welfare recipients",
+   "amt_usd": 514708113,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 514708113,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other income security"
+  },
+  {
+   "name": "Earned income tax credit (outlay portion)",
+   "amt_usd": 4591080053,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 4591080053,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other income security"
+  },
+  {
+   "name": "Refugee assistance",
+   "amt_usd": 225657342,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 225657342,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other income security"
+  },
+  {
+   "name": "Low income home energy assistance",
+   "amt_usd": 835746394,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 835746394,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other income security"
+  },
+  {
+   "name": "Child care and other assistance (derived)",
+   "amt_usd": 557745854,
+   "category": "Income security",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 557745854,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other income security"
+  },
+  {
+   "name": "Social Security: Old-Age and Survivors Insurance (OASI)",
+   "amt_usd": 214122848529,
+   "category": "Social security",
+   "idx": 1,
+   "type": "protected",
+   "pre_irs_offset_usd": 214122848529,
+   "basis": "FY1993 OASI/DI share",
+   "parent_doc_line": "Social Security: Old-Age, Survivors and Disability Insurance"
+  },
+  {
+   "name": "Social Security: Disability Insurance (DI)",
+   "amt_usd": 25655151471,
+   "category": "Social security",
+   "idx": 1,
+   "type": "protected",
+   "pre_irs_offset_usd": 25655151471,
+   "basis": "FY1993 OASI/DI share",
+   "parent_doc_line": "Social Security: Old-Age, Survivors and Disability Insurance"
+  },
+  {
+   "name": "Social Security: on-budget portion",
+   "amt_usd": 6146000000,
+   "category": "Social security",
+   "idx": 1,
+   "type": "protected",
+   "pre_irs_offset_usd": 6146000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Social Security: on-budget portion"
+  },
+  {
+   "name": "Veterans compensation and pensions",
+   "amt_usd": 14861180548,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 14861180548,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Income security for veterans"
+  },
+  {
+   "name": "National service life insurance trust fund",
+   "amt_usd": 1184838405,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1184838405,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Income security for veterans"
+  },
+  {
+   "name": "Other veterans insurance programs",
+   "amt_usd": 34713847,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 34713847,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Income security for veterans"
+  },
+  {
+   "name": "Veterans insurance receipts",
+   "amt_usd": -319732800,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -319732800,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Income security for veterans"
+  },
+  {
+   "name": "Readjustment benefits (GI Bill and related)",
+   "amt_usd": 283950170,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 283950170,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans education, training and rehabilitation"
+  },
+  {
+   "name": "Post-Vietnam era education",
+   "amt_usd": -18255946,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -18255946,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans education, training and rehabilitation"
+  },
+  {
+   "name": "All-volunteer force education trust fund",
+   "amt_usd": -44656852,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -44656852,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans education, training and rehabilitation"
+  },
+  {
+   "name": "Other veterans education",
+   "amt_usd": 26962627,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 26962627,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans education, training and rehabilitation"
+  },
+  {
+   "name": "Veterans medical care and hospital services",
+   "amt_usd": 10340729239,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 10340729239,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans hospital and medical care"
+  },
+  {
+   "name": "Veterans medical administration and research",
+   "amt_usd": 214876254,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 214876254,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans hospital and medical care"
+  },
+  {
+   "name": "Veterans medical construction",
+   "amt_usd": 518141322,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 518141322,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans hospital and medical care"
+  },
+  {
+   "name": "Third-party medical recoveries",
+   "amt_usd": -361174980,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -361174980,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans hospital and medical care"
+  },
+  {
+   "name": "Veterans medical fees and charges",
+   "amt_usd": -4571835,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -4571835,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans hospital and medical care"
+  },
+  {
+   "name": "Loan guaranty revolving fund",
+   "amt_usd": 489211915,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 489211915,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans housing"
+  },
+  {
+   "name": "Veterans direct loan revolving fund",
+   "amt_usd": -5688511,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -5688511,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans housing"
+  },
+  {
+   "name": "Guaranty and indemnity",
+   "amt_usd": 630476596,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 630476596,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Veterans housing"
+  },
+  {
+   "name": "Cemeteries and administration of veterans benefits",
+   "amt_usd": 802415534,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 802415534,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other veterans benefits and services"
+  },
+  {
+   "name": "Non-VA support programs",
+   "amt_usd": 80584466,
+   "category": "Veterans benefits",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 80584466,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other veterans benefits and services"
+  },
+  {
+   "name": "Criminal investigations (DEA, FBI)",
+   "amt_usd": 2629422126,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 2719093436,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Alcohol, tobacco and firearms investigation",
+   "amt_usd": 320499343,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 331429348,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Border enforcement (Customs and INS)",
+   "amt_usd": 2647438362,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 2737724080,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Customs user fee",
+   "amt_usd": -678547659,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -678547659,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Secret Service protection",
+   "amt_usd": 482645461,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 499105142,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Other federal law enforcement",
+   "amt_usd": 634361126,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 655994774,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Civil and criminal prosecution and representation",
+   "amt_usd": 2178068022,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 2252346781,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Federal judicial activities",
+   "amt_usd": 2265304529,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 2342558319,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Representation of indigents in civil cases",
+   "amt_usd": 326188681,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 337312709,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Other litigative activities",
+   "amt_usd": 24653795,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 25494565,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Federal correctional activities",
+   "amt_usd": 1910669161,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 1975828804,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Criminal justice assistance",
+   "amt_usd": 845814835,
+   "category": "Administration of justice",
+   "idx": 0,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 874659699,
+   "basis": "FY1993 Table 37 share (category re-spread)",
+   "parent_doc_line": "Administration of justice"
+  },
+  {
+   "name": "Legislative functions",
+   "amt_usd": 879022648,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 909000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Legislative functions"
+  },
+  {
+   "name": "Executive direction and management",
+   "amt_usd": 71559600,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 74000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Executive direction and management"
+  },
+  {
+   "name": "Internal Revenue Service (collection of taxes)",
+   "amt_usd": 7028000000,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 7028000000,
+   "basis": "FY1993 Table 37 level (only allowed increase)",
+   "parent_doc_line": "Central fiscal operations"
+  },
+  {
+   "name": "Other fiscal operations (Treasury)",
+   "amt_usd": 103674330,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 107209941,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Central fiscal operations"
+  },
+  {
+   "name": "Federal buildings fund",
+   "amt_usd": 90778986,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 93874826,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General property and records management"
+  },
+  {
+   "name": "Property and other receipts",
+   "amt_usd": -16986092,
+   "category": "General government",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": -16986092,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General property and records management"
+  },
+  {
+   "name": "Records management",
+   "amt_usd": 23091508,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 23878999,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General property and records management"
+  },
+  {
+   "name": "Other property management",
+   "amt_usd": 16663975,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 17232267,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General property and records management"
+  },
+  {
+   "name": "Central personnel management",
+   "amt_usd": 84130881,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 87000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Central personnel management"
+  },
+  {
+   "name": "Payments and loans to the District of Columbia",
+   "amt_usd": 280403488,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 289966102,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General purpose fiscal assistance"
+  },
+  {
+   "name": "Payments to States from Forest Service receipts",
+   "amt_usd": 142779661,
+   "category": "General government",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 142779661,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General purpose fiscal assistance"
+  },
+  {
+   "name": "Payments to States from Mineral Leasing Act receipts",
+   "amt_usd": 207559322,
+   "category": "General government",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 207559322,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General purpose fiscal assistance"
+  },
+  {
+   "name": "Payments from other land management receipts",
+   "amt_usd": 53762712,
+   "category": "General government",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 53762712,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General purpose fiscal assistance"
+  },
+  {
+   "name": "Payments in lieu of taxes",
+   "amt_usd": 43466803,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 44949153,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General purpose fiscal assistance"
+  },
+  {
+   "name": "Payments to territories and Puerto Rico",
+   "amt_usd": 95030361,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 98271186,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General purpose fiscal assistance"
+  },
+  {
+   "name": "Other fiscal assistance",
+   "amt_usd": 120599068,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 124711864,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "General purpose fiscal assistance"
+  },
+  {
+   "name": "Compact of free association",
+   "amt_usd": 54057342,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 55900862,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other general government"
+  },
+  {
+   "name": "Territories",
+   "amt_usd": 36365848,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 37606034,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other general government"
+  },
+  {
+   "name": "Treasury claims",
+   "amt_usd": 163975862,
+   "category": "General government",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 163975862,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other general government"
+  },
+  {
+   "name": "Civil liberties public education fund",
+   "amt_usd": 84698276,
+   "category": "General government",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 84698276,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other general government"
+  },
+  {
+   "name": "Presidential election campaign fund",
+   "amt_usd": 1355172,
+   "category": "General government",
+   "idx": 1,
+   "type": "mandatory",
+   "pre_irs_offset_usd": 1355172,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other general government"
+  },
+  {
+   "name": "Other general government programs",
+   "amt_usd": 47832557,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": 49463793,
+   "basis": "FY1993 Table 37 share",
+   "parent_doc_line": "Other general government"
+  },
+  {
+   "name": "Offsetting receipts (general government)",
+   "amt_usd": -459000000,
+   "category": "General government",
+   "idx": 1,
+   "type": "discretionary",
+   "pre_irs_offset_usd": -459000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Offsetting receipts (general government)"
+  },
+  {
+   "name": "Credit program subsidies and net credit activity",
+   "amt_usd": -7156000000,
+   "category": "Central federal credit activities",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -7156000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Credit program subsidies and net credit activity"
+  },
+  {
+   "name": "Interest on the public debt",
+   "amt_usd": 248086000000,
+   "category": "Net interest",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 248086000000,
+   "basis": "kept (game computes interest)",
+   "parent_doc_line": "Interest on the public debt"
+  },
+  {
+   "name": "Interest received by trust funds",
+   "amt_usd": -44652000000,
+   "category": "Net interest",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -44652000000,
+   "basis": "kept (game computes interest)",
+   "parent_doc_line": "Interest received by trust funds"
+  },
+  {
+   "name": "Interest received by off-budget funds",
+   "amt_usd": -14888000000,
+   "category": "Net interest",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -14888000000,
+   "basis": "kept (game computes interest)",
+   "parent_doc_line": "Interest received by off-budget funds"
+  },
+  {
+   "name": "Other interest income",
+   "amt_usd": -18437000000,
+   "category": "Net interest",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -18437000000,
+   "basis": "kept (game computes interest)",
+   "parent_doc_line": "Other interest income"
+  },
+  {
+   "name": "Civilian agency pay raises",
+   "amt_usd": 157000000,
+   "category": "Allowances",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": 157000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Civilian agency pay raises"
+  },
+  {
+   "name": "Employee health benefits reform",
+   "amt_usd": -256000000,
+   "category": "Allowances",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -256000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Employee health benefits reform"
+  },
+  {
+   "name": "Reduced Government mail rates",
+   "amt_usd": -261000000,
+   "category": "Allowances",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -261000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Reduced Government mail rates"
+  },
+  {
+   "name": "Employer share of employee retirement (on-budget)",
+   "amt_usd": -27844000000,
+   "category": "Undistributed offsetting receipts",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -27844000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Employer share of employee retirement (on-budget)"
+  },
+  {
+   "name": "Employer share of employee retirement (off-budget)",
+   "amt_usd": -5551000000,
+   "category": "Undistributed offsetting receipts",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -5551000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Employer share of employee retirement (off-budget)"
+  },
+  {
+   "name": "Outer Continental Shelf rents and royalties",
+   "amt_usd": -3710000000,
+   "category": "Undistributed offsetting receipts",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -3710000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Outer Continental Shelf rents and royalties"
+  },
+  {
+   "name": "Sale of major assets",
+   "amt_usd": -2285000000,
+   "category": "Undistributed offsetting receipts",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -2285000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Sale of major assets"
+  },
+  {
+   "name": "Other undistributed offsetting receipts",
+   "amt_usd": -2652000000,
+   "category": "Undistributed offsetting receipts",
+   "idx": 0,
+   "type": "protected",
+   "pre_irs_offset_usd": -2652000000,
+   "basis": "kept (single program)",
+   "parent_doc_line": "Other undistributed offsetting receipts"
+  }
+ ]
+}
