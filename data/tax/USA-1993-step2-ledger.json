@@ -642,50 +642,50 @@
  {
   "item": "Fannie Mae (privatized, merged into FHFA)",
   "saving_bill": 6900000000.0,
-  "applied": 0,
-  "to_pool": 6900000000.0,
+  "applied": 6900000000.0,
+  "to_pool": 0.0,
   "line": null,
-  "note": "GSE: no federal outlay line in doc"
+  "note": "no outlay line; spread over HUD/FHA/GNMA lines"
  },
  {
   "item": "Freddie Mac (privatized, merged into FHFA)",
   "saving_bill": 2250000000.0,
-  "applied": 0,
-  "to_pool": 2250000000.0,
+  "applied": 2250000000.0,
+  "to_pool": 0.0,
   "line": null,
-  "note": "GSE: no federal outlay line in doc"
+  "note": "no outlay line; spread over HUD/FHA/GNMA lines"
  },
  {
   "item": "Federal Home Loan Banks de-subsidized",
   "saving_bill": 40000000.0,
-  "applied": 0,
-  "to_pool": 40000000.0,
+  "applied": 40000000.0,
+  "to_pool": 0.0,
   "line": null,
-  "note": "no line in doc"
+  "note": "no outlay line; spread over HUD/FHA/GNMA lines"
  },
  {
   "item": "NPR federal workforce reduction (108B to ~95B)",
   "saving_bill": 13000000000.0,
-  "applied": 0,
-  "to_pool": 13000000000.0,
+  "applied": 11133401221.995928,
+  "to_pool": 1866598778.0040722,
   "line": null,
-  "note": "steady-state, cross-cutting"
+  "note": "split by department FTE share; each department cut over its own operating lines"
  },
  {
   "item": "Departmental consolidations (overhead, minimum)",
   "saving_bill": 2500000000.0,
-  "applied": 0,
-  "to_pool": 2500000000.0,
+  "applied": 2141038696.537678,
+  "to_pool": 358961303.462322,
   "line": null,
-  "note": "cross-cutting"
+  "note": "split by department FTE share; each department cut over its own operating lines"
  },
  {
-  "item": "INCREASE: NASA (12.3B to 15.27B)",
-  "saving_bill": -2970000000.0,
-  "applied": -2970000000.0,
+  "item": "INCREASE: NASA (14.3B to 23.853B)",
+  "saving_bill": -9553000000.0,
+  "applied": -9553000000.0,
   "to_pool": 0,
   "line": "*NASA",
-  "note": "bill lists NASA twice (14.3B to 23.853B on p.15; 12.3B to 15.27B on p.17); used the latter, which fits the bill's Budget Increases total"
+  "note": "bill lists NASA twice; the larger raise (14.3B to 23.853B) is used per user instruction"
  },
  {
   "item": "INCREASE: National Science Foundation (+12M)",
@@ -726,6 +726,22 @@
   "to_pool": 0,
   "line": "U.S. Digital Service",
   "note": "new line"
+ },
+ {
+  "item": "INCREASE: Patent and Trademark Office (fee retention, +660M)",
+  "saving_bill": -660000000.0,
+  "applied": -660000000.0,
+  "to_pool": 0,
+  "line": "Patent and Trademark Office (fee-retained)",
+  "note": "new line; bill: 418M to 1.08B"
+ },
+ {
+  "item": "INCREASE: Earned income tax credit extended to all taxpayers (s.201a), childless workers",
+  "saving_bill": -1200000000.0,
+  "applied": -1200000000.0,
+  "to_pool": 0,
+  "line": "Earned income tax credit (outlay portion)",
+  "note": "estimate: ~5M childless filers x ~$240 (1994-96 childless credit schedule)"
  },
  {
   "item": "INCREASE: DoJ Civil Rights Division (expanded to ~385M)",

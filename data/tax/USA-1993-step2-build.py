@@ -87,59 +87,111 @@ CUTS=[
 ("Community Relations Service (into DoJ CRD)",5,0,"Other litigative activities","consolidated"),
 ("DoJ Civil Rights Division pre-expansion",65,0,"Civil and criminal prosecution and representation","absorbed into expanded CRD"),
 # no matching line in the doc: pure pool
-("Fannie Mae (privatized, merged into FHFA)",6900,0,None,"GSE: no federal outlay line in doc"),
-("Freddie Mac (privatized, merged into FHFA)",2250,0,None,"GSE: no federal outlay line in doc"),
-("Federal Home Loan Banks de-subsidized",40,0,None,"no line in doc"),
-("NPR federal workforce reduction (108B to ~95B)",108000,95000,None,"steady-state, cross-cutting"),
-("Departmental consolidations (overhead, minimum)",2500,0,None,"cross-cutting"),
 ]
 INCR=[ # (item, $M, line or new line name, category, idx, note)
-("NASA (12.3B to 15.27B)",2970,"*NASA","Science, space and technology",0,"bill lists NASA twice (14.3B to 23.853B on p.15; 12.3B to 15.27B on p.17); used the latter, which fits the bill's Budget Increases total"),
+("NASA (14.3B to 23.853B)",9553,"*NASA","Science, space and technology",0,"bill lists NASA twice; the larger raise (14.3B to 23.853B) is used per user instruction"),
 ("National Science Foundation (+12M)",12,"National Science Foundation",None,None,""),
 ("Atomic Energy Commission (~1.0B to ~1.08B)",80,"Nuclear Regulatory Commission",None,None,""),
 ("Technology & Manufacturing Extension Program",79.9,"Commerce science and technology (NOAA, NIST)",None,None,""),
 ("U.S. Public Service Academy (replaces OPM)",425,"U.S. Public Service Academy","Education, training and social services",1,"new line"),
 ("U.S. Digital Service",21.3,"U.S. Digital Service","General government",1,"new line"),
+("Patent and Trademark Office (fee retention, +660M)",660,"Patent and Trademark Office (fee-retained)","Commerce and housing credit",0,"new line; bill: 418M to 1.08B"),
+("Earned income tax credit extended to all taxpayers (s.201a), childless workers",1200,"Earned income tax credit (outlay portion)",None,None,"estimate: ~5M childless filers x ~$240 (1994-96 childless credit schedule)"),
 ("DoJ Civil Rights Division (expanded to ~385M)",385,"DoJ Civil Rights Division (expanded)","Administration of justice",0,"new line (absorbs five bodies + 65M existing)"),
 ]
-ledger=[]; pool=0.0; applied_total=0.0
-touched=set()
+
+GSE=[("Fannie Mae (privatized, merged into FHFA)",6900),("Freddie Mac (privatized, merged into FHFA)",2250),("Federal Home Loan Banks de-subsidized",40)]
+NPR=[("NPR federal workforce reduction (108B to ~95B)",13000),("Departmental consolidations (overhead, minimum)",2500)]
+ledger=[]; applied_total=0.0; touched=set(); comp=collections.defaultdict(lambda: collections.defaultdict(float))
+left=[]  # (item, leftover, line)
 for item,b,a,line,note in CUTS:
-    s=(b-a)*M
-    if line is None:
-        pool+=s; ledger.append(dict(item=item,saving_bill=s,applied=0,to_pool=s,line=None,note=note)); continue
-    cur=L[line]['amt']
-    take=min(s,max(cur,0))
-    L[line]['amt']=cur-take; touched.add(line)
-    pool+=s-take; applied_total+=take
-    ledger.append(dict(item=item,saving_bill=s,applied=take,to_pool=s-take,line=line,note=note))
-# increases
+    s_=(b-a)*M; cur=L[line]['amt']; take=min(s_,max(cur,0))
+    L[line]['amt']=cur-take; comp[line]['named']+=take; touched.add(line); applied_total+=take
+    if s_-take>0.5: left.append((item,s_-take,line))
+    ledger.append(dict(item=item,saving_bill=s_,applied=take,to_pool=s_-take,line=line,note=note))
+cat=lambda c:[n for n in order if L[n]['cat']==c and L[n]['tag']!='IRS']
+USDA=cat("Agriculture")+["Food stamps","Aid to Puerto Rico (nutrition)","Child nutrition and other food programs","Forest Service and other land management","Conservation reserve program","Other agricultural land conservation","Rural housing programs (FmHA)","Rural development","Food aid (P.L. 480)"]
+HUD=["Subsidized housing (Section 8 and others)","Renewal of Section 8 contracts","HOPE grants","Public housing operating subsidies","Low-rent public housing loans","HOME investment partnerships","Shelter plus care","Other housing assistance","Community development block grants","Housing for the elderly or handicapped"]
+HFIN=HUD+["FHA mortgage credit","GNMA mortgage-backed securities"]
+GENGOV=["Legislative functions","Executive direction and management","Federal buildings fund","Records management","Other property management","Other general government programs","Central personnel management"]
+HOME={"Commodity Credit Corporation":("USDA",USDA),"Homeless shelter and transitional housing":("HUD",HUD),
+"Export-Import Bank":("International affairs",cat("International affairs")),"Other development programs, net of allowances":("International affairs",cat("International affairs")),"Board for International Broadcasting":("International affairs",cat("International affairs")),
+"Domestic volunteer programs":("Education/social services",cat("Education, training and social services")),
+"Aeronautical research, carrier subsidies and other (derived)":("Transportation",cat("Transportation")),"Surface transportation regulation":("Transportation",cat("Transportation")),
+"Economic development assistance":("Community/regional development",cat("Community and regional development")),"Appalachian Regional Commission":("Community/regional development",cat("Community and regional development")),"Pennsylvania Avenue Development Corporation":("Community/regional development",cat("Community and regional development")),
+"Representation of indigents in civil cases":("Justice",cat("Administration of justice")),"Other litigative activities":("Justice",cat("Administration of justice")),
+"Small and minority business assistance":("Commerce",["Commerce science and technology (NOAA, NIST)","Economic and demographic statistics","International trade and other commerce"]),
+"Central personnel management":("General government",GENGOV),"Other general government programs":("General government",GENGOV)}
+def spread(amount,group,key,label):
+    names=[n for n in dict.fromkeys(group) if n in L and L[n]['amt']>0 and L[n]['cat'] not in ("Social security","Net interest") and not n.startswith("Internal Revenue")]
+    tot=sum(L[n]['amt'] for n in names); take=min(amount,tot)
+    if tot<=0: return amount
+    for n in names:
+        c_=take*L[n]['amt']/tot; comp[n][label]+=c_; L[n]['amt']-=c_; touched.add(n)
+    return amount-take
+overflow=0.0; home_tot=collections.defaultdict(float)
+# 1) leftover of agency cuts goes to that agency's / function's other lines
+for item,amt,line in left:
+    lab,grp=HOME[line]; home_tot[lab]+=amt
+    if lab=="USDA":
+        NUTR=["Food stamps","Aid to Puerto Rico (nutrition)","Child nutrition and other food programs"]
+        o=spread(amt,[n for n in grp if n!=line and n not in NUTR],lab,'leftover: USDA farm/rural/conservation lines')
+        o=spread(o,NUTR,lab,'leftover: USDA nutrition programs (farm lines exhausted)')
+    else: o=spread(amt,[n for n in grp if n!=line],lab,'leftover: '+lab)
+    overflow+=o
+# 2) GSEs -> housing finance agencies
+for item,b in GSE:
+    amt=b*M; home_tot['Housing (HUD/FHA/GNMA)']+=amt
+    o=spread(amt,HFIN,'gse','leftover: housing (GSE)'); overflow+=o
+    ledger.append(dict(item=item,saving_bill=amt,applied=amt-o,to_pool=o,line=None,note='no outlay line; spread over HUD/FHA/GNMA lines'))
+# 3) NPR workforce + consolidations by department (FY1993 FTE, Budget FY1997 Hist. Tab 19.3; 'Other' split by estimate)
+nasa=[n for n in L if n.startswith("NASA:")]
+DEPT=[("Defense",932,["Operation and maintenance","Research, development, test and evaluation"]),
+("Veterans Affairs",234,["Veterans medical care and hospital services","Veterans medical administration and research","Cemeteries and administration of veterans benefits"]),
+("Justice",95,["Criminal investigations (DEA, FBI)","Other federal law enforcement","Civil and criminal prosecution and representation","Federal correctional activities"]),
+("Treasury excl. IRS",51,["Alcohol, tobacco and firearms investigation","Secret Service protection","Border enforcement (Customs and INS)"]),
+("Agriculture",114,["Agricultural research and extension (derived)","Marketing programs","Animal and plant health inspection","Economic intelligence","Other agricultural programs and overhead","Crop insurance","Agricultural credit, TEFAP and other (derived)","Forest Service and other land management"]),
+("HHS/Education",71,["Other health care services (HRSA, IHS, CDC)","National Institutes of Health","Other health research and training","Health professional education","Consumer safety (FDA, USDA inspection)","ACF service programs (Head Start and others)","Research and general education aids"]),
+("Interior",78,["Bureau of Land Management","Operation of recreational resources (NPS)","Mining reclamation and enforcement","Bureau of Reclamation","Other resources management","Other natural resource programs","Indian programs","Other water resources"]),
+("Transportation",69,["Airports and airways (FAA)","Marine safety and transportation (Coast Guard)","Highway safety","Railroads (Amtrak and FRA)","Miscellaneous transportation programs"]),
+("Commerce",36,["Commerce science and technology (NOAA, NIST)","Economic and demographic statistics","International trade and other commerce"]),
+("Labor",17,["Other labor services","Occupational safety and health","Other training and employment"]),
+("State",25,["State Department salaries and expenses","Foreign buildings","Other foreign affairs"]),
+("Energy",20,["DOE weapons activities","Energy R&D (DOE)","DOE general science programs","Other energy programs","Energy conservation","Emergency energy preparedness","Defense environmental restoration and waste management","Materials production and other defense programs"]),
+("EPA",18,["EPA regulatory, enforcement and research","Superfund (hazardous substance response)","Oil pollution funds","Leaking underground storage tank fund"]),
+("HUD",12,["Other housing assistance"]),
+("NASA",24,nasa),
+("Other independents, GSA, legislative",168,[])]
+W=sum(d[1] for d in DEPT); npr_by={}
+for item,m in NPR:
+    amt=m*M; got=0
+    for d,w,grp in DEPT:
+        part=amt*w/W; o=spread(part,grp,'npr','NPR/consolidation: '+d); got+=part-o; overflow+=o; npr_by[d]=npr_by.get(d,0)+part-o
+    ledger.append(dict(item=item,saving_bill=amt,applied=got,to_pool=amt-got,line=None,note='split by department FTE share; each department cut over its own operating lines'))
+# 4) only overflow (home group exhausted) goes to the global pool
+excl_cat={"Social security","Net interest"}
+elig=[n for n in order if L[n]['cat'] not in excl_cat and L[n]['amt']>0 and not n.startswith("Internal Revenue") and not n.startswith("Other fiscal operations")]
+overflow=spread(overflow,elig,'overflow','overflow (agency lines exhausted)')
+# 5) increases
 inc_total=0
-for item,m,line,cat,idx,note in INCR:
+for item,m,line,cat_,idx,note in INCR:
     amt=m*M; inc_total+=amt
     if line=="*NASA":
         ns=[n for n in L if n.startswith("NASA:")]; tot=sum(L[n]['amt'] for n in ns)
-        for n in ns: L[n]['amt']+=amt*L[n]['amt']/tot; touched.add(n)
-    elif line in L: L[line]['amt']+=amt; touched.add(line)
+        for n in ns: L[n]['amt']+=amt*L[n]['amt']/tot; comp[n]['increase']+=amt*L[n]['amt']/tot
+    elif line in L: L[line]['amt']+=amt; comp[line]['increase']+=amt
     else:
-        L[line]=dict(name=line,amt=round(amt),cat=cat,flag=idx,tag='D',src='Budget Omnibus & Restructuring Act of 1993',parent=item,pre=0); order.append(line); touched.add(line)
+        L[line]=dict(name=line,amt=round(amt),cat=cat_,flag=idx,tag='D',src='Budget Omnibus & Restructuring Act of 1993',parent=item,pre=0); order.append(line)
     ledger.append(dict(item="INCREASE: "+item,saving_bill=-amt,applied=-amt,to_pool=0,line=line,note=note))
-# pool distribution: all positive non-Social-Security lines not touched, excluding IRS lines
-excl_cat={"Social security","Net interest"}
-elig=[n for n in order if L[n]['cat'] not in excl_cat and L[n]['amt']>0 and n not in touched and not n.startswith("Internal Revenue") and not n.startswith("Other fiscal operations")]
-elig_sum=sum(L[n]['amt'] for n in elig)
-pct=pool/elig_sum
-by_cat=collections.OrderedDict()
-for n in elig:
-    cut=L[n]['amt']*pct; by_cat[L[n]['cat']]=by_cat.get(L[n]['cat'],0)+cut
-    L[n]['pool_cut']=cut; L[n]['amt']-=cut
 out=[]
 for n in order:
-    r=L[n]; r['amt']=round(r['amt']); out.append(r)
-json.dump(out,open('step2_xl.json','w'),indent=1); json.dump(ledger,open('step2_ledger.json','w'),indent=1)
-tot_bill=sum(x['saving_bill'] for x in ledger if x['saving_bill']>0)
-print('bill savings total (listed items) $B',tot_bill/1e9,' applied to named lines',applied_total/1e9,' pooled',pool/1e9,' increases',inc_total/1e9)
-print('pool eligible base $B',elig_sum/1e9,' pool cut pct',pct*100)
-for c,v in by_cat.items(): print(f'  {c:42s}{v/1e9:7.2f}')
+    r=L[n]; r['amt']=round(r['amt']); c_=comp.get(n)
+    if c_: r['note']='; '.join(f"{k} {v/1e6:+.1f}M" if k=='increase' else f"{k} -{v/1e6:.1f}M" for k,v in c_.items() if abs(v)>5e4)
+    out.append(r)
+json.dump(out,open('step3_xl.json','w'),indent=1); json.dump(ledger,open('step3_ledger.json','w'),indent=1)
 old=sum(r['amt'] for r in base if r['cat']!='Net interest'); new=sum(r['amt'] for r in out if r['cat']!='Net interest')
-print('program total before',old/1e9,'after',new/1e9,'delta',(new-old)/1e9)
+print('named applied',applied_total/1e9,'leftover by agency',{k:round(v/1e9,2) for k,v in home_tot.items()},'overflow to global',overflow/1e9)
+print('npr by dept $B',{k:round(v/1e9,2) for k,v in npr_by.items()})
+print('increases',inc_total/1e9,'program total before',old/1e9,'after',new/1e9,'delta',(new-old)/1e9)
+neg=[r['name'] for r in out if r['amt']<0 and L[r['name']].get('pre',0)>=0 and L[r['name']]['cat'] not in('Net interest',)]
+print('lines turned negative:',[r['name'] for r in out if r['amt']<0 and r['name'] in {x['name'] for x in base if x['amt']>=0}])
