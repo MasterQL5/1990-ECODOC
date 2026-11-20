@@ -1736,8 +1736,8 @@ const SMCO = {
 };
 /* ---------- more corporations, ownership status and share counts ---------- */
 const PT = "Publicly traded", ST = "State-controlled", MX = "Mixed (state stake)", FM = "Family / founder controlled", SB = "Subsidiary (majority-owned)", SP = "State-sponsored enterprise", STS = "State-controlled subsidiary";
-IDX.push(["IBOV", "Ibovespa", "BRA", null], ["IPC", "IPC (Mexico)", "MEX", null], ["SENSEX", "BSE Sensex", "IND", null], ["JSE", "JSE All Share", "ZAF", null], ["STI", "Straits Times Index", "SGP", null], ["KLSE", "KLSE Composite", "MYS", null], ["SET", "SET Index", "THA", null], ["SSE", "Shanghai Composite", "CHN", 100], ["SZSE", "Shenzhen Composite", "CHN", 100], ["BEL20", "BEL 20", "BEL", null], ["OSE", "Oslo Bors All-Share", "NOR", null], ["HEX", "HEX General Index", "FIN", null], ["KFX", "KFX Copenhagen", "DNK", null], ["TASE", "TASE General Index", "ISR", null]);
-const DEFIDX = { USA: "SPX", JPN: "TOPIX", GBR: "FTSE", FRG: "DAX", FRA: "CAC", ITA: "MIB", CAN: "TSX", CHE: "SMI", NLD: "AEX", AUS: "ASX", HKG: "HSI", ESP: "MAD", SWE: "OMX", KOR: "KOSPI", TWN: "TAIEX", BRA: "IBOV", MEX: "IPC", IND: "SENSEX", ZAF: "JSE", SGP: "STI", MYS: "KLSE", THA: "SET", CHN: "SSE", BEL: "BEL20", NOR: "OSE", FIN: "HEX", DNK: "KFX", ISR: "TASE" };
+IDX.push(["IBOV", "Ibovespa", "BRA", null], ["IPC", "IPC (Mexico)", "MEX", null], ["SENSEX", "BSE Sensex", "IND", null], ["JSE", "JSE All Share", "ZAF", null], ["MOEX", "MOEX Russia Index (Moscow Stock Exchange)", "RUS", null], ["STI", "Straits Times Index", "SGP", null], ["KLSE", "KLSE Composite", "MYS", null], ["SET", "SET Index", "THA", null], ["SSE", "Shanghai Composite", "CHN", 100], ["SZSE", "Shenzhen Composite", "CHN", 100], ["BEL20", "BEL 20", "BEL", null], ["OSE", "Oslo Bors All-Share", "NOR", null], ["HEX", "HEX General Index", "FIN", null], ["KFX", "KFX Copenhagen", "DNK", null], ["TASE", "TASE General Index", "ISR", null]);
+const DEFIDX = { USA: "SPX", JPN: "TOPIX", GBR: "FTSE", FRG: "DAX", FRA: "CAC", ITA: "MIB", CAN: "TSX", CHE: "SMI", NLD: "AEX", AUS: "ASX", HKG: "HSI", ESP: "MAD", SWE: "OMX", KOR: "KOSPI", TWN: "TAIEX", BRA: "IBOV", MEX: "IPC", IND: "SENSEX", ZAF: "JSE", RUS: "MOEX", SGP: "STI", MYS: "KLSE", THA: "SET", CHN: "SSE", BEL: "BEL20", NOR: "OSE", FIN: "HEX", DNK: "KFX", ISR: "TASE" };
 /* every listed corporation belongs to at least one index: its nation's main index, or an all-share index made for that nation */
 const defIdx = iso => { if (DEFIDX[iso]) return DEFIDX[iso]; const code = iso + "-ALL"; if (!IBY[code]) { const i = [code, NBY[iso].name + " All-Share", iso, null]; IDX.push(i); IBY[code] = i; } return code; };
 IDX.forEach(i => IBY[i[0]] = i);
@@ -1796,6 +1796,11 @@ const SMX = {
   ZAF: [["Anglo American Corporation", "$13", "JSE", "71", PT], ["De Beers", "$6", "JSE", "71", PT], ["Gold Fields of South Africa", "$3", "JSE", "71", PT], ["Gencor", "$2", "JSE", "26", PT],
     ["Sasol", "$2.5", "JSE", "27", PT], ["Barlow Rand", "$3", "JSE", CON, PT], ["Rembrandt Group", "$2", "JSE", "24", FM], ["South African Breweries", "$2", "JSE", "22", PT],
     ["Liberty Life", "$2", "JSE", INS, PT], ["Sanlam", "$3", "JSE", INS, PT], ["Standard Bank", "$3", "JSE", BNK, PT], ["Iscor", "$1", "JSE", "72", ST]],
+  RUS: [["Gazprom", "$20", "MOEX", "27", ST], ["Lukoil", "$8", "MOEX", "27", MX], ["Rosneft", "$6", "MOEX", "27", ST], ["Surgutneftegaz", "$4", "MOEX", "27", MX],
+    ["Transneft", "$4", "MOEX", "27", ST], ["Tatneft", "$2", "MOEX", "27", ST], ["Norilsk Nickel", "$5", "MOEX", "75", ST], ["ALROSA", "$3", "MOEX", "71", ST],
+    ["Severstal", "$2", "MOEX", "72", ST], ["Magnitogorsk Iron & Steel Works", "$1.5", "MOEX", "72", ST], ["Novolipetsk Steel", "$1", "MOEX", "72", ST],
+    ["AvtoVAZ", "$3", "MOEX", "87", ST], ["GAZ (Gorky Automobile Plant)", "$1.5", "MOEX", "87", ST], ["KAMAZ", "$1.5", "MOEX", "87", ST],
+    ["Aeroflot", "$1.5", "MOEX", AIR, ST], ["Rostelecom", "$2", "MOEX", TEL, ST], ["Sberbank", "$3", "MOEX", BNK, ST], ["Vneshtorgbank (VTB)", "$2", "MOEX", BNK, ST]],
   SGP: [["Singapore Airlines", "$4", "STI", AIR, MX], ["DBS Bank", "$2.5", "STI", BNK, MX], ["OCBC", "$2.5", "STI", BNK, PT], ["United Overseas Bank", "$2", "STI", BNK, PT],
     ["Keppel", "$1", "STI", "89", MX], ["Singapore Press Holdings", "$1", "STI", "49", PT]],
   MYS: [["Malayan Banking", "$3.5", "KLSE", BNK, MX], ["Telekom Malaysia", "$4", "KLSE", TEL, MX], ["Sime Darby", "$2.5", "KLSE", CON, MX], ["Genting", "$2.5", "KLSE", "Services: Leisure", FM], ["Public Bank", "$1", "KLSE", BNK, FM]],
