@@ -1,69 +1,69 @@
 [
  {
   "name": "Military personnel",
-  "amt": 54916241778,
+  "amt": 53584450286,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "kept (single program)",
   "parent": "Military personnel",
   "pre": 55113000000,
-  "note": "overflow (agency lines exhausted) -196.8M"
+  "note": "overflow (agency lines exhausted) -1528.5M"
  },
  {
   "name": "Operation and maintenance",
-  "amt": 59957526353,
+  "amt": 58503477042,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "kept (single program)",
   "parent": "Operation and maintenance",
   "pre": 64823000000,
-  "note": "NPR/consolidation: Defense -4650.7M; overflow (agency lines exhausted) -214.8M"
+  "note": "NPR/consolidation: Defense -4650.7M; overflow (agency lines exhausted) -1668.9M"
  },
  {
   "name": "Procurement",
-  "amt": 72781333326,
+  "amt": 71016289736,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "kept (single program)",
   "parent": "Procurement",
   "pre": 73042100000,
-  "note": "overflow (agency lines exhausted) -260.8M"
+  "note": "overflow (agency lines exhausted) -2025.8M"
  },
  {
   "name": "Research, development, test and evaluation",
-  "amt": 34870319848,
+  "amt": 34024668474,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "kept (single program)",
   "parent": "Research, development, test and evaluation",
   "pre": 38700000000,
-  "note": "named -1000.0M; NPR/consolidation: Defense -2704.7M; overflow (agency lines exhausted) -124.9M"
+  "note": "named -1000.0M; NPR/consolidation: Defense -2704.7M; overflow (agency lines exhausted) -970.6M"
  },
  {
   "name": "Military construction",
-  "amt": 857926155,
+  "amt": 837120311,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "kept (single program)",
   "parent": "Military construction",
   "pre": 861000000,
-  "note": "overflow (agency lines exhausted) -3.1M"
+  "note": "overflow (agency lines exhausted) -23.9M"
  },
  {
   "name": "Family housing",
-  "amt": 144482337,
+  "amt": 140978450,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "kept (single program)",
   "parent": "Family housing",
   "pre": 145000000,
-  "note": "overflow (agency lines exhausted) -0.5M"
+  "note": "overflow (agency lines exhausted) -4.0M"
  },
  {
   "name": "Other defense (net)",
@@ -77,91 +77,91 @@
  },
  {
   "name": "DOE weapons activities",
-  "amt": 2832804095,
+  "amt": 2764104849,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "FY1993 Table 37 share",
   "parent": "Atomic energy defense activities",
   "pre": 2893906769,
-  "note": "NPR/consolidation: Energy -51.0M; overflow (agency lines exhausted) -10.1M"
+  "note": "NPR/consolidation: Energy -51.0M; overflow (agency lines exhausted) -78.8M"
  },
  {
   "name": "New production reactor",
-  "amt": 341928392,
+  "amt": 333636176,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "FY1993 Table 37 share",
   "parent": "Atomic energy defense activities",
   "pre": 343153480,
-  "note": "overflow (agency lines exhausted) -1.2M"
+  "note": "overflow (agency lines exhausted) -9.5M"
  },
  {
   "name": "Defense environmental restoration and waste management",
-  "amt": 2168357091,
+  "amt": 2115771564,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "FY1993 Table 37 share",
   "parent": "Atomic energy defense activities",
   "pre": 2215127857,
-  "note": "NPR/consolidation: Energy -39.0M; overflow (agency lines exhausted) -7.8M"
+  "note": "NPR/consolidation: Energy -39.0M; overflow (agency lines exhausted) -60.4M"
  },
  {
   "name": "Materials production and other defense programs",
-  "amt": 1750160778,
+  "amt": 1707717065,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "FY1993 Table 37 share",
   "parent": "Atomic energy defense activities",
   "pre": 1787911184,
-  "note": "NPR/consolidation: Energy -31.5M; overflow (agency lines exhausted) -6.3M"
+  "note": "NPR/consolidation: Energy -31.5M; overflow (agency lines exhausted) -48.7M"
  },
  {
   "name": "Defense Nuclear Facilities Safety Board",
-  "amt": 6876074,
+  "amt": 6709320,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "FY1993 Table 37 share",
   "parent": "Atomic energy defense activities",
   "pre": 6900710,
-  "note": ""
+  "note": "overflow (agency lines exhausted) -0.2M"
  },
  {
   "name": "Defense-related activities",
-  "amt": 493133164,
+  "amt": 481174032,
   "cat": "National defense",
   "flag": 0,
   "tag": "P",
   "src": "kept (single program)",
   "parent": "Defense-related activities",
   "pre": 514900000,
-  "note": "named -20.0M; overflow (agency lines exhausted) -1.8M"
+  "note": "named -20.0M; overflow (agency lines exhausted) -13.7M"
  },
  {
   "name": "Agency for International Development",
-  "amt": 935703150,
+  "amt": 913011111,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Development and humanitarian assistance",
   "pre": 1524061149,
-  "note": "named -434.3M; leftover: International affairs -100.4M; overflow (agency lines exhausted) -3.4M"
+  "note": "named -434.3M; leftover: International affairs -100.4M; overflow (agency lines exhausted) -26.0M"
  },
  {
   "name": "Multilateral development banks",
-  "amt": 731902019,
+  "amt": 714152427,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Development and humanitarian assistance",
   "pre": 840804138,
-  "note": "leftover: International affairs -78.6M; overflow (agency lines exhausted) -2.6M"
+  "note": "leftover: International affairs -78.6M; overflow (agency lines exhausted) -20.4M"
  },
  {
   "name": "Food aid (P.L. 480)",
@@ -176,47 +176,47 @@
  },
  {
   "name": "Refugee programs",
-  "amt": 285831557,
+  "amt": 278899764,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Development and humanitarian assistance",
   "pre": 328361379,
-  "note": "leftover: International affairs -30.7M; overflow (agency lines exhausted) -1.0M"
+  "note": "leftover: International affairs -30.7M; overflow (agency lines exhausted) -8.0M"
  },
  {
   "name": "Voluntary contributions to international organizations",
-  "amt": 153502132,
+  "amt": 149779502,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Development and humanitarian assistance",
   "pre": 176342222,
-  "note": "leftover: International affairs -16.5M; overflow (agency lines exhausted) -0.5M"
+  "note": "leftover: International affairs -16.5M; overflow (agency lines exhausted) -4.3M"
  },
  {
   "name": "State Dept. narcotics assistance",
-  "amt": 73623280,
+  "amt": 71837818,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Development and humanitarian assistance",
   "pre": 84577931,
-  "note": "leftover: International affairs -7.9M; overflow (agency lines exhausted) -0.3M"
+  "note": "leftover: International affairs -7.9M; overflow (agency lines exhausted) -2.0M"
  },
  {
   "name": "Peace Corps",
-  "amt": 3817134,
+  "amt": 3724563,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Development and humanitarian assistance",
   "pre": 107795402,
-  "note": "named -100.0M; leftover: International affairs -0.4M"
+  "note": "named -100.0M; leftover: International affairs -0.4M; overflow (agency lines exhausted) -0.1M"
  },
  {
   "name": "Other development programs, net of allowances",
@@ -241,36 +241,36 @@
  },
  {
   "name": "Foreign military financing",
-  "amt": 3158483711,
+  "amt": 3081886303,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "International security assistance",
   "pre": 3628444939,
-  "note": "leftover: International affairs -339.0M; overflow (agency lines exhausted) -11.3M"
+  "note": "leftover: International affairs -339.0M; overflow (agency lines exhausted) -87.9M"
  },
  {
   "name": "Economic support fund",
-  "amt": 2631814219,
+  "amt": 2567989243,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "International security assistance",
   "pre": 3023410553,
-  "note": "leftover: International affairs -282.5M; overflow (agency lines exhausted) -9.4M"
+  "note": "leftover: International affairs -282.5M; overflow (agency lines exhausted) -73.3M"
  },
  {
   "name": "Other security assistance",
-  "amt": 121892940,
+  "amt": 118936875,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "International security assistance",
   "pre": 140029793,
-  "note": "leftover: International affairs -13.1M; overflow (agency lines exhausted) -0.4M"
+  "note": "leftover: International affairs -13.1M; overflow (agency lines exhausted) -3.4M"
  },
  {
   "name": "Foreign military credit sales repayments",
@@ -284,58 +284,58 @@
  },
  {
   "name": "State Department salaries and expenses",
-  "amt": 740631615,
+  "amt": 722670319,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Conduct of foreign affairs",
   "pre": 1331393595,
-  "note": "named -300.0M; leftover: International affairs -95.4M; NPR/consolidation: State -148.8M; overflow (agency lines exhausted) -2.7M"
+  "note": "named -300.0M; leftover: International affairs -95.4M; NPR/consolidation: State -148.8M; overflow (agency lines exhausted) -20.6M"
  },
  {
   "name": "Foreign buildings",
-  "amt": 194967488,
+  "amt": 190239268,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Conduct of foreign affairs",
   "pre": 268815857,
-  "note": "leftover: International affairs -25.1M; NPR/consolidation: State -39.2M; overflow (agency lines exhausted) -0.7M"
+  "note": "leftover: International affairs -25.1M; NPR/consolidation: State -39.2M; overflow (agency lines exhausted) -5.4M"
  },
  {
   "name": "United Nations programs",
-  "amt": 544243596,
+  "amt": 531044969,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Conduct of foreign affairs",
   "pre": 625223399,
-  "note": "leftover: International affairs -58.4M; overflow (agency lines exhausted) -1.9M"
+  "note": "leftover: International affairs -58.4M; overflow (agency lines exhausted) -15.1M"
  },
  {
   "name": "Other foreign affairs",
-  "amt": 46442471,
+  "amt": 45316180,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Conduct of foreign affairs",
   "pre": 113567149,
-  "note": "named -47.9M; leftover: International affairs -6.0M; NPR/consolidation: State -9.3M; overflow (agency lines exhausted) -0.2M"
+  "note": "named -47.9M; leftover: International affairs -6.0M; NPR/consolidation: State -9.3M; overflow (agency lines exhausted) -1.3M"
  },
  {
   "name": "U.S. Information Agency",
-  "amt": 671845292,
+  "amt": 655552155,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Foreign information and exchange",
   "pre": 771811373,
-  "note": "leftover: International affairs -72.1M; overflow (agency lines exhausted) -2.4M"
+  "note": "leftover: International affairs -72.1M; overflow (agency lines exhausted) -18.7M"
  },
  {
   "name": "Board for International Broadcasting",
@@ -350,14 +350,14 @@
  },
  {
   "name": "Other information programs",
-  "amt": 10873135,
+  "amt": 10609447,
   "cat": "International affairs",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Foreign information and exchange",
   "pre": 12490985,
-  "note": "leftover: International affairs -1.2M"
+  "note": "leftover: International affairs -1.2M; overflow (agency lines exhausted) -0.3M"
  },
  {
   "name": "Export-Import Bank",
@@ -372,14 +372,14 @@
  },
  {
   "name": "International Monetary Fund",
-  "amt": 3484192,
+  "amt": 3399696,
   "cat": "International affairs",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "International financial programs (net)",
   "pre": 3870617,
-  "note": "leftover: International affairs -0.4M"
+  "note": "leftover: International affairs -0.4M; overflow (agency lines exhausted) -0.1M"
  },
  {
   "name": "Exchange stabilization fund",
@@ -393,14 +393,14 @@
  },
  {
   "name": "Foreign military sales trust fund (net)",
-  "amt": 26606558,
+  "amt": 25961314,
   "cat": "International affairs",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "International financial programs (net)",
   "pre": 29557437,
-  "note": "leftover: International affairs -2.9M; overflow (agency lines exhausted) -0.1M"
+  "note": "leftover: International affairs -2.9M; overflow (agency lines exhausted) -0.7M"
  },
  {
   "name": "Other financial programs and offsets",
@@ -414,91 +414,91 @@
  },
  {
   "name": "National Science Foundation",
-  "amt": 1690789825,
+  "amt": 1650076951,
   "cat": "Science, space and technology",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "General science and basic research",
   "pre": 1742261702,
-  "note": "overflow (agency lines exhausted) -6.0M; increase +12.0M"
+  "note": "overflow (agency lines exhausted) -46.7M; increase +12.0M"
  },
  {
   "name": "DOE general science programs",
-  "amt": 796112071,
+  "amt": 776805301,
   "cat": "Science, space and technology",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "General science and basic research",
   "pre": 841019415,
-  "note": "NPR/consolidation: Energy -14.3M; overflow (agency lines exhausted) -2.9M"
+  "note": "NPR/consolidation: Energy -14.3M; overflow (agency lines exhausted) -22.2M"
  },
  {
   "name": "DOD general science programs",
-  "amt": 47907588,
+  "amt": 46745766,
   "cat": "Science, space and technology",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "General science and basic research",
   "pre": 49718883,
-  "note": "overflow (agency lines exhausted) -0.2M"
+  "note": "overflow (agency lines exhausted) -1.3M"
  },
  {
   "name": "NASA: space flight control and data communications",
-  "amt": 8021936168,
+  "amt": 7933681327,
   "cat": "Science, space and technology",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Space flight, Space science, applications and technology, Supporting space activities",
   "pre": 3866628204,
-  "note": "NPR/consolidation: NASA -86.9M; overflow (agency lines exhausted) -13.0M; increase +9661.0M"
+  "note": "NPR/consolidation: NASA -86.9M; overflow (agency lines exhausted) -101.3M; increase +9792.2M"
  },
  {
   "name": "NASA: research and development",
-  "amt": 8734025499,
+  "amt": 8637936473,
   "cat": "Science, space and technology",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Space flight, Space science, applications and technology, Supporting space activities",
   "pre": 4209860141,
-  "note": "NPR/consolidation: NASA -94.6M; overflow (agency lines exhausted) -14.2M; increase +10518.6M"
+  "note": "NPR/consolidation: NASA -94.6M; overflow (agency lines exhausted) -110.3M; increase +10661.5M"
  },
  {
   "name": "NASA: construction of facilities",
-  "amt": 705842935,
+  "amt": 698077471,
   "cat": "Science, space and technology",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Space flight, Space science, applications and technology, Supporting space activities",
   "pre": 340221131,
-  "note": "NPR/consolidation: NASA -7.6M; overflow (agency lines exhausted) -1.1M; increase +850.1M"
+  "note": "NPR/consolidation: NASA -7.6M; overflow (agency lines exhausted) -8.9M; increase +861.6M"
  },
  {
   "name": "NASA: other",
-  "amt": 23423991,
+  "amt": 23166288,
   "cat": "Science, space and technology",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Space flight, Space science, applications and technology, Supporting space activities",
   "pre": 11290524,
-  "note": "NPR/consolidation: NASA -0.3M; increase +28.2M"
+  "note": "NPR/consolidation: NASA -0.3M; overflow (agency lines exhausted) -0.3M; increase +28.6M"
  },
  {
   "name": "Energy R&D (DOE)",
-  "amt": 525641629,
+  "amt": 512894124,
   "cat": "Energy",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Energy supply",
   "pre": 555292190,
-  "note": "NPR/consolidation: Energy -9.5M; overflow (agency lines exhausted) -1.9M"
+  "note": "NPR/consolidation: Energy -9.5M; overflow (agency lines exhausted) -14.6M"
  },
  {
   "name": "Strategic petroleum reserves",
@@ -522,14 +522,14 @@
  },
  {
   "name": "Tennessee Valley Authority",
-  "amt": 189697181,
+  "amt": 185096774,
   "cat": "Energy",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Energy supply",
   "pre": 190376843,
-  "note": "overflow (agency lines exhausted) -0.7M"
+  "note": "overflow (agency lines exhausted) -5.3M"
  },
  {
   "name": "Uranium enrichment",
@@ -543,14 +543,14 @@
  },
  {
   "name": "Nuclear waste program",
-  "amt": 44820299,
+  "amt": 43733348,
   "cat": "Energy",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Energy supply",
   "pre": 44980885,
-  "note": "overflow (agency lines exhausted) -0.2M"
+  "note": "overflow (agency lines exhausted) -1.2M"
  },
  {
   "name": "Nuclear waste fund receipts",
@@ -564,14 +564,14 @@
  },
  {
   "name": "Nonconventional fuel subsidies",
-  "amt": 13730162,
+  "amt": 13397188,
   "cat": "Energy",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Energy supply",
   "pre": 13779356,
-  "note": ""
+  "note": "overflow (agency lines exhausted) -0.4M"
  },
  {
   "name": "Rural electric and telephone",
@@ -585,7 +585,7 @@
  },
  {
   "name": "Isotopes",
-  "amt": 1262543,
+  "amt": 1231925,
   "cat": "Energy",
   "flag": 0,
   "tag": "M",
@@ -596,80 +596,80 @@
  },
  {
   "name": "Energy conservation",
-  "amt": 177014888,
+  "amt": 172722043,
   "cat": "Energy",
   "flag": 0,
   "tag": "D",
   "src": "kept (single program)",
   "parent": "Energy conservation",
   "pre": 187000000,
-  "note": "NPR/consolidation: Energy -3.2M; overflow (agency lines exhausted) -0.6M"
+  "note": "NPR/consolidation: Energy -3.2M; overflow (agency lines exhausted) -4.9M"
  },
  {
   "name": "Emergency energy preparedness",
-  "amt": 195000358,
+  "amt": 190271341,
   "cat": "Energy",
   "flag": 0,
   "tag": "D",
   "src": "kept (single program)",
   "parent": "Emergency energy preparedness",
   "pre": 206000000,
-  "note": "NPR/consolidation: Energy -3.5M; overflow (agency lines exhausted) -0.7M"
+  "note": "NPR/consolidation: Energy -3.5M; overflow (agency lines exhausted) -5.4M"
  },
  {
   "name": "Nuclear Regulatory Commission",
-  "amt": 106085747,
+  "amt": 105453133,
   "cat": "Energy",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Energy information, policy and regulation",
   "pre": 27072000,
-  "note": "overflow (agency lines exhausted) -0.1M; increase +80.0M"
+  "note": "overflow (agency lines exhausted) -0.7M; increase +80.0M"
  },
  {
   "name": "Other energy programs",
-  "amt": 330296528,
+  "amt": 322286400,
   "cat": "Energy",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Energy information, policy and regulation",
   "pre": 348928000,
-  "note": "NPR/consolidation: Energy -5.9M; overflow (agency lines exhausted) -1.2M"
+  "note": "NPR/consolidation: Energy -5.9M; overflow (agency lines exhausted) -9.2M"
  },
  {
   "name": "Corps of Engineers (civil works)",
-  "amt": 1996105340,
+  "amt": 1947697146,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Water resources",
   "pre": 2071574318,
-  "note": "overflow (agency lines exhausted) -7.2M"
+  "note": "overflow (agency lines exhausted) -55.6M"
  },
  {
   "name": "Bureau of Reclamation",
-  "amt": 419854603,
+  "amt": 409672574,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Water resources",
   "pre": 527845207,
-  "note": "NPR/consolidation: Interior -89.1M; overflow (agency lines exhausted) -1.5M"
+  "note": "NPR/consolidation: Interior -89.1M; overflow (agency lines exhausted) -11.7M"
  },
  {
   "name": "Other water resources",
-  "amt": 96858197,
+  "amt": 94509258,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Water resources",
   "pre": 136868953,
-  "note": "named -14.6M; NPR/consolidation: Interior -20.6M; overflow (agency lines exhausted) -0.3M"
+  "note": "named -14.6M; NPR/consolidation: Interior -20.6M; overflow (agency lines exhausted) -2.7M"
  },
  {
   "name": "Offsetting receipts (water)",
@@ -694,25 +694,25 @@
  },
  {
   "name": "Bureau of Land Management",
-  "amt": 110507534,
+  "amt": 107827581,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Conservation and land management",
   "pre": 138931125,
-  "note": "NPR/consolidation: Interior -23.4M; overflow (agency lines exhausted) -0.4M"
+  "note": "NPR/consolidation: Interior -23.4M; overflow (agency lines exhausted) -3.1M"
  },
  {
   "name": "Mining reclamation and enforcement",
-  "amt": 36511300,
+  "amt": 35625853,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Conservation and land management",
   "pre": 45902354,
-  "note": "NPR/consolidation: Interior -7.7M; overflow (agency lines exhausted) -0.1M"
+  "note": "NPR/consolidation: Interior -7.7M; overflow (agency lines exhausted) -1.0M"
  },
  {
   "name": "Conservation reserve program",
@@ -738,14 +738,14 @@
  },
  {
   "name": "Other resources management",
-  "amt": 41184790,
+  "amt": 40186004,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Conservation and land management",
   "pre": 54776809,
-  "note": "named -2.9M; NPR/consolidation: Interior -8.7M; overflow (agency lines exhausted) -0.1M"
+  "note": "named -2.9M; NPR/consolidation: Interior -8.7M; overflow (agency lines exhausted) -1.1M"
  },
  {
   "name": "Offsetting receipts (land management)",
@@ -759,36 +759,36 @@
  },
  {
   "name": "Federal land acquisition",
-  "amt": 112984961,
+  "amt": 110244926,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Recreational resources",
   "pre": 117256709,
-  "note": "overflow (agency lines exhausted) -0.4M"
+  "note": "overflow (agency lines exhausted) -3.1M"
  },
  {
   "name": "Urban park and historic preservation",
-  "amt": 15682455,
+  "amt": 15302134,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Recreational resources",
   "pre": 16275379,
-  "note": "overflow (agency lines exhausted) -0.1M"
+  "note": "overflow (agency lines exhausted) -0.4M"
  },
  {
   "name": "Operation of recreational resources (NPS)",
-  "amt": 691120529,
+  "amt": 674359943,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Recreational resources",
   "pre": 868883314,
-  "note": "NPR/consolidation: Interior -146.6M; overflow (agency lines exhausted) -2.5M"
+  "note": "NPR/consolidation: Interior -146.6M; overflow (agency lines exhausted) -19.2M"
  },
  {
   "name": "Offsetting receipts (recreation)",
@@ -802,58 +802,58 @@
  },
  {
   "name": "EPA regulatory, enforcement and research",
-  "amt": 782986452,
+  "amt": 763997995,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Pollution control and abatement",
   "pre": 899552428,
-  "note": "NPR/consolidation: EPA -84.1M; overflow (agency lines exhausted) -2.8M"
+  "note": "NPR/consolidation: EPA -84.1M; overflow (agency lines exhausted) -21.8M"
  },
  {
   "name": "Superfund (hazardous substance response)",
-  "amt": 460725388,
+  "amt": 449552188,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Pollution control and abatement",
   "pre": 529315214,
-  "note": "NPR/consolidation: EPA -49.5M; overflow (agency lines exhausted) -1.7M"
+  "note": "NPR/consolidation: EPA -49.5M; overflow (agency lines exhausted) -12.8M"
  },
  {
   "name": "Oil pollution funds",
-  "amt": 52425245,
+  "amt": 51153863,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Pollution control and abatement",
   "pre": 60229977,
-  "note": "NPR/consolidation: EPA -5.6M; overflow (agency lines exhausted) -0.2M"
+  "note": "NPR/consolidation: EPA -5.6M; overflow (agency lines exhausted) -1.5M"
  },
  {
   "name": "Sewage treatment construction grants",
-  "amt": 741492118,
+  "amt": 723509953,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Pollution control and abatement",
   "pre": 769526536,
-  "note": "overflow (agency lines exhausted) -2.7M"
+  "note": "overflow (agency lines exhausted) -20.6M"
  },
  {
   "name": "Leaking underground storage tank fund",
-  "amt": 26521006,
+  "amt": 25877837,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Pollution control and abatement",
   "pre": 30469283,
-  "note": "NPR/consolidation: EPA -2.8M; overflow (agency lines exhausted) -0.1M"
+  "note": "NPR/consolidation: EPA -2.8M; overflow (agency lines exhausted) -0.7M"
  },
  {
   "name": "Offsetting receipts (pollution control)",
@@ -867,14 +867,14 @@
  },
  {
   "name": "Other natural resource programs",
-  "amt": 733587532,
+  "amt": 715797064,
   "cat": "Natural resources and environment",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Other natural resources",
   "pre": 1098070753,
-  "note": "named -170.0M; NPR/consolidation: Interior -155.6M; overflow (agency lines exhausted) -2.6M"
+  "note": "named -170.0M; NPR/consolidation: Interior -155.6M; overflow (agency lines exhausted) -20.4M"
  },
  {
   "name": "Offsetting receipts (other natural resources)",
@@ -986,14 +986,14 @@
  },
  {
   "name": "GNMA mortgage-backed securities",
-  "amt": 607074204,
+  "amt": 592351852,
   "cat": "Commerce and housing credit",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Mortgage credit and deposit insurance",
   "pre": 1186038815,
-  "note": "leftover: housing (GSE) -576.8M; overflow (agency lines exhausted) -2.2M"
+  "note": "leftover: housing (GSE) -576.8M; overflow (agency lines exhausted) -16.9M"
  },
  {
   "name": "GNMA mortgage purchase activities",
@@ -1007,25 +1007,25 @@
  },
  {
   "name": "FHA mortgage credit",
-  "amt": 191674568,
+  "amt": 187026206,
   "cat": "Commerce and housing credit",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Mortgage credit and deposit insurance",
   "pre": 374473953,
-  "note": "leftover: housing (GSE) -182.1M; overflow (agency lines exhausted) -0.7M"
+  "note": "leftover: housing (GSE) -182.1M; overflow (agency lines exhausted) -5.3M"
  },
  {
   "name": "Housing for the elderly or handicapped",
-  "amt": 73691376,
+  "amt": 71904262,
   "cat": "Commerce and housing credit",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Mortgage credit and deposit insurance",
   "pre": 149789581,
-  "note": "leftover: HUD -5.8M; leftover: housing (GSE) -70.0M; overflow (agency lines exhausted) -0.3M"
+  "note": "leftover: HUD -5.8M; leftover: housing (GSE) -70.0M; overflow (agency lines exhausted) -2.1M"
  },
  {
   "name": "Rural housing programs (FmHA)",
@@ -1050,25 +1050,25 @@
  },
  {
   "name": "Payments to the Postal Service fund",
-  "amt": 440402390,
+  "amt": 429722049,
   "cat": "Commerce and housing credit",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Postal Service",
   "pre": 472564719,
-  "note": "named -15.0M; overflow (agency lines exhausted) -1.6M"
+  "note": "named -15.0M; overflow (agency lines exhausted) -12.3M"
  },
  {
   "name": "Postal Service operations",
-  "amt": 1256931847,
+  "amt": 1226449587,
   "cat": "Commerce and housing credit",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Postal Service",
   "pre": 1261435281,
-  "note": "overflow (agency lines exhausted) -4.5M"
+  "note": "overflow (agency lines exhausted) -35.0M"
  },
  {
   "name": "Small and minority business assistance",
@@ -1083,80 +1083,80 @@
  },
  {
   "name": "Commerce science and technology (NOAA, NIST)",
-  "amt": 474177426,
+  "amt": 464615677,
   "cat": "Commerce and housing credit",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Other advancement of commerce",
   "pre": 612969697,
-  "note": "leftover: Commerce -81.3M; NPR/consolidation: Commerce -115.8M; overflow (agency lines exhausted) -1.4M; increase +79.9M"
+  "note": "leftover: Commerce -81.3M; NPR/consolidation: Commerce -115.8M; overflow (agency lines exhausted) -11.0M; increase +79.9M"
  },
  {
   "name": "Economic and demographic statistics",
-  "amt": 203673640,
+  "amt": 198734284,
   "cat": "Commerce and housing credit",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Other advancement of commerce",
   "pre": 326985507,
-  "note": "named -10.0M; leftover: Commerce -42.0M; NPR/consolidation: Commerce -59.8M; overflow (agency lines exhausted) -0.7M"
+  "note": "named -10.0M; leftover: Commerce -42.0M; NPR/consolidation: Commerce -59.8M; overflow (agency lines exhausted) -5.7M"
  },
  {
   "name": "International trade and other commerce",
-  "amt": 369796010,
+  "amt": 360827968,
   "cat": "Commerce and housing credit",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Other advancement of commerce",
   "pre": 625270092,
-  "note": "named -48.7M; leftover: Commerce -76.3M; NPR/consolidation: Commerce -108.6M; overflow (agency lines exhausted) -1.3M"
+  "note": "named -48.7M; leftover: Commerce -76.3M; NPR/consolidation: Commerce -108.6M; overflow (agency lines exhausted) -10.3M"
  },
  {
   "name": "Highways",
-  "amt": 10529291439,
+  "amt": 10273942196,
   "cat": "Transportation",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Ground transportation",
   "pre": 11006217942,
-  "note": "leftover: Transportation -76.2M; overflow (agency lines exhausted) -37.7M"
+  "note": "leftover: Transportation -76.2M; overflow (agency lines exhausted) -293.1M"
  },
  {
   "name": "Highway safety",
-  "amt": 214035812,
+  "amt": 208845161,
   "cat": "Transportation",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Ground transportation",
   "pre": 238316030,
-  "note": "leftover: Transportation -1.7M; NPR/consolidation: Transportation -14.0M; overflow (agency lines exhausted) -0.8M"
+  "note": "leftover: Transportation -1.7M; NPR/consolidation: Transportation -14.0M; overflow (agency lines exhausted) -6.0M"
  },
  {
   "name": "Mass transit",
-  "amt": 2377601762,
+  "amt": 2319941775,
   "cat": "Transportation",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Ground transportation",
   "pre": 2485295741,
-  "note": "leftover: Transportation -17.2M; overflow (agency lines exhausted) -8.5M"
+  "note": "leftover: Transportation -17.2M; overflow (agency lines exhausted) -66.2M"
  },
  {
   "name": "Railroads (Amtrak and FRA)",
-  "amt": 552685467,
+  "amt": 539282113,
   "cat": "Transportation",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Ground transportation",
   "pre": 615382093,
-  "note": "leftover: Transportation -4.3M; NPR/consolidation: Transportation -36.2M; overflow (agency lines exhausted) -2.0M"
+  "note": "leftover: Transportation -4.3M; NPR/consolidation: Transportation -36.2M; overflow (agency lines exhausted) -15.4M"
  },
  {
   "name": "Surface transportation regulation",
@@ -1181,14 +1181,14 @@
  },
  {
   "name": "Airports and airways (FAA)",
-  "amt": 4976470864,
+  "amt": 4855784864,
   "cat": "Transportation",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Air transportation",
   "pre": 5541001596,
-  "note": "leftover: Transportation -38.4M; NPR/consolidation: Transportation -325.6M; overflow (agency lines exhausted) -17.8M"
+  "note": "leftover: Transportation -38.4M; NPR/consolidation: Transportation -325.6M; overflow (agency lines exhausted) -138.5M"
  },
  {
   "name": "Aeronautical research, carrier subsidies and other (derived)",
@@ -1203,25 +1203,25 @@
  },
  {
   "name": "Marine safety and transportation (Coast Guard)",
-  "amt": 2458041873,
+  "amt": 2398431107,
   "cat": "Transportation",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Water transportation",
   "pre": 2736882083,
-  "note": "leftover: Transportation -19.0M; NPR/consolidation: Transportation -160.8M; overflow (agency lines exhausted) -8.8M"
+  "note": "leftover: Transportation -19.0M; NPR/consolidation: Transportation -160.8M; overflow (agency lines exhausted) -68.4M"
  },
  {
   "name": "Ocean shipping",
-  "amt": 257509117,
+  "amt": 251264180,
   "cat": "Transportation",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Water transportation",
   "pre": 269173047,
-  "note": "leftover: Transportation -1.9M; overflow (agency lines exhausted) -0.9M"
+  "note": "leftover: Transportation -1.9M; overflow (agency lines exhausted) -7.2M"
  },
  {
   "name": "Panama Canal Commission",
@@ -1245,14 +1245,14 @@
  },
  {
   "name": "Miscellaneous transportation programs",
-  "amt": 122008425,
+  "amt": 119049559,
   "cat": "Transportation",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Other transportation",
   "pre": 135849057,
-  "note": "leftover: Transportation -0.9M; NPR/consolidation: Transportation -8.0M; overflow (agency lines exhausted) -0.4M"
+  "note": "leftover: Transportation -0.9M; NPR/consolidation: Transportation -8.0M; overflow (agency lines exhausted) -3.4M"
  },
  {
   "name": "Offsetting receipts (other transport)",
@@ -1266,14 +1266,14 @@
  },
  {
   "name": "Community development block grants",
-  "amt": 1215313550,
+  "amt": 1185840589,
   "cat": "Community and regional development",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Community development",
   "pre": 2809020342,
-  "note": "leftover: HUD -105.5M; leftover: Community/regional development -236.5M; leftover: housing (GSE) -1154.7M; overflow (agency lines exhausted) -4.4M"
+  "note": "leftover: HUD -105.5M; leftover: Community/regional development -236.5M; leftover: housing (GSE) -1154.7M; overflow (agency lines exhausted) -33.8M"
  },
  {
   "name": "Pennsylvania Avenue Development Corporation",
@@ -1288,14 +1288,14 @@
  },
  {
   "name": "Other community development",
-  "amt": 331800351,
+  "amt": 323753754,
   "cat": "Community and regional development",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Community development",
   "pre": 415872240,
-  "note": "named -36.0M; leftover: Community/regional development -33.2M; overflow (agency lines exhausted) -1.2M"
+  "note": "named -36.0M; leftover: Community/regional development -33.2M; overflow (agency lines exhausted) -9.2M"
  },
  {
   "name": "Rural development",
@@ -1321,14 +1321,14 @@
  },
  {
   "name": "Indian programs",
-  "amt": 771786252,
+  "amt": 753069414,
   "cat": "Community and regional development",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Area and regional development",
   "pre": 1066946113,
-  "note": "leftover: Community/regional development -93.5M; NPR/consolidation: Interior -163.7M; overflow (agency lines exhausted) -2.8M"
+  "note": "leftover: Community/regional development -93.5M; NPR/consolidation: Interior -163.7M; overflow (agency lines exhausted) -21.5M"
  },
  {
   "name": "Appalachian Regional Commission",
@@ -1343,7 +1343,7 @@
  },
  {
   "name": "Tennessee Valley Authority (regional)",
-  "amt": 12713,
+  "amt": 12404,
   "cat": "Community and regional development",
   "flag": 0,
   "tag": "M",
@@ -1364,267 +1364,267 @@
  },
  {
   "name": "Disaster relief and insurance",
-  "amt": 24535967,
+  "amt": 23940938,
   "cat": "Community and regional development",
   "flag": 0,
   "tag": "D",
   "src": "kept (single program)",
   "parent": "Disaster relief and insurance",
   "pre": 28000000,
-  "note": "leftover: Community/regional development -2.5M; overflow (agency lines exhausted) -0.1M"
+  "note": "leftover: Community/regional development -2.5M; overflow (agency lines exhausted) -0.7M"
  },
  {
   "name": "School improvement programs",
-  "amt": 951493349,
+  "amt": 928418377,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Elementary, secondary and vocational education",
   "pre": 994255448,
-  "note": "leftover: Education/social services -6.6M; overflow (agency lines exhausted) -3.4M"
+  "note": "leftover: Education/social services -6.6M; overflow (agency lines exhausted) -26.5M"
  },
  {
   "name": "Compensatory education (Chapter 1)",
-  "amt": 3824584513,
+  "amt": 3731833280,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Elementary, secondary and vocational education",
   "pre": 3996469332,
-  "note": "leftover: Education/social services -26.4M; overflow (agency lines exhausted) -13.7M"
+  "note": "leftover: Education/social services -26.4M; overflow (agency lines exhausted) -106.5M"
  },
  {
   "name": "Special education",
-  "amt": 1647083841,
+  "amt": 1607139879,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Elementary, secondary and vocational education",
   "pre": 1721107230,
-  "note": "leftover: Education/social services -11.4M; overflow (agency lines exhausted) -5.9M"
+  "note": "leftover: Education/social services -11.4M; overflow (agency lines exhausted) -45.8M"
  },
  {
   "name": "Impact aid",
-  "amt": 461788337,
+  "amt": 450589359,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Elementary, secondary and vocational education",
   "pre": 482542070,
-  "note": "leftover: Education/social services -3.2M; overflow (agency lines exhausted) -1.7M"
+  "note": "leftover: Education/social services -3.2M; overflow (agency lines exhausted) -12.9M"
  },
  {
   "name": "Vocational and adult education",
-  "amt": 704896051,
+  "amt": 687801389,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Elementary, secondary and vocational education",
   "pre": 736575552,
-  "note": "leftover: Education/social services -4.9M; overflow (agency lines exhausted) -2.5M"
+  "note": "leftover: Education/social services -4.9M; overflow (agency lines exhausted) -19.6M"
  },
  {
   "name": "Educational excellence",
-  "amt": 46527792,
+  "amt": 45399431,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Elementary, secondary and vocational education",
   "pre": 48618848,
-  "note": "leftover: Education/social services -0.3M; overflow (agency lines exhausted) -0.2M"
+  "note": "leftover: Education/social services -0.3M; overflow (agency lines exhausted) -1.3M"
  },
  {
   "name": "Other elementary and secondary programs",
-  "amt": 423402909,
+  "amt": 413134828,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Elementary, secondary and vocational education",
   "pre": 442431520,
-  "note": "leftover: Education/social services -2.9M; overflow (agency lines exhausted) -1.5M"
+  "note": "leftover: Education/social services -2.9M; overflow (agency lines exhausted) -11.8M"
  },
  {
   "name": "Student financial assistance (Pell grants)",
-  "amt": 5387147810,
+  "amt": 5256502351,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Higher education",
   "pre": 5629257488,
-  "note": "leftover: Education/social services -37.2M; overflow (agency lines exhausted) -19.3M"
+  "note": "leftover: Education/social services -37.2M; overflow (agency lines exhausted) -149.9M"
  },
  {
   "name": "Guaranteed student loan program",
-  "amt": 3808073338,
+  "amt": 3715722523,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Higher education",
   "pre": 4707987990,
-  "note": "named -860.0M; leftover: Education/social services -26.3M; overflow (agency lines exhausted) -13.6M"
+  "note": "named -860.0M; leftover: Education/social services -26.3M; overflow (agency lines exhausted) -106.0M"
  },
  {
   "name": "Higher education programs",
-  "amt": 627968840,
+  "amt": 612739765,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Higher education",
   "pre": 656191072,
-  "note": "leftover: Education/social services -4.3M; overflow (agency lines exhausted) -2.2M"
+  "note": "leftover: Education/social services -4.3M; overflow (agency lines exhausted) -17.5M"
  },
  {
   "name": "Other higher education",
-  "amt": 235001970,
+  "amt": 229302862,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Higher education",
   "pre": 245563450,
-  "note": "leftover: Education/social services -1.6M; overflow (agency lines exhausted) -0.8M"
+  "note": "leftover: Education/social services -1.6M; overflow (agency lines exhausted) -6.5M"
  },
  {
   "name": "Research and general education aids",
-  "amt": 499949809,
+  "amt": 487825365,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "kept (single program)",
   "parent": "Research and general education aids",
   "pre": 1307000000,
-  "note": "named -737.8M; leftover: Education/social services -3.6M; NPR/consolidation: HHS/Education -20.8M; overflow (agency lines exhausted) -1.8M"
+  "note": "named -737.8M; leftover: Education/social services -3.6M; NPR/consolidation: HHS/Education -20.8M; overflow (agency lines exhausted) -13.9M"
  },
  {
   "name": "Training and employment services (JTPA)",
-  "amt": 3118377987,
+  "amt": 3042753197,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Training and employment",
   "pre": 3258524409,
-  "note": "leftover: Education/social services -21.5M; overflow (agency lines exhausted) -11.2M"
+  "note": "leftover: Education/social services -21.5M; overflow (agency lines exhausted) -86.8M"
  },
  {
   "name": "Trade adjustment assistance",
-  "amt": 55933544,
+  "amt": 54577081,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Training and employment",
   "pre": 56519816,
-  "note": "leftover: Education/social services -0.4M; overflow (agency lines exhausted) -0.2M"
+  "note": "leftover: Education/social services -0.4M; overflow (agency lines exhausted) -1.6M"
  },
  {
   "name": "Older Americans employment",
-  "amt": 295235496,
+  "amt": 288075645,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Training and employment",
   "pre": 308503997,
-  "note": "leftover: Education/social services -2.0M; overflow (agency lines exhausted) -1.1M"
+  "note": "leftover: Education/social services -2.0M; overflow (agency lines exhausted) -8.2M"
  },
  {
   "name": "Federal-State employment service",
-  "amt": 926787750,
+  "amt": 904311921,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Training and employment",
   "pre": 936501956,
-  "note": "leftover: Education/social services -6.4M; overflow (agency lines exhausted) -3.3M"
+  "note": "leftover: Education/social services -6.4M; overflow (agency lines exhausted) -25.8M"
  },
  {
   "name": "Other training and employment",
-  "amt": 43877040,
+  "amt": 42812964,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Training and employment",
   "pre": 54949821,
-  "note": "leftover: Education/social services -0.4M; NPR/consolidation: Labor -8.7M; overflow (agency lines exhausted) -0.2M"
+  "note": "leftover: Education/social services -0.4M; NPR/consolidation: Labor -8.7M; overflow (agency lines exhausted) -1.2M"
  },
  {
   "name": "Other labor services",
-  "amt": 354219938,
+  "amt": 345629636,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "kept (single program)",
   "parent": "Other labor services",
   "pre": 698000000,
-  "note": "named -246.0M; leftover: Education/social services -2.9M; NPR/consolidation: Labor -70.6M; overflow (agency lines exhausted) -1.3M"
+  "note": "named -246.0M; leftover: Education/social services -2.9M; NPR/consolidation: Labor -70.6M; overflow (agency lines exhausted) -9.9M"
  },
  {
   "name": "Social services block grant",
-  "amt": 1653545793,
+  "amt": 1613445121,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Social services",
   "pre": 1727859596,
-  "note": "leftover: Education/social services -11.4M; overflow (agency lines exhausted) -5.9M"
+  "note": "leftover: Education/social services -11.4M; overflow (agency lines exhausted) -46.0M"
  },
  {
   "name": "Grants to States for special services",
-  "amt": 255709046,
+  "amt": 249507764,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Social services",
   "pre": 267201145,
-  "note": "leftover: Education/social services -1.8M; overflow (agency lines exhausted) -0.9M"
+  "note": "leftover: Education/social services -1.8M; overflow (agency lines exhausted) -7.1M"
  },
  {
   "name": "Rehabilitation services",
-  "amt": 1245474313,
+  "amt": 1215269913,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Social services",
   "pre": 1301448531,
-  "note": "leftover: Education/social services -8.6M; overflow (agency lines exhausted) -4.5M"
+  "note": "leftover: Education/social services -8.6M; overflow (agency lines exhausted) -34.7M"
  },
  {
   "name": "Foster care and adoption assistance",
-  "amt": 1731310955,
+  "amt": 1689324374,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Social services",
   "pre": 1749457841,
-  "note": "leftover: Education/social services -11.9M; overflow (agency lines exhausted) -6.2M"
+  "note": "leftover: Education/social services -11.9M; overflow (agency lines exhausted) -48.2M"
  },
  {
   "name": "ACF service programs (Head Start and others)",
-  "amt": 2162856285,
+  "amt": 2110404159,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Social services",
   "pre": 2353591606,
-  "note": "leftover: Education/social services -15.5M; NPR/consolidation: HHS/Education -89.8M; overflow (agency lines exhausted) -7.7M"
+  "note": "leftover: Education/social services -15.5M; NPR/consolidation: HHS/Education -89.8M; overflow (agency lines exhausted) -60.2M"
  },
  {
   "name": "Domestic volunteer programs",
@@ -1639,135 +1639,135 @@
  },
  {
   "name": "Interim assistance to States for legalization",
-  "amt": 562447050,
+  "amt": 548806966,
   "cat": "Education, training and social services",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Social services",
   "pre": 568342388,
-  "note": "leftover: Education/social services -3.9M; overflow (agency lines exhausted) -2.0M"
+  "note": "leftover: Education/social services -3.9M; overflow (agency lines exhausted) -15.7M"
  },
  {
   "name": "Medicaid grants to States",
-  "amt": 34848871472,
+  "amt": 34003740249,
   "cat": "Health",
   "flag": 0,
   "tag": "P",
   "src": "FY1993 Table 37 share",
   "parent": "Health care services (incl. Medicaid)",
   "pre": 34973730744,
-  "note": "overflow (agency lines exhausted) -124.9M"
+  "note": "overflow (agency lines exhausted) -970.0M"
  },
  {
   "name": "Health insurance tax credit",
-  "amt": 251571735,
+  "amt": 245470788,
   "cat": "Health",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Health care services (incl. Medicaid)",
   "pre": 252473086,
-  "note": "overflow (agency lines exhausted) -0.9M"
+  "note": "overflow (agency lines exhausted) -7.0M"
  },
  {
   "name": "Federal employees' health benefits",
-  "amt": 1580777803,
+  "amt": 1542441851,
   "cat": "Health",
   "flag": 0,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Health care services (incl. Medicaid)",
   "pre": 1586441538,
-  "note": "overflow (agency lines exhausted) -5.7M"
+  "note": "overflow (agency lines exhausted) -44.0M"
  },
  {
   "name": "Other health care services (HRSA, IHS, CDC)",
-  "amt": 2641939756,
+  "amt": 2577869223,
   "cat": "Health",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Health care services (incl. Medicaid)",
   "pre": 2978354632,
-  "note": "named -119.0M; NPR/consolidation: HHS/Education -109.7M; overflow (agency lines exhausted) -9.5M"
+  "note": "named -119.0M; NPR/consolidation: HHS/Education -109.7M; overflow (agency lines exhausted) -73.5M"
  },
  {
   "name": "National Institutes of Health",
-  "amt": 6094473948,
+  "amt": 5946674895,
   "cat": "Health",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Health research",
   "pre": 6586648805,
-  "note": "NPR/consolidation: HHS/Education -253.1M; overflow (agency lines exhausted) -21.8M"
+  "note": "NPR/consolidation: HHS/Education -253.1M; overflow (agency lines exhausted) -169.6M"
  },
  {
   "name": "Other health research and training",
-  "amt": 897843540,
+  "amt": 876069647,
   "cat": "Health",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Health research",
   "pre": 970351195,
-  "note": "NPR/consolidation: HHS/Education -37.3M; overflow (agency lines exhausted) -3.2M"
+  "note": "NPR/consolidation: HHS/Education -37.3M; overflow (agency lines exhausted) -25.0M"
  },
  {
   "name": "Health professional education",
-  "amt": 399719618,
+  "amt": 390025889,
   "cat": "Health",
   "flag": 0,
   "tag": "D",
   "src": "kept (single program)",
   "parent": "Health professional education",
   "pre": 432000000,
-  "note": "NPR/consolidation: HHS/Education -16.6M; overflow (agency lines exhausted) -1.4M"
+  "note": "NPR/consolidation: HHS/Education -16.6M; overflow (agency lines exhausted) -11.1M"
  },
  {
   "name": "Consumer safety (FDA, USDA inspection)",
-  "amt": 794547965,
+  "amt": 775279126,
   "cat": "Health",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Consumer and occupational health",
   "pre": 893459584,
-  "note": "named -33.6M; NPR/consolidation: HHS/Education -33.0M; overflow (agency lines exhausted) -2.8M"
+  "note": "named -33.6M; NPR/consolidation: HHS/Education -33.0M; overflow (agency lines exhausted) -22.1M"
  },
  {
   "name": "Occupational safety and health",
-  "amt": 275396249,
+  "amt": 268717526,
   "cat": "Health",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Consumer and occupational health",
   "pre": 342540416,
-  "note": "NPR/consolidation: Labor -54.9M; overflow (agency lines exhausted) -1.0M"
+  "note": "NPR/consolidation: Labor -54.9M; overflow (agency lines exhausted) -7.7M"
  },
  {
   "name": "Medicare: hospital insurance (HI)",
-  "amt": 59316742208,
+  "amt": 57878232760,
   "cat": "Medicare",
   "flag": 0,
   "tag": "P",
   "src": "FY1993 Table 37 share",
   "parent": "Medicare",
   "pre": 59529266888,
-  "note": "overflow (agency lines exhausted) -212.5M"
+  "note": "overflow (agency lines exhausted) -1651.0M"
  },
  {
   "name": "Medicare: supplementary medical insurance (SMI)",
-  "amt": 43209403150,
+  "amt": 42161517977,
   "cat": "Medicare",
   "flag": 0,
   "tag": "P",
   "src": "FY1993 Table 37 share",
   "parent": "Medicare",
   "pre": 43364217191,
-  "note": "overflow (agency lines exhausted) -154.8M"
+  "note": "overflow (agency lines exhausted) -1202.7M"
  },
  {
   "name": "Medicare premiums and collections",
@@ -1781,80 +1781,80 @@
  },
  {
   "name": "Railroad retirement",
-  "amt": 2590682604,
+  "amt": 2527855125,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "General retirement and disability insurance",
   "pre": 2599964705,
-  "note": "overflow (agency lines exhausted) -9.3M"
+  "note": "overflow (agency lines exhausted) -72.1M"
  },
  {
   "name": "Special benefits for disabled coal miners",
-  "amt": 840095594,
+  "amt": 819722164,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "General retirement and disability insurance",
   "pre": 843105554,
-  "note": "overflow (agency lines exhausted) -3.0M"
+  "note": "overflow (agency lines exhausted) -23.4M"
  },
  {
   "name": "Pension Benefit Guaranty Corporation (net)",
-  "amt": 1719752476,
+  "amt": 1678046204,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "General retirement and disability insurance",
   "pre": 1725914140,
-  "note": "overflow (agency lines exhausted) -6.2M"
+  "note": "overflow (agency lines exhausted) -47.9M"
  },
  {
   "name": "Other retirement and disability programs",
-  "amt": 107629976,
+  "amt": 105019807,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "General retirement and disability insurance",
   "pre": 108015601,
-  "note": "overflow (agency lines exhausted) -0.4M"
+  "note": "overflow (agency lines exhausted) -3.0M"
  },
  {
   "name": "Civilian retirement and disability",
-  "amt": 28371308472,
+  "amt": 27683266719,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Federal employee retirement and disability",
   "pre": 28472959423,
-  "note": "overflow (agency lines exhausted) -101.7M"
+  "note": "overflow (agency lines exhausted) -789.7M"
  },
  {
   "name": "Military retirement",
-  "amt": 20500315435,
+  "amt": 20003155673,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Federal employee retirement and disability",
   "pre": 20573765574,
-  "note": "overflow (agency lines exhausted) -73.5M"
+  "note": "overflow (agency lines exhausted) -570.6M"
  },
  {
   "name": "Federal employees' workers' compensation",
-  "amt": 201902509,
+  "amt": 197006106,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Federal employee retirement and disability",
   "pre": 202625901,
-  "note": "overflow (agency lines exhausted) -0.7M"
+  "note": "overflow (agency lines exhausted) -5.6M"
  },
  {
   "name": "Federal employees' life insurance fund",
@@ -1868,69 +1868,69 @@
  },
  {
   "name": "Unemployment compensation",
-  "amt": 15537331629,
+  "amt": 15160530788,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "kept (single program)",
   "parent": "Unemployment compensation",
   "pre": 15593000000,
-  "note": "overflow (agency lines exhausted) -55.7M"
+  "note": "overflow (agency lines exhausted) -432.5M"
  },
  {
   "name": "Subsidized housing (Section 8 and others)",
-  "amt": 5287765216,
+  "amt": 5159529916,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Housing assistance",
   "pre": 10748233820,
-  "note": "leftover: HUD -417.5M; leftover: housing (GSE) -5024.0M; overflow (agency lines exhausted) -18.9M"
+  "note": "leftover: HUD -417.5M; leftover: housing (GSE) -5024.0M; overflow (agency lines exhausted) -147.2M"
  },
  {
   "name": "Renewal of Section 8 contracts",
-  "amt": 798085956,
+  "amt": 778731316,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Housing assistance",
   "pre": 1622238150,
-  "note": "leftover: HUD -63.0M; leftover: housing (GSE) -758.3M; overflow (agency lines exhausted) -2.9M"
+  "note": "leftover: HUD -63.0M; leftover: housing (GSE) -758.3M; overflow (agency lines exhausted) -22.2M"
  },
  {
   "name": "HOPE grants",
-  "amt": 34234250,
+  "amt": 33404024,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Housing assistance",
   "pre": 69586623,
-  "note": "leftover: HUD -2.7M; leftover: housing (GSE) -32.5M; overflow (agency lines exhausted) -0.1M"
+  "note": "leftover: HUD -2.7M; leftover: housing (GSE) -32.5M; overflow (agency lines exhausted) -1.0M"
  },
  {
   "name": "Public housing operating subsidies",
-  "amt": 791310427,
+  "amt": 772120103,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Housing assistance",
   "pre": 1608465798,
-  "note": "leftover: HUD -62.5M; leftover: housing (GSE) -751.8M; overflow (agency lines exhausted) -2.8M"
+  "note": "leftover: HUD -62.5M; leftover: housing (GSE) -751.8M; overflow (agency lines exhausted) -22.0M"
  },
  {
   "name": "Low-rent public housing loans",
-  "amt": 43149419,
+  "amt": 42102989,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Housing assistance",
   "pre": 87708139,
-  "note": "leftover: HUD -3.4M; leftover: housing (GSE) -41.0M; overflow (agency lines exhausted) -0.2M"
+  "note": "leftover: HUD -3.4M; leftover: housing (GSE) -41.0M; overflow (agency lines exhausted) -1.2M"
  },
  {
   "name": "Homeless shelter and transitional housing",
@@ -1945,146 +1945,143 @@
  },
  {
   "name": "HOME investment partnerships",
-  "amt": 101276323,
+  "amt": 98820239,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Housing assistance",
   "pre": 205860427,
-  "note": "leftover: HUD -8.0M; leftover: housing (GSE) -96.2M; overflow (agency lines exhausted) -0.4M"
+  "note": "leftover: HUD -8.0M; leftover: housing (GSE) -96.2M; overflow (agency lines exhausted) -2.8M"
  },
  {
   "name": "Shelter plus care",
-  "amt": 11054810,
+  "amt": 10786716,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Housing assistance",
   "pre": 22470680,
-  "note": "leftover: HUD -0.9M; leftover: housing (GSE) -10.5M"
+  "note": "leftover: HUD -0.9M; leftover: housing (GSE) -10.5M; overflow (agency lines exhausted) -0.3M"
  },
  {
   "name": "Other housing assistance",
-  "amt": 423529564,
+  "amt": 413258412,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Housing assistance",
   "pre": 1262707264,
-  "note": "named -210.0M; leftover: HUD -40.9M; leftover: housing (GSE) -492.1M; NPR/consolidation: HUD -94.7M; overflow (agency lines exhausted) -1.5M"
+  "note": "named -210.0M; leftover: HUD -40.9M; leftover: housing (GSE) -492.1M; NPR/consolidation: HUD -94.7M; overflow (agency lines exhausted) -11.8M"
  },
  {
   "name": "Food stamps",
-  "amt": 3356745366,
+  "amt": 13336680145,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Food and nutrition assistance",
-  "pre": 13336680145,
-  "note": "leftover: USDA nutrition programs (farm lines exhausted) -9967.9M; overflow (agency lines exhausted) -12.0M"
+  "pre": 13336680145
  },
  {
   "name": "Aid to Puerto Rico (nutrition)",
-  "amt": 155443223,
+  "amt": 617591242,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Food and nutrition assistance",
-  "pre": 617591242,
-  "note": "leftover: USDA nutrition programs (farm lines exhausted) -461.6M; overflow (agency lines exhausted) -0.6M"
+  "pre": 617591242
  },
  {
   "name": "Child nutrition and other food programs",
-  "amt": 1513611741,
+  "amt": 6013728613,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Food and nutrition assistance",
-  "pre": 6013728613,
-  "note": "leftover: USDA nutrition programs (farm lines exhausted) -4494.7M; overflow (agency lines exhausted) -5.4M"
+  "pre": 6013728613
  },
  {
   "name": "Supplemental security income (SSI)",
-  "amt": 12217909634,
+  "amt": 11921609167,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other income security",
   "pre": 12261684920,
-  "note": "overflow (agency lines exhausted) -43.8M"
+  "note": "overflow (agency lines exhausted) -340.1M"
  },
  {
   "name": "Family support payments (AFDC)",
-  "amt": 8966252329,
+  "amt": 8748808852,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other income security",
   "pre": 8998377322,
-  "note": "overflow (agency lines exhausted) -32.1M"
+  "note": "overflow (agency lines exhausted) -249.6M"
  },
  {
   "name": "JOBS training for welfare recipients",
-  "amt": 512870560,
+  "amt": 500432771,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other income security",
   "pre": 514708113,
-  "note": "overflow (agency lines exhausted) -1.8M"
+  "note": "overflow (agency lines exhausted) -14.3M"
  },
  {
   "name": "Earned income tax credit (outlay portion)",
-  "amt": 5774689496,
+  "amt": 5663747226,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other income security",
   "pre": 4591080053,
-  "note": "overflow (agency lines exhausted) -16.4M; increase +1200.0M"
+  "note": "overflow (agency lines exhausted) -127.3M; increase +1200.0M"
  },
  {
   "name": "Refugee assistance",
-  "amt": 224851726,
+  "amt": 219398774,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other income security",
   "pre": 225657342,
-  "note": "overflow (agency lines exhausted) -0.8M"
+  "note": "overflow (agency lines exhausted) -6.3M"
  },
  {
   "name": "Low income home energy assistance",
-  "amt": 832762706,
+  "amt": 812567109,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other income security",
   "pre": 835746394,
-  "note": "overflow (agency lines exhausted) -3.0M"
+  "note": "overflow (agency lines exhausted) -23.2M"
  },
  {
   "name": "Child care and other assistance (derived)",
-  "amt": 555754653,
+  "amt": 542276867,
   "cat": "Income security",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other income security",
   "pre": 557745854,
-  "note": "overflow (agency lines exhausted) -2.0M"
+  "note": "overflow (agency lines exhausted) -15.5M"
  },
  {
   "name": "Social Security: Old-Age and Survivors Insurance (OASI)",
@@ -2118,36 +2115,36 @@
  },
  {
   "name": "Veterans compensation and pensions",
-  "amt": 14808124836,
+  "amt": 14449008224,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Income security for veterans",
   "pre": 14861180548,
-  "note": "overflow (agency lines exhausted) -53.1M"
+  "note": "overflow (agency lines exhausted) -412.2M"
  },
  {
   "name": "National service life insurance trust fund",
-  "amt": 1180608428,
+  "amt": 1151977113,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Income security for veterans",
   "pre": 1184838405,
-  "note": "overflow (agency lines exhausted) -4.2M"
+  "note": "overflow (agency lines exhausted) -32.9M"
  },
  {
   "name": "Other veterans insurance programs",
-  "amt": 34589916,
+  "amt": 33751064,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Income security for veterans",
   "pre": 34713847,
-  "note": "overflow (agency lines exhausted) -0.1M"
+  "note": "overflow (agency lines exhausted) -1.0M"
  },
  {
   "name": "Veterans insurance receipts",
@@ -2161,14 +2158,14 @@
  },
  {
   "name": "Readjustment benefits (GI Bill and related)",
-  "amt": 282936443,
+  "amt": 276074860,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Veterans education, training and rehabilitation",
   "pre": 283950170,
-  "note": "overflow (agency lines exhausted) -1.0M"
+  "note": "overflow (agency lines exhausted) -7.9M"
  },
  {
   "name": "Post-Vietnam era education",
@@ -2192,47 +2189,47 @@
  },
  {
   "name": "Other veterans education",
-  "amt": 26866368,
+  "amt": 26214823,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Veterans education, training and rehabilitation",
   "pre": 26962627,
-  "note": "overflow (agency lines exhausted) -0.1M"
+  "note": "overflow (agency lines exhausted) -0.7M"
  },
  {
   "name": "Veterans medical care and hospital services",
-  "amt": 8628478223,
+  "amt": 8419226215,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Veterans hospital and medical care",
   "pre": 10340729239,
-  "note": "NPR/consolidation: Veterans Affairs -1681.3M; overflow (agency lines exhausted) -30.9M"
+  "note": "NPR/consolidation: Veterans Affairs -1681.3M; overflow (agency lines exhausted) -240.2M"
  },
  {
   "name": "Veterans medical administration and research",
-  "amt": 179296357,
+  "amt": 174948183,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Veterans hospital and medical care",
   "pre": 214876254,
-  "note": "NPR/consolidation: Veterans Affairs -34.9M; overflow (agency lines exhausted) -0.6M"
+  "note": "NPR/consolidation: Veterans Affairs -34.9M; overflow (agency lines exhausted) -5.0M"
  },
  {
   "name": "Veterans medical construction",
-  "amt": 516291512,
+  "amt": 503770760,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Veterans hospital and medical care",
   "pre": 518141322,
-  "note": "overflow (agency lines exhausted) -1.8M"
+  "note": "overflow (agency lines exhausted) -14.4M"
  },
  {
   "name": "Third-party medical recoveries",
@@ -2256,14 +2253,14 @@
  },
  {
   "name": "Loan guaranty revolving fund",
-  "amt": 487465386,
+  "amt": 475643705,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Veterans housing",
   "pre": 489211915,
-  "note": "overflow (agency lines exhausted) -1.7M"
+  "note": "overflow (agency lines exhausted) -13.6M"
  },
  {
   "name": "Veterans direct loan revolving fund",
@@ -2277,69 +2274,69 @@
  },
  {
   "name": "Guaranty and indemnity",
-  "amt": 628225740,
+  "amt": 612990434,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Veterans housing",
   "pre": 630476596,
-  "note": "overflow (agency lines exhausted) -2.3M"
+  "note": "overflow (agency lines exhausted) -17.5M"
  },
  {
   "name": "Cemeteries and administration of veterans benefits",
-  "amt": 669549004,
+  "amt": 653311555,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other veterans benefits and services",
   "pre": 802415534,
-  "note": "NPR/consolidation: Veterans Affairs -130.5M; overflow (agency lines exhausted) -2.4M"
+  "note": "NPR/consolidation: Veterans Affairs -130.5M; overflow (agency lines exhausted) -18.6M"
  },
  {
   "name": "Non-VA support programs",
-  "amt": 80296772,
+  "amt": 78349469,
   "cat": "Veterans benefits",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other veterans benefits and services",
   "pre": 80584466,
-  "note": "overflow (agency lines exhausted) -0.3M"
+  "note": "overflow (agency lines exhausted) -2.2M"
  },
  {
   "name": "Criminal investigations (DEA, FBI)",
-  "amt": 2332973470,
+  "amt": 2276395778,
   "cat": "Administration of justice",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share (category re-spread)",
   "parent": "Administration of justice",
   "pre": 2719093436,
-  "note": "leftover: Justice -17.6M; NPR/consolidation: Justice -270.5M; overflow (agency lines exhausted) -8.4M"
+  "note": "leftover: Justice -17.6M; NPR/consolidation: Justice -270.5M; overflow (agency lines exhausted) -64.9M"
  },
  {
   "name": "Alcohol, tobacco and firearms investigation",
-  "amt": 279969478,
+  "amt": 273179848,
   "cat": "Administration of justice",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share (category re-spread)",
   "parent": "Administration of justice",
   "pre": 331429348,
-  "note": "leftover: Justice -2.1M; NPR/consolidation: Treasury excl. IRS -37.4M; overflow (agency lines exhausted) -1.0M"
+  "note": "leftover: Justice -2.1M; NPR/consolidation: Treasury excl. IRS -37.4M; overflow (agency lines exhausted) -7.8M"
  },
  {
   "name": "Border enforcement (Customs and INS)",
-  "amt": 2312647290,
+  "amt": 2256562534,
   "cat": "Administration of justice",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share (category re-spread)",
   "parent": "Administration of justice",
   "pre": 2737724080,
-  "note": "leftover: Justice -17.7M; NPR/consolidation: Treasury excl. IRS -308.8M; overflow (agency lines exhausted) -8.3M"
+  "note": "leftover: Justice -17.7M; NPR/consolidation: Treasury excl. IRS -308.8M; overflow (agency lines exhausted) -64.4M"
  },
  {
   "name": "Customs user fee",
@@ -2353,47 +2350,47 @@
  },
  {
   "name": "Secret Service protection",
-  "amt": 421610842,
+  "amt": 411386222,
   "cat": "Administration of justice",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share (category re-spread)",
   "parent": "Administration of justice",
   "pre": 499105142,
-  "note": "leftover: Justice -3.2M; NPR/consolidation: Treasury excl. IRS -56.3M; overflow (agency lines exhausted) -1.5M"
+  "note": "leftover: Justice -3.2M; NPR/consolidation: Treasury excl. IRS -56.3M; overflow (agency lines exhausted) -11.7M"
  },
  {
   "name": "Other federal law enforcement",
-  "amt": 562841418,
+  "amt": 549191769,
   "cat": "Administration of justice",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share (category re-spread)",
   "parent": "Administration of justice",
   "pre": 655994774,
-  "note": "leftover: Justice -4.2M; NPR/consolidation: Justice -65.3M; overflow (agency lines exhausted) -2.0M"
+  "note": "leftover: Justice -4.2M; NPR/consolidation: Justice -65.3M; overflow (agency lines exhausted) -15.7M"
  },
  {
   "name": "Civil and criminal prosecution and representation",
-  "amt": 1874834621,
+  "amt": 1829367402,
   "cat": "Administration of justice",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share (category re-spread)",
   "parent": "Administration of justice",
   "pre": 2252346781,
-  "note": "named -65.0M; leftover: Justice -14.1M; NPR/consolidation: Justice -217.4M; overflow (agency lines exhausted) -6.7M"
+  "note": "named -65.0M; leftover: Justice -14.1M; NPR/consolidation: Justice -217.4M; overflow (agency lines exhausted) -52.2M"
  },
  {
   "name": "Federal judicial activities",
-  "amt": 2242131695,
+  "amt": 2187757036,
   "cat": "Administration of justice",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share (category re-spread)",
   "parent": "Administration of justice",
   "pre": 2342558319,
-  "note": "leftover: Justice -15.1M; overflow (agency lines exhausted) -8.0M"
+  "note": "leftover: Justice -15.1M; overflow (agency lines exhausted) -62.4M"
  },
  {
   "name": "Representation of indigents in civil cases",
@@ -2419,47 +2416,47 @@
  },
  {
   "name": "Federal correctional activities",
-  "amt": 1695254793,
+  "amt": 1654142623,
   "cat": "Administration of justice",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share (category re-spread)",
   "parent": "Administration of justice",
   "pre": 1975828804,
-  "note": "leftover: Justice -12.8M; NPR/consolidation: Justice -196.6M; overflow (agency lines exhausted) -6.1M"
+  "note": "leftover: Justice -12.8M; NPR/consolidation: Justice -196.6M; overflow (agency lines exhausted) -47.2M"
  },
  {
   "name": "Criminal justice assistance",
-  "amt": 837162609,
+  "amt": 816860309,
   "cat": "Administration of justice",
   "flag": 0,
   "tag": "D",
   "src": "FY1993 Table 37 share (category re-spread)",
   "parent": "Administration of justice",
   "pre": 874659699,
-  "note": "leftover: Justice -5.7M; overflow (agency lines exhausted) -3.0M"
+  "note": "leftover: Justice -5.7M; overflow (agency lines exhausted) -23.3M"
  },
  {
   "name": "Legislative functions",
-  "amt": 765510173,
+  "amt": 746945539,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "kept (single program)",
   "parent": "Legislative functions",
   "pre": 909000000,
-  "note": "leftover: General government -110.8M; overflow (agency lines exhausted) -2.7M"
+  "note": "leftover: General government -110.8M; overflow (agency lines exhausted) -21.3M"
  },
  {
   "name": "Executive direction and management",
-  "amt": 62318760,
+  "amt": 60807448,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "kept (single program)",
   "parent": "Executive direction and management",
   "pre": 74000000,
-  "note": "leftover: General government -9.0M; overflow (agency lines exhausted) -0.2M"
+  "note": "leftover: General government -9.0M; overflow (agency lines exhausted) -1.7M"
  },
  {
   "name": "Internal Revenue Service (collection of taxes)",
@@ -2483,14 +2480,14 @@
  },
  {
   "name": "Federal buildings fund",
-  "amt": 79056253,
+  "amt": 77139035,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "General property and records management",
   "pre": 93874826,
-  "note": "leftover: General government -11.4M; overflow (agency lines exhausted) -0.3M"
+  "note": "leftover: General government -11.4M; overflow (agency lines exhausted) -2.2M"
  },
  {
   "name": "Property and other receipts",
@@ -2504,25 +2501,25 @@
  },
  {
   "name": "Records management",
-  "amt": 20109589,
+  "amt": 19621905,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "General property and records management",
   "pre": 23878999,
-  "note": "leftover: General government -2.9M; overflow (agency lines exhausted) -0.1M"
+  "note": "leftover: General government -2.9M; overflow (agency lines exhausted) -0.6M"
  },
  {
   "name": "Other property management",
-  "amt": 14512075,
+  "amt": 14160138,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "General property and records management",
   "pre": 17232267,
-  "note": "leftover: General government -2.1M; overflow (agency lines exhausted) -0.1M"
+  "note": "leftover: General government -2.1M; overflow (agency lines exhausted) -0.4M"
  },
  {
   "name": "Central personnel management",
@@ -2537,128 +2534,128 @@
  },
  {
   "name": "Payments and loans to the District of Columbia",
-  "amt": 279402423,
+  "amt": 272626545,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "General purpose fiscal assistance",
   "pre": 289966102,
-  "note": "overflow (agency lines exhausted) -1.0M"
+  "note": "overflow (agency lines exhausted) -7.8M"
  },
  {
   "name": "Payments to States from Forest Service receipts",
-  "amt": 142269925,
+  "amt": 138819691,
   "cat": "General government",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "General purpose fiscal assistance",
   "pre": 142779661,
-  "note": "overflow (agency lines exhausted) -0.5M"
+  "note": "overflow (agency lines exhausted) -4.0M"
  },
  {
   "name": "Payments to States from Mineral Leasing Act receipts",
-  "amt": 206818317,
+  "amt": 201802699,
   "cat": "General government",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "General purpose fiscal assistance",
   "pre": 207559322,
-  "note": "overflow (agency lines exhausted) -0.7M"
+  "note": "overflow (agency lines exhausted) -5.8M"
  },
  {
   "name": "Payments from other land management receipts",
-  "amt": 53570774,
+  "amt": 52271612,
   "cat": "General government",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "General purpose fiscal assistance",
   "pre": 53762712,
-  "note": "overflow (agency lines exhausted) -0.2M"
+  "note": "overflow (agency lines exhausted) -1.5M"
  },
  {
   "name": "Payments in lieu of taxes",
-  "amt": 43311623,
+  "amt": 42261259,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "General purpose fiscal assistance",
   "pre": 44949153,
-  "note": "overflow (agency lines exhausted) -0.2M"
+  "note": "overflow (agency lines exhausted) -1.2M"
  },
  {
   "name": "Payments to territories and Puerto Rico",
-  "amt": 94691094,
+  "amt": 92394710,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "General purpose fiscal assistance",
   "pre": 98271186,
-  "note": "overflow (agency lines exhausted) -0.3M"
+  "note": "overflow (agency lines exhausted) -2.6M"
  },
  {
   "name": "Other fiscal assistance",
-  "amt": 118175659,
+  "amt": 115309743,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "General purpose fiscal assistance",
   "pre": 124711864,
-  "note": "named -2.0M; overflow (agency lines exhausted) -0.4M"
+  "note": "named -2.0M; overflow (agency lines exhausted) -3.3M"
  },
  {
   "name": "Compact of free association",
-  "amt": 53864353,
+  "amt": 52558071,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Other general government",
   "pre": 55900862,
-  "note": "overflow (agency lines exhausted) -0.2M"
+  "note": "overflow (agency lines exhausted) -1.5M"
  },
  {
   "name": "Territories",
-  "amt": 36236019,
+  "amt": 35357247,
   "cat": "General government",
   "flag": 1,
   "tag": "D",
   "src": "FY1993 Table 37 share",
   "parent": "Other general government",
   "pre": 37606034,
-  "note": "overflow (agency lines exhausted) -0.1M"
+  "note": "overflow (agency lines exhausted) -1.0M"
  },
  {
   "name": "Treasury claims",
-  "amt": 163390454,
+  "amt": 159428019,
   "cat": "General government",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other general government",
   "pre": 163975862,
-  "note": "overflow (agency lines exhausted) -0.6M"
+  "note": "overflow (agency lines exhausted) -4.5M"
  },
  {
   "name": "Civil liberties public education fund",
-  "amt": 84395896,
+  "amt": 82349184,
   "cat": "General government",
   "flag": 1,
   "tag": "M",
   "src": "FY1993 Table 37 share",
   "parent": "Other general government",
   "pre": 84698276,
-  "note": "overflow (agency lines exhausted) -0.3M"
+  "note": "overflow (agency lines exhausted) -2.3M"
  },
  {
   "name": "Presidential election campaign fund",
-  "amt": 1350334,
+  "amt": 1317587,
   "cat": "General government",
   "flag": 1,
   "tag": "M",
@@ -2740,14 +2737,14 @@
  },
  {
   "name": "Civilian agency pay raises",
-  "amt": 156439496,
+  "amt": 152645632,
   "cat": "Allowances",
   "flag": 0,
   "tag": "P",
   "src": "kept (single program)",
   "parent": "Civilian agency pay raises",
   "pre": 157000000,
-  "note": "overflow (agency lines exhausted) -0.6M"
+  "note": "overflow (agency lines exhausted) -4.4M"
  },
  {
   "name": "Employee health benefits reform",

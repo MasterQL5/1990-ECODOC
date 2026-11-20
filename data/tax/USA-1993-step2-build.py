@@ -122,8 +122,9 @@ HOME={"Commodity Credit Corporation":("USDA",USDA),"Homeless shelter and transit
 "Representation of indigents in civil cases":("Justice",cat("Administration of justice")),"Other litigative activities":("Justice",cat("Administration of justice")),
 "Small and minority business assistance":("Commerce",["Commerce science and technology (NOAA, NIST)","Economic and demographic statistics","International trade and other commerce"]),
 "Central personnel management":("General government",GENGOV),"Other general government programs":("General government",GENGOV)}
+PROT=["Food stamps","Aid to Puerto Rico (nutrition)","Child nutrition and other food programs"]
 def spread(amount,group,key,label):
-    names=[n for n in dict.fromkeys(group) if n in L and L[n]['amt']>0 and L[n]['cat'] not in ("Social security","Net interest") and not n.startswith("Internal Revenue")]
+    names=[n for n in dict.fromkeys(group) if n not in PROT and n in L and L[n]['amt']>0 and L[n]['cat'] not in ("Social security","Net interest") and not n.startswith("Internal Revenue")]
     tot=sum(L[n]['amt'] for n in names); take=min(amount,tot)
     if tot<=0: return amount
     for n in names:
@@ -136,7 +137,6 @@ for item,amt,line in left:
     if lab=="USDA":
         NUTR=["Food stamps","Aid to Puerto Rico (nutrition)","Child nutrition and other food programs"]
         o=spread(amt,[n for n in grp if n!=line and n not in NUTR],lab,'leftover: USDA farm/rural/conservation lines')
-        o=spread(o,NUTR,lab,'leftover: USDA nutrition programs (farm lines exhausted)')
     else: o=spread(amt,[n for n in grp if n!=line],lab,'leftover: '+lab)
     overflow+=o
 # 2) GSEs -> housing finance agencies
@@ -170,7 +170,8 @@ for item,m in NPR:
     ledger.append(dict(item=item,saving_bill=amt,applied=got,to_pool=amt-got,line=None,note='split by department FTE share; each department cut over its own operating lines'))
 # 4) only overflow (home group exhausted) goes to the global pool
 excl_cat={"Social security","Net interest"}
-elig=[n for n in order if L[n]['cat'] not in excl_cat and L[n]['amt']>0 and not n.startswith("Internal Revenue") and not n.startswith("Other fiscal operations")]
+NUTR=["Food stamps","Aid to Puerto Rico (nutrition)","Child nutrition and other food programs"]
+elig=[n for n in order if n not in NUTR and L[n]['cat'] not in excl_cat and L[n]['amt']>0 and not n.startswith("Internal Revenue") and not n.startswith("Other fiscal operations")]
 overflow=spread(overflow,elig,'overflow','overflow (agency lines exhausted)')
 # 5) increases
 inc_total=0
@@ -188,7 +189,7 @@ for n in order:
     r=L[n]; r['amt']=round(r['amt']); c_=comp.get(n)
     if c_: r['note']='; '.join(f"{k} {v/1e6:+.1f}M" if k=='increase' else f"{k} -{v/1e6:.1f}M" for k,v in c_.items() if abs(v)>5e4)
     out.append(r)
-json.dump(out,open('step3_xl.json','w'),indent=1); json.dump(ledger,open('step3_ledger.json','w'),indent=1)
+json.dump(out,open('step4_xl.json','w'),indent=1); json.dump(ledger,open('step4_ledger.json','w'),indent=1)
 old=sum(r['amt'] for r in base if r['cat']!='Net interest'); new=sum(r['amt'] for r in out if r['cat']!='Net interest')
 print('named applied',applied_total/1e9,'leftover by agency',{k:round(v/1e9,2) for k,v in home_tot.items()},'overflow to global',overflow/1e9)
 print('npr by dept $B',{k:round(v/1e9,2) for k,v in npr_by.items()})
