@@ -604,6 +604,7 @@ input::placeholder, textarea::placeholder { color: #8a8a8a; opacity: 1; font-sty
           <select id="sm-cur" class="field" aria-label="Display currency"></select>
           <div class="menu cols" id="smcolmenu"><button type="button" aria-haspopup="true">Columns...</button><div class="drop colpop" id="smcolpop"></div></div>
           <span class="radio"><input type="checkbox" id="sm-full" data-full><label for="sm-full" title="Show values as whole numbers instead of billions and trillions.">Full numbers</label></span>
+          <button class="btn gmui" id="sm-gmnew" type="button" title="Game Master: add a corporation or an index to the stock market.">New corporation / index...</button>
         </div>
         <div class="sum" id="sm-sum"></div>
         <div class="ctabs" id="sm-ct" role="toolbar" aria-label="Chart type">
@@ -1745,8 +1746,8 @@ const AIR = "Services: Air transport", BNK = "Services: Banking", INS = "Service
 /* [name, value (bn of the listing currency, or "$n" for US$ bn), indexes, sector, status] */
 const SMX = {
   USA: [["Cisco Systems", 1.5, "COMP", "85"], ["Applied Materials", 1.1, "COMP", "84"], ["Qualcomm", 0.4, "COMP", "85"], ["EMC", 1.3, "COMP", "84"], ["3Com", 1.0, "COMP", "85"], ["Berkshire Hathaway", 7.0, "SPX", "Services: Insurance", PT],
-    ["Lockheed", 3.0, "SPX", "88", PT], ["Martin Marietta", 2.8, "SPX", "88", PT], ["General Dynamics", 3.0, "SPX", "93", PT], ["McDonnell Douglas", 3.5, "SPX", "88", PT],
-    ["Northrop", 1.0, "SPX", "88", PT], ["Grumman", 0.7, "SPX", "88", PT], ["Raytheon", 6.0, "SPX", "93", PT], ["Litton Industries", 3.0, "SPX", "93", PT], ["Loral", 1.5, "SPX", "93", PT], ["E-Systems", 1.5, "SPX", "93", PT],
+    ["Lockheed Martin", 5.1655, "SPX", "88", PT], ["General Dynamics", 3.0, "SPX", "93", PT], ["McDonnell Douglas", 3.5, "SPX", "88", PT],
+    ["Northrop Grumman", 1.62536, "SPX", "88", PT], ["Raytheon", 7.55896, "SPX", "93", PT], ["Litton Industries", 3.0, "SPX", "93", PT], ["Loral", 1.5, "SPX", "93", PT],
     ["Walt Disney", 11, "SPX", "Services: Entertainment", PT], ["Time Warner", 7, "SPX", MED, PT], ["Capital Cities/ABC", 7, "SPX", MED, PT], ["CBS", 5, "SPX", MED, PT], ["Gannett", 6, "SPX", "49", PT],
     ["Caterpillar", 7, "SPX", "84", PT], ["Deere", 5, "SPX", "84", PT], ["Honeywell", 4, "SPX", "90", PT], ["Medtronic", 3, "SPX", "90", PT],
     ["Occidental Petroleum", 6, "SPX", "27", PT], ["Atlantic Richfield", 17, "SPX", "27", PT], ["Unocal", 4, "SPX", "27", PT], ["Phillips Petroleum", 6, "SPX", "27", PT],
@@ -1853,13 +1854,51 @@ const statusOf = c => { const o = coOv(c); return (o && o.st) || c.status || STA
 const PXT = { USD: 40, JPY: 900, GBP: 3.5, DEM: 350, FRF: 800, ITL: 8000, CAD: 25, CHF: 600, NLG: 90, AUD: 5, HKD: 40, ESP: 3000, SEK: 250, BEF: 5000, KRW: 15000, TWD: 100 };
 const sharesOf = (name, capBn, ccy) => { const px = (PXT[ccy] || 8 * CBY[ccy].fx) * (0.4 + (hash(name + "s") % 211) / 100); return Math.max(1, +(capBn * 1000 / px).toPrecision(3)); };
 let COMP = null;
+const CX_SVC = ["Services: Banking", "Services: Insurance", "Services: Financial services", "Services: Telecommunications", "Services: Retail", "Services: Air transport", "Services: Shipping", "Services: Media and information", "Services: Entertainment", "Services: Software", "Services: Conglomerate", "Services: Construction", "Services: Real estate", "Services: Trading company", "Services: Leisure", "Services: Rail and transport", "Services: Oilfield services"];
+const CX_ST = [["Publicly traded", PT], ["State-controlled", ST], ["Mixed (state stake)", MX], ["Family / founder controlled", FM], ["Subsidiary (majority-owned)", SB], ["State-sponsored enterprise", SP]];
+function cxDialog(msg) {
+  if (!GM) return;
+  const nat = NAT.slice().sort((a, b) => a.name.localeCompare(b.name)), nopt = nat.map(n => `<option value="${n.iso}">${esc(n.name)}</option>`).join("");
+  const sopt = Object.keys(CHN).map(k => `<option value="${k}">HS ${k} ${esc(CHN[k])}</option>`).join("") + CX_SVC.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join("");
+  const iopt = IDX.map(i => `<option value="${i[0]}">${esc(i[1])}</option>`).join("");
+  dialog("New corporation or index", (msg ? `<p style="color:#a00"><b>${esc(msg)}</b></p>` : "") +
+    `<fieldset><legend>Corporation</legend><div class="frow"><label>Name <input id="cx-n" class="field" size="26"></label><label>Country <select id="cx-c" class="field">${nopt}</select></label></div>
+    <div class="frow"><label>Value (1990 US$ billion) <input id="cx-v" class="field" size="8" inputmode="decimal"></label><label>Growth (% a year) <input id="cx-g" class="field" size="5" value="5" inputmode="decimal"></label><label>Shares (millions, optional) <input id="cx-s" class="field" size="8" inputmode="decimal"></label></div>
+    <div class="frow"><label>Sector <select id="cx-sec" class="field">${sopt}</select></label><label>Status <select id="cx-st" class="field">${CX_ST.map(o => `<option value="${esc(o[1])}">${esc(o[0])}</option>`).join("")}</select></label></div>
+    <div class="frow"><label>Index membership (Ctrl-click for several; none means the country's default index) <select id="cx-i" class="field" multiple size="5">${iopt}</select></label></div></fieldset>
+    <fieldset><legend>Index</legend><div class="frow"><label>Code <input id="ci-c" class="field" size="8"></label><label>Name <input id="ci-n" class="field" size="26"></label><label>Country <select id="ci-k" class="field">${nopt}</select></label></div></fieldset>`,
+    [["Create corporation", () => {
+      const nm = $("cx-n").value.trim().slice(0, 80), iso = $("cx-c").value, val = parseFloat($("cx-v").value), g = parseFloat($("cx-g").value), sh = parseFloat($("cx-s").value);
+      if (!nm) return cxDialog("Enter a name for the corporation."); if (!(val > 0)) return cxDialog("Enter a value above zero.");
+      if (COMP && COMP.some(q => q.name.toLowerCase() === nm.toLowerCase()) || Object.values(S.cxc || {}).some(q => q.name.toLowerCase() === nm.toLowerCase())) return cxDialog("A corporation with that name already exists.");
+      const id = uid(), idx = [...$("cx-i").selectedOptions].map(o => o.value).join(",");
+      (S.cxc ||= {})[id] = { name: nm, iso, val, idx, sec: $("cx-sec").value, status: $("cx-st").value, sh: sh > 0 ? sh : 0 };
+      if (isFinite(g) && g > -100) ((S.co ||= {})[nm] ||= {}).g = g;
+      COMP = null; save(); render();
+    }, 1], ["Create index", () => {
+      const code = $("ci-c").value.trim().toUpperCase().replace(/[^A-Z0-9-]/g, "").slice(0, 12), nm = $("ci-n").value.trim().slice(0, 80), iso = $("ci-k").value;
+      if (!code || !nm) return cxDialog("Enter a code and a name for the index.");
+      if (IBY[code]) return cxDialog("An index with the code " + code + " already exists.");
+      (S.cxi ||= {})[code] = { code, name: nm, iso }; cxSync(); COMP = null; if (window.fillIdxSel) window.fillIdxSel(); save(); render();
+    }], ["Cancel"]], true);
+}
+/* Game Master created indexes (S.cxi) and corporations (S.cxc); each is one cloud record */
+function cxSync() {
+  for (const i of Object.values(S.cxi || {})) if (i && !IBY[i.code] && NBY[i.iso]) { const r = [i.code, i.name, i.iso, i.base != null ? i.base : null]; IDX.push(r); IBY[i.code] = r; }
+}
 function buildComp() {
+  const n0 = IDX.length; cxSync(); if (IDX.length !== n0 && window.fillIdxSel) window.fillIdxSel();
   COMP = []; const have = {};
   const lists = {}; for (const iso of new Set([...Object.keys(SMCO), ...Object.keys(SMX)])) lists[iso] = (SMCO[iso] || []).concat(SMX[iso] || []);
   for (const [iso, list] of Object.entries(lists)) for (const [name, cap0, idx, sec, status] of list) {
     const ccy = NBY[iso].cur, cap = typeof cap0 === "string" ? parseFloat(cap0.slice(1)) * CBY[ccy].fx : cap0;
     COMP.push({ name, iso, ccy, cap0: cap * 1e9, idx: idx ? idx.split(",") : [], sec, status, sh: sharesOf(name, cap, ccy) });
     have[iso] = (have[iso] || 0) + cap;
+  }
+  for (const x of Object.values(S.cxc || {})) {
+    if (!x || !NBY[x.iso] || COMP.some(q => q.name === x.name)) continue;
+    const ccy = NBY[x.iso].cur, cap = x.val * CBY[ccy].fx;
+    COMP.push({ name: x.name, iso: x.iso, ccy, cap0: cap * 1e9, idx: x.idx ? x.idx.split(",").filter(i => IBY[i]) : [], sec: x.sec, status: x.status || PT, sh: x.sh > 0 ? x.sh : sharesOf(x.name, cap, ccy) });
   }
   for (const [iso, usd] of Object.entries(MKT)) {
     const ccy = NBY[iso].cur, total = usd * CBY[ccy].fx, h = have[iso] || 0;
@@ -2138,8 +2177,10 @@ function companyRecord(r) {
 }
 {
   const selI = $("sm-i");
-  selI.innerHTML = `<option value="ALL">All indexes (global market)</option><optgroup label="Indexes">${IDX.map(i => `<option value="${i[0]}">${esc(i[1])} (${esc(NBY[i[2]].name)})</option>`).join("")}</optgroup>` +
-    `<optgroup label="Whole markets">${Object.keys(MKT).sort((a, b) => NBY[a].name.localeCompare(NBY[b].name)).map(k => `<option value="ALL-${k}">${esc(NBY[k].name)}</option>`).join("")}</optgroup>`;
+  window.fillIdxSel = () => { selI.innerHTML = `<option value="ALL">All indexes (global market)</option><optgroup label="Indexes">${IDX.map(i => `<option value="${i[0]}">${esc(i[1])} (${esc(NBY[i[2]].name)})</option>`).join("")}</optgroup>` +
+    `<optgroup label="Whole markets">${Object.keys(MKT).sort((a, b) => NBY[a].name.localeCompare(NBY[b].name)).map(k => `<option value="ALL-${k}">${esc(NBY[k].name)}</option>`).join("")}</optgroup>`; selI.value = sm.idx; };
+  window.fillIdxSel();
+  $("sm-gmnew").onclick = () => cxDialog();
   $("sm-cur").innerHTML = '<option value="U90">U90 - 1990 US Dollar (fixed)</option>' + CUR.slice().sort((a, b) => a.code.localeCompare(b.code)).map(c => `<option value="${c.code}">${c.code} - ${esc(c.name)}</option>`).join("");
   selI.onchange = e => { sm.idx = e.target.value; render(); };
   $("sm-cur").onchange = e => { sm.cur = e.target.value; render(); };
