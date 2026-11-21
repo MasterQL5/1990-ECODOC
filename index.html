@@ -2695,7 +2695,7 @@ function board(iso, kind, lines, total, can) {
         inner = `<div class="br1">${fIn({ op: "xiname", id }, l.label, can, "bn")}${fBtn({ op: "xidel", id }, "&times;", can, "tb2")}</div><div class="br1"><input class="rate bn" data-op="xinote" data-id="${id}" value="${esc(l.note || "")}" placeholder="Note: what this is and does"${dis(can)}></div><div class="br1">${fIn({ op: "xiamt", id }, Math.round(amt), can, "ba")}<b class="sh">${share}</b>${l.idx !== undefined ? `<label class="idx" title="Raise this line with inflation"><input type="checkbox" data-op="lidx" data-id="${id}"${l.idx ? " checked" : ""}${dis(can)}> infl.</label>` : ""}</div>`;
       } else if (kind === "e" && l.own) {
         inner = `<div class="br1">${fIn({ op: "elname", id }, l.label, can, "bn")}${fBtn({ op: "eldel", id }, "&times;", can, "tb2")}</div><div class="br1"><input class="rate bn" data-op="elnote" data-id="${id}" value="${esc(l.line.note || "")}" placeholder="Note: what this is and does"${dis(can)}></div><div class="br1">${l.formula ? `<span class="amt">${money(amt)}</span>` : fIn({ op: "elamt", id }, +(+l.line.amount || 0), can, "ba")}<b class="sh">${share}</b>${l.idx !== undefined ? `<label class="idx" title="Raise this line with inflation"><input type="checkbox" data-op="lidx" data-id="${id}"${l.idx ? " checked" : ""}${dis(can && !l.formula)}> infl.</label>` : ""}${fBtn({ op: "elf", id }, "&fnof;", can, "tb2" + (l.formula ? " on" : ""))}</div>${l.formula ? blocks(iso, "e:" + id, l.line.tokens, can) : ""}`;
-      } else inner = `<div class="br1"><span class="bl" title="${esc(l.note || "")}">${esc(l.label || l.name)}${l.locked ? " &#128274;" : ""}</span><span class="amt">${money(amt)}</span><b class="sh">${share}</b>${l.idx !== undefined ? `<label class="idx" title="Raise this line with inflation"><input type="checkbox" data-op="lidx" data-id="${id}"${l.idx ? " checked" : ""}${dis(can && !l.formula)}> infl.</label>` : ""}</div>${l.note ? `<div class="muted">${esc(l.note)}</div>` : ""}`;
+      } else inner = `<div class="br1"><span class="bl" title="${esc(l.note || "")}">${esc(l.label || l.name)}${l.locked ? " &#128274;" : ""}</span>${kind === "r" && can && (l.tax || String(id).startsWith("tx:")) ? fBtn({ op: "rdel", id }, "&times;", can, "tb2") : ""}<span class="amt">${money(amt)}</span><b class="sh">${share}</b>${l.idx !== undefined ? `<label class="idx" title="Raise this line with inflation"><input type="checkbox" data-op="lidx" data-id="${id}"${l.idx ? " checked" : ""}${dis(can && !l.formula)}> infl.</label>` : ""}</div>${l.note ? `<div class="muted">${esc(l.note)}</div>` : ""}`;
       const key = l.sys || (kind === "r" ? id : l.id);
       const mv = l.debt ? "" : l.locked ? fSel({ op: "cmove", kind, id: key, sys: 1, def: l.def }, [[l.def, "Default (" + l.def + ")"]].concat(allMove), l.cat === l.def ? l.def : l.cat, sysCan) : fSel({ op: "cmove", kind, id: key }, allMove, l.cat, can);
       return `<div class="brow${l.locked ? " lk" : ""}" ${can && !l.debt ? 'draggable="true"' : ""} data-drag="${esc(key)}" data-kind="${kind}" data-sys="${l.locked ? 1 : 0}" data-def="${esc(l.def || "Uncategorised")}" style="border-left:3px solid ${col}">${inner}${mv}</div>`;
@@ -2706,6 +2706,15 @@ function board(iso, kind, lines, total, can) {
   return `<div class="brd">${cols}<div class="bcol bnew">${fBtn({ op: "cadd", kind }, "+ Add category", can)}</div></div>`;
 }
 
+/* Fiscal tab search: hides treasury-book lines (and columns left empty) whose name does not match */
+document.addEventListener("input", e => {
+  const i = e.target; if (!i.classList || !i.classList.contains("fisq")) return;
+  let r = i; while (r && !r.querySelector(".brd")) r = r.parentElement; if (!r) return;
+  const q = i.value.trim().toLowerCase(); let shown = 0, total = 0;
+  r.querySelectorAll(".brow").forEach(row => { total++; const t = (row.textContent + " " + [...row.querySelectorAll("input")].map(v => v.value).join(" ")).toLowerCase(), ok = !q || t.includes(q); row.style.display = ok ? "" : "none"; if (ok) shown++; });
+  r.querySelectorAll(".bcol:not(.bnew)").forEach(c => { c.style.display = !q || c.querySelector(".brow:not([style*='none'])") ? "" : "none"; });
+  const n = r.querySelector(".fisqn"); if (n) n.textContent = q ? shown + " of " + total + " lines match" : "";
+});
 /* ---- nation file windows ---- */
 const NW = {};
 const NTABS = [["info", "Information"], ["eco", "Economic accounts"], ["fis", "Fiscal accounts"], ["tax", "Tax system"], ["debt", "Debt &amp; credit"], ["ast", "Assets"], ["trade", "Trade"]];
@@ -2903,11 +2912,15 @@ const pc1 = v => (v * 100).toFixed(2), TXF_FIELDS = {
   res: [["take", "Government take %", 1], ["px", "Commodity price index (1 = 1990)"]], flat: []
 };
 const inflAll = x => { const v = [...(x.exps || []).filter(l => !l.tokens).map(l => !!(l.idx ?? x.inflate)), ...(x.xl || []).filter(e => !e[4]).map(e => !!(e[3] ?? 1))]; return !v.length ? (x.inflate ? 1 : 0) : v.every(Boolean) ? 1 : v.some(Boolean) ? 2 : 0; };
+function removedXl(iso, can) {
+  const gone = (nxr(iso).xl || []).map((e, i) => e[4] === 1 ? `<tr><td>${esc(e[0])}</td><td>${fBtn({ op: "xirestore", i }, "Restore", can)} ${fBtn({ op: "xipurge", i }, "Delete permanently", can)}</td></tr>` : "").join("");
+  return gone ? `<fieldset><legend>Removed imported expenditure lines</legend><table class="tbl">${gone}</table></fieldset>` : "";
+}
 function nwTax(iso, n, x, can) {
   const t = x.tx, c = txCtx(iso), gdp = c.g;
   const head = `<div class="frow">${GM ? fBtn({ op: "txload" }, "Import 1990 tax system", true) + fBtn({ op: "txloadx" }, "Import 1990 Expenditures", true) + (t ? fBtn({ op: "txcal" }, "Recalibrate to 1990 amounts", true) : "") : ""}</div>`;
     const xi = (DET[iso] || {}).xin, xin = xi ? `<fieldset><legend>Imported 1990 expenditures (counted in the fiscal accounts, except net interest)</legend><table class="tbl"><tr><th>Line</th><th>Category</th><th>Amount</th><th>Note</th></tr>${xi.items.map((e, i) => `<tr><td>${esc(e.name)}</td><td>${esc(e.cat)}</td><td>${money(e.amt)}</td><td><input class="rate bn" data-op="txxnote" data-i="${i}" value="${esc(e.note || "")}" placeholder="Note"${dis(GM)}></td></tr>`).join("")}</table></fieldset>` : "";
-  const gone = (nxr(iso).xl || []).map((e, i) => e[4] ? `<tr><td>${esc(e[0])}</td><td>${fBtn({ op: "xirestore", i }, "Restore", can)}</td></tr>` : "").join(""), xrm = gone ? `<fieldset><legend>Removed imported expenditure lines</legend><table class="tbl">${gone}</table></fieldset>` : "";
+  const xrm = removedXl(iso, can);
   if (!t) return `<fieldset><legend>Tax system</legend><p class="muted">No simulated tax system yet. ${GM ? "Import a 1990 tax-system file (JSON) to create one." : "The Game Master can import one."}</p>${head}</fieldset>${xin}${xrm}`;
   let tot = 0; const cards = t.m.map(m => {
     const r = mechEval(c, m), v = m.off ? 0 : txSum(r); tot += v; const I = r.info, id = m.id, f = TXF_FIELDS[m.kind] || [];
@@ -2967,8 +2980,9 @@ function nwFis(iso, n, x, can, a) {
   <div class="fgrid2"><fieldset><legend>Revenue streams</legend>${mode("rmode", a.rmode)}${pie(revItems, "r", a.rmode, "Revenue, " + S.year)}</fieldset><fieldset><legend>Expenditure</legend>${mode("emode", a.emode)}${pie(expItems, "e", a.emode, "Expenditure, " + S.year)}<label class="vr"><span><input type="checkbox" data-op="infl"${inflAll(x) === 1 ? " checked" : ""}${inflAll(x) === 2 ? " data-ind=\"1\"" : ""}${dis(can)}> Raise all expenditure lines with inflation (each line has its own box too)</span></label></fieldset></div>
   <fieldset><legend>Revenue mechanisms</legend><p class="muted">Each mechanism is a formula built from numbers, statistics (this nation's or another's), variables, operators and functions. Charging one to another nation files it there as locked spending.</p>${taxes}<div>${fBtn({ op: "taxadd" }, "+ Add revenue mechanism", can)}</div></fieldset>
   <fieldset><legend>Variables</legend><p class="muted">Formulas read these. Add your own, then pick them in any formula.</p><div class="vgrid">${vars}</div><div class="frow">${fIn({ op: "cvnew" }, "", can, "wide")} ${fBtn({ op: "cvadd" }, "+ Add variable (type its name first)", can)}</div></fieldset>
+  <fieldset><legend>Search the treasury books</legend><div class="frow"><label>Name <input class="field fisq" type="search" size="34" placeholder="any revenue or expenditure line" autocomplete="off"></label><span class="muted fisqn"></span></div></fieldset>
   <fieldset><legend>Treasury books: revenue by category</legend>${board(iso, "r", fx.rev.map(r => ({ ...r, label: r.name })), fx.R, can)}</fieldset>
-  <fieldset><legend>Treasury books: expenditure by category</legend><p class="muted">Edit any line's name and amount directly (imported 1990 lines too). Tax revenue is set by its rates in the Tax system tab. Drag a line to another column, or use its menu. Debt lines are locked; foreign taxes and mandated lines can be regrouped but not edited.</p>${board(iso, "e", fx.exp, fx.X, can)}</fieldset>${mand}`;
+  <fieldset><legend>Treasury books: expenditure by category</legend><p class="muted">Edit any line's name and amount directly (imported 1990 lines too). Tax revenue is set by its rates in the Tax system tab. Drag a line to another column, or use its menu. Debt lines are locked; foreign taxes and mandated lines can be regrouped but not edited.</p>${board(iso, "e", fx.exp, fx.X, can)}</fieldset>${removedXl(iso, can)}${mand}`;
 }
 const pieSvg2 = (parts, t) => pieSvg(parts, t, "US$");
 function nwDebt(iso, n) {
@@ -3262,6 +3276,17 @@ function nwEvent(iso, ev) {
     case "elnote": { const o = (x0().exps || []).find(o => o.id === d.id); if (o) o.note = String(val).slice(0, 400); return done(); }
     case "xinote": { const i = +String(d.id).slice(3), x = x0(); if (!(x.xl || [])[i]) return; (x.xn = x.xn || {})[i] = String(val).slice(0, 400); return done(); }
     case "xidel": { const e = (x0().xl || [])[+String(d.id).slice(3)]; if (e) e[4] = 1; return done(); }
+    case "xipurge": { const i = +d.i, e = (x0().xl || [])[i]; if (!e) return; dialog("Delete permanently", `<p>Permanently delete <b>${esc(e[0])}</b> and everything stored with it (category, inflation setting, note)? It cannot be restored.</p>`, [["Delete", () => { const x = x0(), q = (x.xl || [])[i]; if (!q) return; q[4] = 2; if (x.lcat) delete x.lcat["xi:" + i]; const xi = (DET[iso] || {}).xin; if (xi && xi.items[i]) { xi.items[i].note = ""; detSave(iso); } done(); }, 1], ["Cancel"]]); return; }
+    case "rdel": {
+      const id = String(d.id), x = x0(), isTx = id.startsWith("tx:"), mid = isTx ? id.split(":")[1] : null;
+      const o = isTx ? ((x.tx && x.tx.m) || []).find(q => q.id === mid) : (x.taxes || []).find(q => q.id === id); if (!o) return;
+      dialog("Delete revenue", `<p>Delete <b>${esc(o.name)}</b> and all its data (formula or rates, notes, category setting)? This cannot be undone.</p>`, [["Delete", () => {
+        const y = x0();
+        if (isTx) { y.tx.m = y.tx.m.filter(q => q.id !== mid); for (const k in y.rcat || {}) if (k.startsWith("tx:" + mid + ":")) delete y.rcat[k]; const dt = DET[iso]; if (dt && dt.notes && dt.notes[mid] != null) { delete dt.notes[mid]; detSave(iso); } }
+        else { y.taxes = (y.taxes || []).filter(q => q.id !== id); if (y.rcat) delete y.rcat[id]; }
+        FXC.clear(); done();
+      }, 1], ["Cancel"]]); return;
+    }
     case "xirestore": { const e = (x0().xl || [])[+d.i]; if (e) e[4] = 0; return done(); }
     case "xiname": { const e = (x0().xl || [])[+String(d.id).slice(3)]; if (e && val.trim()) e[0] = val.trim().slice(0, 60); return done(); }
     case "xiamt": { const e = (x0().xl || [])[+String(d.id).slice(3)], v = numIn(val); if (e && isFinite(v) && v >= 0) { const dfl = E && E.by && E.by[iso] ? E.by[iso].defl / 100 : 1; e[1] = v / ((e[3] ?? 1) ? dfl : 1); } return done(); }
