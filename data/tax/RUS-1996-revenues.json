@@ -1,0 +1,63 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1996,
+ "nations": {
+  "RUS": {
+   "scope": "Russian Federation federal budget revenue, 1996 federal budget law (No. 228-FZ): revenue 347.2tn and expenditure 435.75tn rubles, deficit 88.55tn; 5000 rubles per US$. Line split below the law's headline totals is estimated.",
+   "mechs": [
+    {
+     "kind": "cons",
+     "name": "Value-added tax",
+     "amt": 22000000000,
+     "note": "VAT at 20% (10% on food and children's goods), principal federal revenue. Estimated share of the revenue total.",
+     "rate": 0.2,
+     "gap": 0.12,
+     "el": 0.3,
+     "exempt": 0,
+     "bs": 0.1
+    },
+    {
+     "kind": "cit",
+     "name": "Profit tax",
+     "amt": 10400000000,
+     "note": "Enterprise profit tax, 35% (federal share about 13% with rest to regions).",
+     "rate": 0.35,
+     "bs": 0.04,
+     "allow": 0.3,
+     "shift": 0.5
+    },
+    {
+     "kind": "cons",
+     "name": "Excise taxes",
+     "amt": 8600000000,
+     "note": "Excises on spirits, tobacco, cars, petroleum, gas.",
+     "rate": 0.3,
+     "gap": 0.1,
+     "el": 0.5,
+     "exempt": 0,
+     "bs": 0.03
+    },
+    {
+     "kind": "tariff",
+     "name": "Foreign trade duties",
+     "amt": 9600000000,
+     "note": "Export duties on oil and gas plus import duties.",
+     "avg": 0.12,
+     "el": 0.6
+    },
+    {
+     "kind": "flat",
+     "name": "Natural resource and other taxes",
+     "amt": 5000000000,
+     "note": "Resource payments and other taxes."
+    },
+    {
+     "kind": "flat",
+     "name": "Non-tax and other revenue",
+     "amt": 13840000000,
+     "note": "Non-tax revenues, CBR profit transfers, privatization and other receipts. Remainder to the law's 347.2tn."
+    }
+   ]
+  }
+ }
+}

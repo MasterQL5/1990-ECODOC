@@ -1,0 +1,89 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1996,
+ "nations": {
+  "RUS": {
+   "scope": "Russian Federation federal budget expenditure, 1996 federal budget law (No. 228-FZ): revenue 347.2tn and expenditure 435.75tn rubles, deficit 88.55tn; 5000 rubles per US$. Line split below the law's headline totals is estimated.",
+   "exps": [
+    {
+     "name": "National defense",
+     "amt": 15780000000,
+     "cat": "Security",
+     "note": "Defense allotment of 78.9tn rubles (about 18% of expenditure): personnel, procurement, R&D, construction; sharply under-funded in execution."
+    },
+    {
+     "name": "Law enforcement and state security",
+     "amt": 6200000000,
+     "cat": "Security",
+     "note": "Interior troops, police, courts, security services and border guards. Estimated."
+    },
+    {
+     "name": "Public debt service",
+     "amt": 15000000000,
+     "cat": "Debt",
+     "note": "Interest on domestic GKO/OFZ and external debt (Paris/London Club, Soviet-era). Estimated."
+    },
+    {
+     "name": "National economy and federal investment program",
+     "amt": 11000000000,
+     "cat": "Economic",
+     "note": "Federal investment program 29.2tn (agro-industrial 1.6, fuel and energy 0.9, transport 1.2) plus industry, agriculture, transport subsidies. Estimated."
+    },
+    {
+     "name": "Fundamental research and scientific-technical progress",
+     "amt": 2313000000,
+     "cat": "Social services",
+     "note": "Appendix 2 of the 1996 budget law, 11,565bn rubles."
+    },
+    {
+     "name": "Education",
+     "amt": 3600000000,
+     "cat": "Social services",
+     "note": "Federal education spending. Estimated."
+    },
+    {
+     "name": "Health and physical culture",
+     "amt": 1800000000,
+     "cat": "Social services",
+     "note": "Federal health spending (most paid via regions and compulsory insurance). Estimated."
+    },
+    {
+     "name": "Social policy and pensions support",
+     "amt": 6400000000,
+     "cat": "Social services",
+     "note": "Federal social support, Pension Fund top-ups, benefits. Estimated."
+    },
+    {
+     "name": "Culture, art, media",
+     "amt": 1040000000,
+     "cat": "Social services",
+     "note": "Cultural heritage 1.7tn (Appendix 4), TV and radio 2.14tn (Appendix 3), other culture. Estimated."
+    },
+    {
+     "name": "Transfers to regions",
+     "amt": 14000000000,
+     "cat": "Intergovernmental",
+     "note": "Fund for Financial Support of Regions and other transfers to subjects of the Federation. Estimated."
+    },
+    {
+     "name": "Government administration",
+     "amt": 1400000000,
+     "cat": "Administration",
+     "note": "Federal bodies, legislature and executive. Estimated."
+    },
+    {
+     "name": "International activity and CIS loans",
+     "amt": 4400000000,
+     "cat": "Foreign",
+     "note": "Foreign aid, loans to CIS states (200bn limit), international organizations. Estimated."
+    },
+    {
+     "name": "Other expenditure and reserves",
+     "amt": 4217000000,
+     "cat": "Other",
+     "note": "Residual to the law's 435.75tn total: reserve fund, disasters, other."
+    }
+   ]
+  }
+ }
+}
