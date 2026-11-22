@@ -1,0 +1,107 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1996,
+ "nations": {
+  "PHL": {
+   "scope": "Philippines national government revenue, 1996 (DBM/DBCC fiscal operations): revenues P410.4bn, disbursements P404.2bn, surplus P6.3bn; 26.2 pesos per US$. Totals and the tax/non-tax/capital/current splits are sourced; lines below them are estimated.",
+   "mechs": [
+    {
+     "kind": "pit",
+     "name": "Personal income tax",
+     "amt": 2366412214,
+     "bk": [
+      [
+       0,
+       0.05
+      ],
+      [
+       1500,
+       0.1
+      ],
+      [
+       3000,
+       0.15
+      ],
+      [
+       6000,
+       0.2
+      ],
+      [
+       11000,
+       0.25
+      ],
+      [
+       19000,
+       0.3
+      ],
+      [
+       38000,
+       0.35
+      ]
+     ],
+     "sig": 0.9,
+     "eti": 0.3,
+     "note": "Graduated income tax, 1996 schedule roughly 1% to 35%; approximate brackets. Revenue split estimated."
+    },
+    {
+     "kind": "cit",
+     "name": "Corporate income tax",
+     "amt": 3053435115,
+     "rate": 0.35,
+     "bs": 0.04,
+     "allow": 0.3,
+     "shift": 0.5,
+     "note": "35% corporate income tax in 1996. Revenue split estimated."
+    },
+    {
+     "kind": "cons",
+     "name": "Value-added tax",
+     "amt": 2900763359,
+     "rate": 0.1,
+     "gap": 0.25,
+     "el": 0.3,
+     "exempt": 0.3,
+     "bs": 0.35,
+     "note": "10% VAT (reformed in 1988, rate 10%); many exemptions and a large evasion gap. Revenue split estimated."
+    },
+    {
+     "kind": "cons",
+     "name": "Excise taxes",
+     "amt": 1526717557,
+     "rate": 0.3,
+     "gap": 0.15,
+     "el": 0.5,
+     "exempt": 0,
+     "bs": 0.03,
+     "note": "Excises on tobacco, alcohol, petroleum and autos. Revenue split estimated."
+    },
+    {
+     "kind": "tariff",
+     "name": "Customs duties",
+     "amt": 3244274809,
+     "avg": 0.15,
+     "el": 0.6,
+     "note": "Bureau of Customs import duties; average tariff falling under the 1991-95 tariff reform. Revenue estimated."
+    },
+    {
+     "kind": "flat",
+     "name": "Other taxes",
+     "amt": 950152672,
+     "note": "Stamp, estate and donor's, percentage and other taxes; residual of the P367.894bn tax total."
+    },
+    {
+     "kind": "flat",
+     "name": "Non-tax revenue",
+     "amt": 1408206107,
+     "note": "Fees, charges, central bank and other non-tax income (sourced, P36.895bn)."
+    },
+    {
+     "kind": "flat",
+     "name": "Privatization proceeds",
+     "amt": 216030534,
+     "note": "Asset sales (sourced, P5.66bn)."
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,53 @@
+{
+ "format": "ecodoc-tax-1",
+ "year": 1996,
+ "nations": {
+  "PHL": {
+   "scope": "Philippines national government expenditure, 1996 (DBM/DBCC fiscal operations): revenues P410.4bn, disbursements P404.2bn, surplus P6.3bn; 26.2 pesos per US$. Totals and the tax/non-tax/capital/current splits are sourced; lines below them are estimated.",
+   "exps": [
+    {
+     "name": "Personnel services",
+     "amt": 4198473282,
+     "cat": "Current",
+     "note": "Salaries and benefits of national government employees. Estimated split of current expenditure."
+    },
+    {
+     "name": "Interest payments",
+     "amt": 3244274809,
+     "cat": "Debt",
+     "note": "Interest on domestic and foreign debt. Estimated."
+    },
+    {
+     "name": "Maintenance and other operating expenses",
+     "amt": 2290076336,
+     "cat": "Current",
+     "note": "MOOE: supplies, utilities, defense and agency operations. Estimated."
+    },
+    {
+     "name": "Internal revenue allotment and LGU transfers",
+     "amt": 2137404580,
+     "cat": "Intergovernmental",
+     "note": "Shares of local governments in national taxes. Estimated."
+    },
+    {
+     "name": "Subsidies and other current transfers",
+     "amt": 753625954,
+     "cat": "Current",
+     "note": "Subsidies to government corporations and other current transfers; residual of the P330.745bn current total."
+    },
+    {
+     "name": "Capital outlays",
+     "amt": 2759045802,
+     "cat": "Capital",
+     "note": "Infrastructure and other capital outlays (sourced total, P72.287bn)."
+    },
+    {
+     "name": "Net lending",
+     "amt": 44312977,
+     "cat": "Capital",
+     "note": "Net lending to government corporations (sourced, P1.161bn)."
+    }
+   ]
+  }
+ }
+}
